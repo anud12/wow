@@ -1,0 +1,93 @@
+
+AdiBagsDB = {
+	["namespaces"] = {
+		["ItemLevel"] = {
+		},
+		["FilterOverride"] = {
+			["profiles"] = {
+				["Default"] = {
+					["version"] = 3,
+				},
+			},
+		},
+		["ItemCategory"] = {
+		},
+		["NewItem"] = {
+		},
+		["AdiBags_TooltipInfo"] = {
+		},
+		["Equipment"] = {
+		},
+		["ItemSets"] = {
+		},
+		["CurrencyFrame"] = {
+		},
+		["DataSource"] = {
+		},
+		["Junk"] = {
+		},
+		["MoneyFrame"] = {
+		},
+	},
+	["char"] = {
+		["Anud - Ghostlands"] = {
+			["collapsedSections"] = {
+				["Junk#Junk"] = true,
+				["Equipment#Set: Ret"] = true,
+				["Consumable#Consumable"] = true,
+				["Equipment#Armor"] = true,
+				["Tradeskill#Tradeskill"] = true,
+				["Equipment#Jewelry"] = true,
+				["Equipment#Miscellaneous"] = true,
+				["Miscellaneous#Miscellaneous"] = true,
+				["Free space#Free space"] = true,
+				["Equipment#Weapon"] = true,
+				["Reagent#Reagent"] = true,
+			},
+		},
+	},
+	["profileKeys"] = {
+		["Anud - Ghostlands"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["virtualStacks"] = {
+				["freeSpace"] = false,
+			},
+			["bags"] = {
+				["Bank"] = false,
+			},
+			["maxHeight"] = 0.48,
+			["skin"] = {
+				["border"] = "1 Pixel",
+				["background"] = "Blizzard Marble",
+				["borderWidth"] = 9,
+				["insets"] = -1,
+			},
+			["bagFont"] = {
+				["name"] = "2002",
+			},
+			["positions"] = {
+				["anchor"] = {
+					["xOffset"] = 0,
+					["yOffset"] = 48.53337097167969,
+				},
+			},
+			["filters"] = {
+				["Equipment"] = false,
+				["ItemSets"] = false,
+				["ItemCategory"] = false,
+			},
+			["sectionFont"] = {
+				["name"] = "2002",
+			},
+			["compactLayout"] = true,
+			["modules"] = {
+				["BankSwitcher"] = false,
+				["ChangeHighlight"] = false,
+			},
+			["hideAnchor"] = true,
+			["qualityOpacity"] = 0.35,
+		},
+	},
+}

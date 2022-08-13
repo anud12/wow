@@ -1,0 +1,32 @@
+VER 3 0000000000000016 "1 Trinket" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/use [@mouseover,exists][] 13
+END
+VER 3 0000000000000015 "Action Cam" "135933"
+/console ActionCam off
+/console ActionCam on
+/console ActionCam focusAll
+/console ActionCam underNames
+/console ActionCam noHeadMove
+END
+VER 3 0000000000000011 "Focus" "645221"
+focus [target=mouseover,nodead]
+END
+VER 3 0000000000000013 "Great Vault" "133176"
+#showtooltip
+/run LoadAddOn("Blizzard_WeeklyRewards");
+/run if WeeklyRewardsFrame:IsShown() then WeeklyRewardsFrame:Hide() else WeeklyRewardsFrame:Show() end
+END
+VER 3 0000000000000010 "Kick" "INV_MISC_QUESTIONMARK"
+/s Kick doesn't deal damage right?
+END
+VER 3 0000000000000012 "Macro" "134331"
+/macro
+END
+VER 3 000000000000000F "ShadowedUnitFram" "2003594"
+/shadowedunitframes
+END
+VER 3 0000000000000014 "Stones" "INV_MISC_QUESTIONMARK"
+/use Phial of Serenity
+/use Healthstone
+END

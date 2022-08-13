@@ -1,0 +1,6 @@
+WeakAurasCompanion: enabled
+WeakAurasArchive: enabled
+BagBrother: disabled
+Baggins: disabled
+AdiBags: disabled
+AdiBags_Config: disabled

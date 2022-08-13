@@ -1,0 +1,72 @@
+VER 3 010000000000000E "Beacon Of Virtue" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Beacon of Light
+END
+VER 3 0100000000000018 "bestow faith" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Bestow Faith
+END
+VER 3 010000000000000C "Blessing of Free" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@self, exists] [] Blessing of Freedom
+END
+VER 3 0100000000000016 "Blessing of Prot" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Blessing of Protection
+END
+VER 3 0100000000000011 "Blessing of Sacr" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Blessing of Sacrifice
+END
+VER 3 0100000000000014 "Cleanse" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Cleanse
+END
+VER 3 010000000000000A "Divine Toll" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Divine Toll
+END
+VER 3 0100000000000001 "Final" "INV_MISC_QUESTIONMARK"
+#showtooltip 
+/cast [@cursor] Final Reckoning
+END
+VER 3 0100000000000007 "Flash Of Light" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Flash of Light
+END
+VER 3 010000000000000B "Gift of the Naar" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Gift of the Naaru
+END
+VER 3 0100000000000008 "Holy Light" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Holy Light
+END
+VER 3 0100000000000019 "Holy prism" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Holy Prism
+END
+VER 3 0100000000000006 "Holy Shock" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Holy Shock
+END
+VER 3 010000000000000D "Lay On Hands" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,nodead] Lay on Hands
+END
+VER 3 0100000000000003 "Light Hammer" "INV_MISC_QUESTIONMARK"
+#showtooltip 
+/cast [@mouseover,exists][] Beacon of Faith
+END
+VER 3 0100000000000017 "Light of the mar" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists][] Light of the martyr; Flash of Light
+END
+VER 3 0100000000000009 "Word of Glory" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@mouseover,exists, noharm][] Word of Glory;
+END
+VER 3 0100000000000005 "Wrath" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@focus] Hammer of Wrath
+END

@@ -1,0 +1,2867 @@
+
+_detalhes_database = {
+	["savedbuffs"] = {
+	},
+	["mythic_dungeon_id"] = 0,
+	["tabela_historico"] = {
+		["tabelas"] = {
+			{
+				{
+					["combatId"] = 3,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["totalabsorbed"] = 0.002734,
+							["damage_from"] = {
+							},
+							["targets"] = {
+								["Training Dummy"] = 2158,
+								["PvP Training Dummy"] = 36,
+							},
+							["pets"] = {
+							},
+							["aID"] = "1596-0F388F23",
+							["friendlyfire"] = {
+							},
+							["friendlyfire_total"] = 0,
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 2194.002734,
+							["end_time"] = 1656165356,
+							["colocacao"] = 1,
+							["dps_started"] = false,
+							["total"] = 2194.002734,
+							["classe"] = "DEATHKNIGHT",
+							["on_hold"] = false,
+							["nome"] = "Anuddk",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+									{
+										["c_amt"] = 6,
+										["b_amt"] = 0,
+										["c_dmg"] = 359,
+										["g_amt"] = 0,
+										["n_max"] = 31,
+										["targets"] = {
+											["Training Dummy"] = 1070,
+										},
+										["n_dmg"] = 711,
+										["n_min"] = 28,
+										["g_dmg"] = 0,
+										["counter"] = 30,
+										["total"] = 1070,
+										["c_max"] = 62,
+										["id"] = 1,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 58,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 24,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									}, -- [1]
+									[52212] = {
+										["c_amt"] = 4,
+										["b_amt"] = 0,
+										["c_dmg"] = 20,
+										["g_amt"] = 0,
+										["n_max"] = 3,
+										["targets"] = {
+											["Training Dummy"] = 32,
+											["PvP Training Dummy"] = 29,
+										},
+										["n_dmg"] = 41,
+										["n_min"] = 2,
+										["g_dmg"] = 0,
+										["counter"] = 22,
+										["total"] = 61,
+										["c_max"] = 5,
+										["id"] = 52212,
+										["r_dmg"] = 0,
+										["spellschool"] = 32,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 5,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 18,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[47632] = {
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 84,
+										["g_amt"] = 0,
+										["n_max"] = 0,
+										["targets"] = {
+											["Training Dummy"] = 84,
+										},
+										["n_dmg"] = 0,
+										["n_min"] = 0,
+										["g_dmg"] = 0,
+										["counter"] = 1,
+										["total"] = 84,
+										["c_max"] = 84,
+										["id"] = 47632,
+										["r_dmg"] = 0,
+										["spellschool"] = 32,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 84,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 0,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[85948] = {
+										["c_amt"] = 2,
+										["b_amt"] = 0,
+										["c_dmg"] = 236,
+										["g_amt"] = 0,
+										["n_max"] = 60,
+										["targets"] = {
+											["Training Dummy"] = 829,
+										},
+										["n_dmg"] = 593,
+										["n_min"] = 58,
+										["g_dmg"] = 0,
+										["counter"] = 12,
+										["total"] = 829,
+										["c_max"] = 119,
+										["id"] = 85948,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 117,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 10,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[49998] = {
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 48,
+										["g_amt"] = 0,
+										["n_max"] = 24,
+										["targets"] = {
+											["Training Dummy"] = 118,
+										},
+										["n_dmg"] = 70,
+										["n_min"] = 23,
+										["g_dmg"] = 0,
+										["counter"] = 4,
+										["total"] = 118,
+										["c_max"] = 48,
+										["id"] = 49998,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 48,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 3,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[259756] = {
+										["c_amt"] = 0,
+										["b_amt"] = 0,
+										["c_dmg"] = 0,
+										["g_amt"] = 0,
+										["n_max"] = 4,
+										["targets"] = {
+											["Training Dummy"] = 25,
+											["PvP Training Dummy"] = 7,
+										},
+										["n_dmg"] = 32,
+										["n_min"] = 1,
+										["g_dmg"] = 0,
+										["counter"] = 25,
+										["total"] = 32,
+										["c_max"] = 0,
+										["id"] = 259756,
+										["r_dmg"] = 0,
+										["spellschool"] = 48,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 0,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 25,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+								},
+							},
+							["grupo"] = true,
+							["spec"] = 252,
+							["serial"] = "Player-1596-0F388F23",
+							["last_dps"] = 19.38764400653773,
+							["custom"] = 0,
+							["tipo"] = 1,
+							["damage_taken"] = 0.002734,
+							["start_time"] = 1656165243,
+							["delay"] = 0,
+							["last_event"] = 1656165349,
+						}, -- [1]
+						{
+							["flag_original"] = 2600,
+							["totalabsorbed"] = 0.005041,
+							["damage_from"] = {
+								["Anuddk"] = true,
+							},
+							["targets"] = {
+							},
+							["pets"] = {
+							},
+							["classe"] = "UNKNOW",
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 0.005041,
+							["friendlyfire"] = {
+							},
+							["fight_component"] = true,
+							["dps_started"] = false,
+							["total"] = 0.005041,
+							["end_time"] = 1656165356,
+							["on_hold"] = false,
+							["nome"] = "PvP Training Dummy",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+								},
+							},
+							["friendlyfire_total"] = 0,
+							["aID"] = "114832",
+							["serial"] = "Creature-0-4254-0-1364-114832-000032D90D",
+							["last_dps"] = 0,
+							["custom"] = 0,
+							["last_event"] = 0,
+							["damage_taken"] = 36.005041,
+							["start_time"] = 1656165356,
+							["delay"] = 0,
+							["tipo"] = 1,
+						}, -- [2]
+						{
+							["flag_original"] = 68136,
+							["totalabsorbed"] = 0.001492,
+							["damage_from"] = {
+								["Anuddk"] = true,
+								["Tommylr-Kazzak"] = true,
+								["Jisoô-Kazzak"] = true,
+							},
+							["targets"] = {
+							},
+							["pets"] = {
+							},
+							["classe"] = "UNKNOW",
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 0.001492,
+							["friendlyfire"] = {
+							},
+							["fight_component"] = true,
+							["dps_started"] = false,
+							["total"] = 0.001492,
+							["end_time"] = 1656165356,
+							["on_hold"] = false,
+							["nome"] = "Training Dummy",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+								},
+							},
+							["friendlyfire_total"] = 0,
+							["aID"] = "153292",
+							["serial"] = "Creature-0-4254-0-1364-153292-0001B2D90D",
+							["last_dps"] = 0,
+							["custom"] = 0,
+							["last_event"] = 0,
+							["damage_taken"] = 13619.001492,
+							["start_time"] = 1656165356,
+							["delay"] = 0,
+							["tipo"] = 1,
+						}, -- [3]
+					},
+				}, -- [1]
+				{
+					["combatId"] = 3,
+					["tipo"] = 3,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["targets_overheal"] = {
+								["Anuddk"] = 174,
+							},
+							["pets"] = {
+							},
+							["iniciar_hps"] = false,
+							["classe"] = "DEATHKNIGHT",
+							["totalover"] = 174.004694,
+							["total_without_pet"] = 0.004694,
+							["total"] = 0.004694,
+							["targets_absorbs"] = {
+							},
+							["heal_enemy"] = {
+							},
+							["on_hold"] = false,
+							["serial"] = "Player-1596-0F388F23",
+							["totalabsorb"] = 0.004694,
+							["last_hps"] = 0,
+							["targets"] = {
+							},
+							["totalover_without_pet"] = 0.004694,
+							["healing_taken"] = 0.004694,
+							["end_time"] = 1656165356,
+							["healing_from"] = {
+							},
+							["heal_enemy_amt"] = 0,
+							["nome"] = "Anuddk",
+							["spells"] = {
+								["tipo"] = 3,
+								["_ActorTable"] = {
+									[45470] = {
+										["c_amt"] = 0,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Anuddk"] = 174,
+										},
+										["n_max"] = 0,
+										["targets"] = {
+											["Anuddk"] = 0,
+										},
+										["n_min"] = 0,
+										["counter"] = 4,
+										["overheal"] = 174,
+										["total"] = 0,
+										["c_max"] = 0,
+										["id"] = 45470,
+										["targets_absorbs"] = {
+										},
+										["c_min"] = 0,
+										["c_curado"] = 0,
+										["n_curado"] = 0,
+										["totaldenied"] = 0,
+										["n_amt"] = 4,
+										["absorbed"] = 0,
+									},
+								},
+							},
+							["grupo"] = true,
+							["start_time"] = 1656165355,
+							["spec"] = 252,
+							["custom"] = 0,
+							["tipo"] = 2,
+							["aID"] = "1596-0F388F23",
+							["totaldenied"] = 0.004694,
+							["delay"] = 1656165336,
+							["last_event"] = 1656165336,
+						}, -- [1]
+					},
+				}, -- [2]
+				{
+					["combatId"] = 3,
+					["tipo"] = 7,
+					["_ActorTable"] = {
+						{
+							["received"] = 230.008764,
+							["resource"] = 0.008764,
+							["targets"] = {
+								["Anuddk"] = 230,
+							},
+							["pets"] = {
+							},
+							["powertype"] = 6,
+							["classe"] = "DEATHKNIGHT",
+							["passiveover"] = 0.008764,
+							["total"] = 230.008764,
+							["nome"] = "Anuddk",
+							["spells"] = {
+								["tipo"] = 7,
+								["_ActorTable"] = {
+									[85948] = {
+										["total"] = 220,
+										["id"] = 85948,
+										["totalover"] = 0,
+										["targets"] = {
+											["Anuddk"] = 220,
+										},
+										["counter"] = 11,
+									},
+									[43265] = {
+										["total"] = 10,
+										["id"] = 43265,
+										["totalover"] = 0,
+										["targets"] = {
+											["Anuddk"] = 10,
+										},
+										["counter"] = 1,
+									},
+								},
+							},
+							["grupo"] = true,
+							["spec"] = 252,
+							["flag_original"] = 1297,
+							["alternatepower"] = 0.008764,
+							["last_event"] = 1656165333,
+							["aID"] = "1596-0F388F23",
+							["tipo"] = 3,
+							["serial"] = "Player-1596-0F388F23",
+							["totalover"] = 0.008764,
+						}, -- [1]
+					},
+				}, -- [3]
+				{
+					["combatId"] = 3,
+					["tipo"] = 9,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["debuff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[194310] = {
+										["activedamt"] = 0,
+										["id"] = 194310,
+										["targets"] = {
+										},
+										["uptime"] = 112,
+										["appliedamt"] = 0,
+										["refreshamt"] = 30,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["pets"] = {
+							},
+							["classe"] = "DEATHKNIGHT",
+							["buff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[256374] = {
+										["activedamt"] = 2,
+										["id"] = 256374,
+										["targets"] = {
+										},
+										["uptime"] = 24,
+										["appliedamt"] = 2,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[188290] = {
+										["activedamt"] = 1,
+										["id"] = 188290,
+										["targets"] = {
+										},
+										["uptime"] = 10,
+										["appliedamt"] = 1,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["debuff_uptime"] = 112,
+							["debuff_uptime_targets"] = {
+							},
+							["spec"] = 252,
+							["grupo"] = true,
+							["spell_cast"] = {
+								[43265] = 1,
+								[85948] = 11,
+								[49998] = 4,
+								[47541] = 1,
+							},
+							["buff_uptime_targets"] = {
+							},
+							["buff_uptime"] = 34,
+							["last_event"] = 1656165333,
+							["nome"] = "Anuddk",
+							["tipo"] = 4,
+							["serial"] = "Player-1596-0F388F23",
+							["aID"] = "1596-0F388F23",
+						}, -- [1]
+					},
+				}, -- [4]
+				{
+					["combatId"] = 3,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+					},
+				}, -- [5]
+				["raid_roster"] = {
+					["Anuddk"] = true,
+				},
+				["raid_roster_indexed"] = {
+					"Anuddk", -- [1]
+				},
+				["CombatStartedAt"] = 78624.81,
+				["overall_added"] = true,
+				["last_events_tables"] = {
+				},
+				["alternate_power"] = {
+				},
+				["combat_counter"] = 6,
+				["playing_solo"] = true,
+				["totals"] = {
+					2193.965543, -- [1]
+					-0.005754, -- [2]
+					{
+						-0.00721, -- [1]
+						[0] = -0.007062,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 230,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+					["frags_total"] = 0,
+					["voidzone_damage"] = 0,
+				},
+				["player_last_events"] = {
+				},
+				["frags_need_refresh"] = true,
+				["instance_type"] = "none",
+				["data_fim"] = "16:55:57",
+				["pvp"] = true,
+				["cleu_timeline"] = {
+				},
+				["enemy"] = "Training Dummy",
+				["TotalElapsedCombatTime"] = 113.1650000000082,
+				["CombatEndedAt"] = 78737.975,
+				["aura_timeline"] = {
+				},
+				["__call"] = {
+				},
+				["data_inicio"] = "16:54:03",
+				["end_time"] = 78737.975,
+				["combat_id"] = 3,
+				["tempo_start"] = 1656165243,
+				["frags"] = {
+					["Squirrel"] = 1,
+					["Stormwind Rat"] = 1,
+				},
+				["cleu_events"] = {
+					["n"] = 1,
+				},
+				["totals_grupo"] = {
+					2194, -- [1]
+					0, -- [2]
+					{
+						0, -- [1]
+						[0] = 0,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 230,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["CombatSkillCache"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Anuddk"] = 0.004694,
+						}, -- [1]
+					},
+					["damage_section"] = {
+					},
+					["damage"] = {
+						{
+							["Anuddk"] = 2194.002734,
+						}, -- [1]
+					},
+				},
+				["start_time"] = 78624.81,
+				["TimeData"] = {
+				},
+				["spells_cast_timeline"] = {
+				},
+			}, -- [1]
+			{
+				{
+					["combatId"] = 2,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["totalabsorbed"] = 0.004132,
+							["pets"] = {
+							},
+							["aID"] = "1596-0F388F23",
+							["total_without_pet"] = 1568.004132,
+							["dps_started"] = false,
+							["total"] = 1568.004132,
+							["spec"] = 250,
+							["colocacao"] = 1,
+							["on_hold"] = false,
+							["isTank"] = true,
+							["serial"] = "Player-1596-0F388F23",
+							["damage_from"] = {
+							},
+							["targets"] = {
+								["Training Dummy"] = 1568,
+							},
+							["friendlyfire_total"] = 0,
+							["raid_targets"] = {
+							},
+							["end_time"] = 1656165121,
+							["avoidance"] = {
+								["overall"] = {
+									["DODGE"] = 0,
+									["FULL_ABSORB_AMT"] = 0,
+									["BLOCKED_AMT"] = 0,
+									["BLOCKED_HITS"] = 0,
+									["FULL_ABSORBED"] = 0,
+									["ALL"] = 0,
+									["PARTIAL_ABSORBED"] = 0,
+									["PARRY"] = 0,
+									["PARTIAL_ABSORB_AMT"] = 0,
+									["ABSORB"] = 0,
+									["ABSORB_AMT"] = 0,
+									["FULL_HIT"] = 0,
+									["HITS"] = 0,
+									["FULL_HIT_AMT"] = 0,
+								},
+							},
+							["friendlyfire"] = {
+							},
+							["nome"] = "Anuddk",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+									{
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 67,
+										["g_amt"] = 0,
+										["n_max"] = 34,
+										["targets"] = {
+											["Training Dummy"] = 715,
+										},
+										["n_dmg"] = 648,
+										["n_min"] = 31,
+										["g_dmg"] = 0,
+										["counter"] = 21,
+										["total"] = 715,
+										["c_max"] = 67,
+										["id"] = 1,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 67,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 20,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									}, -- [1]
+									[259756] = {
+										["c_amt"] = 0,
+										["b_amt"] = 0,
+										["c_dmg"] = 0,
+										["g_amt"] = 0,
+										["n_max"] = 3,
+										["targets"] = {
+											["Training Dummy"] = 10,
+										},
+										["n_dmg"] = 10,
+										["n_min"] = 1,
+										["g_dmg"] = 0,
+										["counter"] = 8,
+										["total"] = 10,
+										["c_max"] = 0,
+										["id"] = 259756,
+										["r_dmg"] = 0,
+										["spellschool"] = 48,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 0,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 8,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[52212] = {
+										["c_amt"] = 3,
+										["b_amt"] = 0,
+										["c_dmg"] = 21,
+										["g_amt"] = 0,
+										["n_max"] = 3,
+										["targets"] = {
+											["Training Dummy"] = 78,
+										},
+										["n_dmg"] = 57,
+										["n_min"] = 3,
+										["g_dmg"] = 0,
+										["counter"] = 22,
+										["total"] = 78,
+										["c_max"] = 7,
+										["id"] = 52212,
+										["r_dmg"] = 0,
+										["spellschool"] = 32,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 7,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 19,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[49998] = {
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 128,
+										["g_amt"] = 0,
+										["n_max"] = 63,
+										["targets"] = {
+											["Training Dummy"] = 315,
+										},
+										["n_dmg"] = 187,
+										["n_min"] = 62,
+										["g_dmg"] = 0,
+										["counter"] = 4,
+										["total"] = 315,
+										["c_max"] = 128,
+										["id"] = 49998,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 128,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 3,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[206930] = {
+										["c_amt"] = 2,
+										["b_amt"] = 0,
+										["c_dmg"] = 82,
+										["g_amt"] = 0,
+										["n_max"] = 21,
+										["targets"] = {
+											["Training Dummy"] = 450,
+										},
+										["n_dmg"] = 368,
+										["n_min"] = 20,
+										["g_dmg"] = 0,
+										["counter"] = 20,
+										["total"] = 450,
+										["c_max"] = 42,
+										["id"] = 206930,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 40,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 18,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+								},
+							},
+							["grupo"] = true,
+							["classe"] = "DEATHKNIGHT",
+							["last_dps"] = 20.14574964346776,
+							["custom"] = 0,
+							["tipo"] = 1,
+							["damage_taken"] = 0.004132,
+							["start_time"] = 1656165043,
+							["delay"] = 0,
+							["last_event"] = 1656165115,
+						}, -- [1]
+						{
+							["flag_original"] = 68136,
+							["totalabsorbed"] = 0.003761,
+							["damage_from"] = {
+								["Anuddk"] = true,
+								["Tommylr-Kazzak"] = true,
+								["Jisoô-Kazzak"] = true,
+							},
+							["targets"] = {
+							},
+							["pets"] = {
+							},
+							["aID"] = "153292",
+							["classe"] = "UNKNOW",
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 0.003761,
+							["friendlyfire"] = {
+							},
+							["fight_component"] = true,
+							["dps_started"] = false,
+							["total"] = 0.003761,
+							["end_time"] = 1656165121,
+							["on_hold"] = false,
+							["nome"] = "Training Dummy",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+								},
+							},
+							["friendlyfire_total"] = 0,
+							["serial"] = "Creature-0-4254-0-1364-153292-0001B2D90D",
+							["last_dps"] = 0,
+							["custom"] = 0,
+							["last_event"] = 0,
+							["damage_taken"] = 2550.003761,
+							["start_time"] = 1656165121,
+							["delay"] = 0,
+							["tipo"] = 1,
+						}, -- [2]
+					},
+				}, -- [1]
+				{
+					["combatId"] = 2,
+					["tipo"] = 3,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["targets_overheal"] = {
+								["Anuddk"] = 269,
+							},
+							["pets"] = {
+							},
+							["iniciar_hps"] = false,
+							["classe"] = "DEATHKNIGHT",
+							["totalover"] = 269.008398,
+							["total_without_pet"] = 0.008398,
+							["total"] = 0.008398,
+							["targets_absorbs"] = {
+							},
+							["heal_enemy"] = {
+							},
+							["on_hold"] = false,
+							["isTank"] = true,
+							["serial"] = "Player-1596-0F388F23",
+							["totalabsorb"] = 0.008398,
+							["last_hps"] = 0,
+							["targets"] = {
+							},
+							["totalover_without_pet"] = 0.008398,
+							["healing_taken"] = 0.008398,
+							["end_time"] = 1656165121,
+							["healing_from"] = {
+							},
+							["heal_enemy_amt"] = 0,
+							["nome"] = "Anuddk",
+							["spells"] = {
+								["tipo"] = 3,
+								["_ActorTable"] = {
+									[45470] = {
+										["c_amt"] = 0,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Anuddk"] = 224,
+										},
+										["n_max"] = 0,
+										["targets"] = {
+											["Anuddk"] = 0,
+										},
+										["n_min"] = 0,
+										["counter"] = 4,
+										["overheal"] = 224,
+										["total"] = 0,
+										["c_max"] = 0,
+										["id"] = 45470,
+										["targets_absorbs"] = {
+										},
+										["c_min"] = 0,
+										["c_curado"] = 0,
+										["n_curado"] = 0,
+										["totaldenied"] = 0,
+										["n_amt"] = 4,
+										["absorbed"] = 0,
+									},
+									[77535] = {
+										["c_amt"] = 1,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Anuddk"] = 45,
+										},
+										["n_max"] = 0,
+										["targets"] = {
+											["Anuddk"] = -9,
+										},
+										["n_min"] = 0,
+										["counter"] = 4,
+										["overheal"] = 45,
+										["total"] = -9,
+										["c_max"] = 0,
+										["id"] = 77535,
+										["targets_absorbs"] = {
+											["Anuddk"] = 0,
+										},
+										["c_min"] = -9,
+										["c_curado"] = -9,
+										["n_curado"] = 0,
+										["totaldenied"] = 0,
+										["n_amt"] = 3,
+										["absorbed"] = 0,
+									},
+								},
+							},
+							["grupo"] = true,
+							["start_time"] = 1656165105,
+							["spec"] = 250,
+							["custom"] = 0,
+							["tipo"] = 2,
+							["aID"] = "1596-0F388F23",
+							["totaldenied"] = 0.008398,
+							["delay"] = 1656165108,
+							["last_event"] = 1656165108,
+						}, -- [1]
+					},
+				}, -- [2]
+				{
+					["combatId"] = 2,
+					["tipo"] = 7,
+					["_ActorTable"] = {
+						{
+							["received"] = 230.006419,
+							["resource"] = 0.006419,
+							["targets"] = {
+								["Anuddk"] = 230,
+							},
+							["pets"] = {
+							},
+							["powertype"] = 6,
+							["classe"] = "DEATHKNIGHT",
+							["passiveover"] = 0.006419,
+							["total"] = 230.006419,
+							["tipo"] = 3,
+							["nome"] = "Anuddk",
+							["spells"] = {
+								["tipo"] = 7,
+								["_ActorTable"] = {
+									[43265] = {
+										["total"] = 20,
+										["id"] = 43265,
+										["totalover"] = 0,
+										["targets"] = {
+											["Anuddk"] = 20,
+										},
+										["counter"] = 2,
+									},
+									[85948] = {
+										["total"] = 20,
+										["id"] = 85948,
+										["totalover"] = 0,
+										["targets"] = {
+											["Anuddk"] = 20,
+										},
+										["counter"] = 1,
+									},
+									[206930] = {
+										["total"] = 190,
+										["id"] = 206930,
+										["totalover"] = 0,
+										["targets"] = {
+											["Anuddk"] = 190,
+										},
+										["counter"] = 19,
+									},
+								},
+							},
+							["grupo"] = true,
+							["spec"] = 250,
+							["flag_original"] = 1297,
+							["alternatepower"] = 0.006419,
+							["last_event"] = 1656165243,
+							["aID"] = "1596-0F388F23",
+							["isTank"] = true,
+							["serial"] = "Player-1596-0F388F23",
+							["totalover"] = 0.006419,
+						}, -- [1]
+					},
+				}, -- [3]
+				{
+					["combatId"] = 2,
+					["tipo"] = 9,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["debuff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[206930] = {
+										["activedamt"] = 0,
+										["id"] = 206930,
+										["targets"] = {
+										},
+										["uptime"] = 69,
+										["appliedamt"] = 5,
+										["refreshamt"] = 15,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["pets"] = {
+							},
+							["aID"] = "1596-0F388F23",
+							["buff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[77535] = {
+										["activedamt"] = 3,
+										["id"] = 77535,
+										["targets"] = {
+										},
+										["uptime"] = 38,
+										["appliedamt"] = 3,
+										["refreshamt"] = 1,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[256374] = {
+										["activedamt"] = 1,
+										["id"] = 256374,
+										["targets"] = {
+										},
+										["uptime"] = 12,
+										["appliedamt"] = 1,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[188290] = {
+										["activedamt"] = 2,
+										["id"] = 188290,
+										["targets"] = {
+										},
+										["uptime"] = 20,
+										["appliedamt"] = 2,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["debuff_uptime"] = 69,
+							["buff_uptime_targets"] = {
+							},
+							["debuff_uptime_targets"] = {
+							},
+							["spec"] = 250,
+							["grupo"] = true,
+							["spell_cast"] = {
+								[43265] = 2,
+								[49998] = 4,
+								[206930] = 19,
+							},
+							["buff_uptime"] = 70,
+							["nome"] = "Anuddk",
+							["last_event"] = 1656165112,
+							["classe"] = "DEATHKNIGHT",
+							["isTank"] = true,
+							["serial"] = "Player-1596-0F388F23",
+							["tipo"] = 4,
+						}, -- [1]
+					},
+				}, -- [4]
+				{
+					["combatId"] = 2,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+					},
+				}, -- [5]
+				["raid_roster"] = {
+					["Anuddk"] = true,
+				},
+				["raid_roster_indexed"] = {
+					"Anuddk", -- [1]
+				},
+				["tempo_start"] = 1656165043,
+				["last_events_tables"] = {
+				},
+				["alternate_power"] = {
+				},
+				["combat_counter"] = 5,
+				["playing_solo"] = true,
+				["totals"] = {
+					1567.940872000001, -- [1]
+					0, -- [2]
+					{
+						-0.008083, -- [1]
+						[0] = -0.008452,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 230,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+					["frags_total"] = 0,
+					["voidzone_damage"] = 0,
+				},
+				["totals_grupo"] = {
+					1568, -- [1]
+					-9, -- [2]
+					{
+						0, -- [1]
+						[0] = 0,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 230,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["frags_need_refresh"] = true,
+				["instance_type"] = "none",
+				["data_fim"] = "16:52:02",
+				["pvp"] = true,
+				["cleu_timeline"] = {
+				},
+				["enemy"] = "Training Dummy",
+				["TotalElapsedCombatTime"] = 78503.012,
+				["CombatEndedAt"] = 78503.012,
+				["aura_timeline"] = {
+				},
+				["__call"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Anuddk"] = 0.008398,
+						}, -- [1]
+					},
+					["damage_section"] = {
+					},
+					["damage"] = {
+						{
+							["Anuddk"] = 1568.004132,
+						}, -- [1]
+					},
+				},
+				["end_time"] = 78503.012,
+				["combat_id"] = 2,
+				["cleu_events"] = {
+					["n"] = 1,
+				},
+				["spells_cast_timeline"] = {
+				},
+				["overall_added"] = true,
+				["player_last_events"] = {
+				},
+				["CombatSkillCache"] = {
+				},
+				["data_inicio"] = "16:50:44",
+				["start_time"] = 78425.179,
+				["TimeData"] = {
+				},
+				["frags"] = {
+					["Rabbit"] = 3,
+					["Stormwind Rat"] = 1,
+					["Squirrel"] = 1,
+				},
+			}, -- [2]
+			{
+				{
+					["combatId"] = 1,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["totalabsorbed"] = 0.005071,
+							["damage_from"] = {
+							},
+							["targets"] = {
+								["Training Dummy"] = 1670,
+								["PvP Training Dummy"] = 746,
+							},
+							["pets"] = {
+							},
+							["spec"] = 251,
+							["friendlyfire"] = {
+							},
+							["friendlyfire_total"] = 0,
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 2416.005071,
+							["end_time"] = 1656165043,
+							["colocacao"] = 1,
+							["dps_started"] = false,
+							["total"] = 2416.005071,
+							["aID"] = "1596-0F388F23",
+							["classe"] = "DEATHKNIGHT",
+							["nome"] = "Anuddk",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+									{
+										["c_amt"] = 5,
+										["b_amt"] = 0,
+										["c_dmg"] = 296,
+										["g_amt"] = 0,
+										["n_max"] = 31,
+										["targets"] = {
+											["Training Dummy"] = 741,
+										},
+										["n_dmg"] = 445,
+										["n_min"] = 28,
+										["g_dmg"] = 0,
+										["counter"] = 20,
+										["total"] = 741,
+										["c_max"] = 61,
+										["id"] = 1,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 58,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 15,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									}, -- [1]
+									[259756] = {
+										["c_amt"] = 0,
+										["b_amt"] = 0,
+										["c_dmg"] = 0,
+										["g_amt"] = 0,
+										["n_max"] = 3,
+										["targets"] = {
+											["Training Dummy"] = 18,
+											["PvP Training Dummy"] = 9,
+										},
+										["n_dmg"] = 27,
+										["n_min"] = 1,
+										["g_dmg"] = 0,
+										["counter"] = 24,
+										["total"] = 27,
+										["c_max"] = 0,
+										["id"] = 259756,
+										["r_dmg"] = 0,
+										["spellschool"] = 48,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 0,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 24,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[49998] = {
+										["c_amt"] = 0,
+										["b_amt"] = 0,
+										["c_dmg"] = 0,
+										["g_amt"] = 0,
+										["n_max"] = 25,
+										["targets"] = {
+											["Training Dummy"] = 100,
+										},
+										["n_dmg"] = 100,
+										["n_min"] = 25,
+										["g_dmg"] = 0,
+										["counter"] = 4,
+										["total"] = 100,
+										["c_max"] = 0,
+										["id"] = 49998,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 0,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 4,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[55095] = {
+										["c_amt"] = 11,
+										["b_amt"] = 0,
+										["c_dmg"] = 385,
+										["g_amt"] = 0,
+										["n_max"] = 17,
+										["targets"] = {
+											["Training Dummy"] = 549,
+											["PvP Training Dummy"] = 567,
+										},
+										["n_dmg"] = 731,
+										["n_min"] = 17,
+										["g_dmg"] = 0,
+										["counter"] = 54,
+										["total"] = 1116,
+										["c_max"] = 35,
+										["id"] = 55095,
+										["r_dmg"] = 0,
+										["spellschool"] = 16,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 35,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 43,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+									[49184] = {
+										["c_amt"] = 5,
+										["b_amt"] = 0,
+										["c_dmg"] = 107,
+										["g_amt"] = 0,
+										["n_max"] = 12,
+										["targets"] = {
+											["Training Dummy"] = 262,
+											["PvP Training Dummy"] = 170,
+										},
+										["n_dmg"] = 325,
+										["n_min"] = 8,
+										["g_dmg"] = 0,
+										["counter"] = 38,
+										["total"] = 432,
+										["c_max"] = 25,
+										["id"] = 49184,
+										["r_dmg"] = 0,
+										["spellschool"] = 16,
+										["extra"] = {
+										},
+										["a_dmg"] = 0,
+										["c_min"] = 17,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 33,
+										["b_dmg"] = 0,
+										["r_amt"] = 0,
+									},
+								},
+							},
+							["grupo"] = true,
+							["on_hold"] = false,
+							["serial"] = "Player-1596-0F388F23",
+							["last_dps"] = 29.40430926793876,
+							["custom"] = 0,
+							["last_event"] = 1656164994,
+							["damage_taken"] = 0.005071,
+							["start_time"] = 1656164953,
+							["delay"] = 1656164994,
+							["tipo"] = 1,
+						}, -- [1]
+						{
+							["flag_original"] = 2600,
+							["totalabsorbed"] = 0.008943,
+							["damage_from"] = {
+								["Anuddk"] = true,
+							},
+							["targets"] = {
+							},
+							["pets"] = {
+							},
+							["aID"] = "114832",
+							["classe"] = "UNKNOW",
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 0.008943,
+							["friendlyfire"] = {
+							},
+							["fight_component"] = true,
+							["dps_started"] = false,
+							["total"] = 0.008943,
+							["end_time"] = 1656164988,
+							["on_hold"] = false,
+							["nome"] = "PvP Training Dummy",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+								},
+							},
+							["friendlyfire_total"] = 0,
+							["serial"] = "Creature-0-4254-0-1364-114832-000032D90D",
+							["last_dps"] = 0,
+							["custom"] = 0,
+							["last_event"] = 0,
+							["damage_taken"] = 746.008943,
+							["start_time"] = 1656164988,
+							["delay"] = 0,
+							["tipo"] = 1,
+						}, -- [2]
+						{
+							["flag_original"] = 68136,
+							["totalabsorbed"] = 0.001956,
+							["damage_from"] = {
+								["Anuddk"] = true,
+								["Tommylr-Kazzak"] = true,
+							},
+							["targets"] = {
+							},
+							["pets"] = {
+							},
+							["aID"] = "153292",
+							["classe"] = "UNKNOW",
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 0.001956,
+							["friendlyfire"] = {
+							},
+							["fight_component"] = true,
+							["dps_started"] = false,
+							["total"] = 0.001956,
+							["end_time"] = 1656164988,
+							["on_hold"] = false,
+							["nome"] = "Training Dummy",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+								},
+							},
+							["friendlyfire_total"] = 0,
+							["serial"] = "Creature-0-4254-0-1364-153292-0001B2D90D",
+							["last_dps"] = 0,
+							["custom"] = 0,
+							["last_event"] = 0,
+							["damage_taken"] = 2373.001956,
+							["start_time"] = 1656164988,
+							["delay"] = 0,
+							["tipo"] = 1,
+						}, -- [3]
+					},
+				}, -- [1]
+				{
+					["combatId"] = 1,
+					["tipo"] = 3,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["targets_overheal"] = {
+								["Anuddk"] = 134,
+							},
+							["pets"] = {
+							},
+							["iniciar_hps"] = false,
+							["classe"] = "DEATHKNIGHT",
+							["totalover"] = 134.00871,
+							["total_without_pet"] = 0.00871,
+							["total"] = 0.00871,
+							["targets_absorbs"] = {
+							},
+							["heal_enemy"] = {
+							},
+							["on_hold"] = false,
+							["serial"] = "Player-1596-0F388F23",
+							["totalabsorb"] = 0.00871,
+							["last_hps"] = 0,
+							["targets"] = {
+							},
+							["totalover_without_pet"] = 0.00871,
+							["healing_taken"] = 0.00871,
+							["end_time"] = 1656164988,
+							["healing_from"] = {
+							},
+							["heal_enemy_amt"] = 0,
+							["nome"] = "Anuddk",
+							["spells"] = {
+								["tipo"] = 3,
+								["_ActorTable"] = {
+									[45470] = {
+										["c_amt"] = 0,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Anuddk"] = 134,
+										},
+										["n_max"] = 0,
+										["targets"] = {
+											["Anuddk"] = 0,
+										},
+										["n_min"] = 0,
+										["counter"] = 4,
+										["overheal"] = 134,
+										["total"] = 0,
+										["c_max"] = 0,
+										["id"] = 45470,
+										["targets_absorbs"] = {
+										},
+										["c_min"] = 0,
+										["c_curado"] = 0,
+										["n_curado"] = 0,
+										["totaldenied"] = 0,
+										["n_amt"] = 4,
+										["absorbed"] = 0,
+									},
+								},
+							},
+							["grupo"] = true,
+							["start_time"] = 1656164982,
+							["spec"] = 251,
+							["custom"] = 0,
+							["tipo"] = 2,
+							["aID"] = "1596-0F388F23",
+							["totaldenied"] = 0.00871,
+							["delay"] = 1656164977,
+							["last_event"] = 1656164977,
+						}, -- [1]
+					},
+				}, -- [2]
+				{
+					["combatId"] = 1,
+					["tipo"] = 7,
+					["_ActorTable"] = {
+						{
+							["received"] = 200.004682,
+							["resource"] = 0.004682,
+							["targets"] = {
+								["Anuddk"] = 200,
+							},
+							["pets"] = {
+							},
+							["powertype"] = 6,
+							["classe"] = "DEATHKNIGHT",
+							["passiveover"] = 0.004682,
+							["total"] = 200.004682,
+							["nome"] = "Anuddk",
+							["spells"] = {
+								["tipo"] = 7,
+								["_ActorTable"] = {
+									[49184] = {
+										["total"] = 190,
+										["id"] = 49184,
+										["totalover"] = 0,
+										["targets"] = {
+											["Anuddk"] = 190,
+										},
+										["counter"] = 19,
+									},
+									[206930] = {
+										["total"] = 10,
+										["id"] = 206930,
+										["totalover"] = 0,
+										["targets"] = {
+											["Anuddk"] = 10,
+										},
+										["counter"] = 1,
+									},
+								},
+							},
+							["grupo"] = true,
+							["spec"] = 251,
+							["flag_original"] = 1297,
+							["alternatepower"] = 0.004682,
+							["last_event"] = 1656165043,
+							["aID"] = "1596-0F388F23",
+							["tipo"] = 3,
+							["serial"] = "Player-1596-0F388F23",
+							["totalover"] = 0.004682,
+						}, -- [1]
+					},
+				}, -- [3]
+				{
+					["combatId"] = 1,
+					["tipo"] = 9,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["debuff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[55095] = {
+										["activedamt"] = 2,
+										["id"] = 55095,
+										["targets"] = {
+										},
+										["uptime"] = 75,
+										["appliedamt"] = 2,
+										["refreshamt"] = 36,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["pets"] = {
+							},
+							["classe"] = "DEATHKNIGHT",
+							["buff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[256374] = {
+										["activedamt"] = 2,
+										["id"] = 256374,
+										["targets"] = {
+										},
+										["uptime"] = 24,
+										["appliedamt"] = 2,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["debuff_uptime"] = 75,
+							["debuff_uptime_targets"] = {
+							},
+							["spec"] = 251,
+							["grupo"] = true,
+							["spell_cast"] = {
+								[47528] = 1,
+								[49998] = 4,
+								[49184] = 19,
+							},
+							["buff_uptime_targets"] = {
+							},
+							["buff_uptime"] = 24,
+							["last_event"] = 1656164985,
+							["nome"] = "Anuddk",
+							["tipo"] = 4,
+							["serial"] = "Player-1596-0F388F23",
+							["aID"] = "1596-0F388F23",
+						}, -- [1]
+					},
+				}, -- [4]
+				{
+					["combatId"] = 1,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+					},
+				}, -- [5]
+				["raid_roster"] = {
+					["Anuddk"] = true,
+				},
+				["raid_roster_indexed"] = {
+					"Anuddk", -- [1]
+				},
+				["CombatStartedAt"] = 78425.179,
+				["overall_added"] = true,
+				["last_events_tables"] = {
+				},
+				["alternate_power"] = {
+				},
+				["combat_counter"] = 4,
+				["playing_solo"] = true,
+				["totals"] = {
+					2415.972908, -- [1]
+					-0.004076, -- [2]
+					{
+						0, -- [1]
+						[0] = -0.007224,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 200,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+					["frags_total"] = 0,
+					["voidzone_damage"] = 0,
+				},
+				["player_last_events"] = {
+				},
+				["frags_need_refresh"] = true,
+				["instance_type"] = "none",
+				["data_fim"] = "16:49:48",
+				["pvp"] = true,
+				["cleu_timeline"] = {
+				},
+				["enemy"] = "Training Dummy",
+				["TotalElapsedCombatTime"] = 82.06500000000233,
+				["CombatEndedAt"] = 78369.53,
+				["aura_timeline"] = {
+				},
+				["__call"] = {
+				},
+				["data_inicio"] = "16:48:26",
+				["end_time"] = 78369.53,
+				["combat_id"] = 1,
+				["tempo_start"] = 1656164905,
+				["frags"] = {
+					["Rabbit"] = 2,
+				},
+				["cleu_events"] = {
+					["n"] = 1,
+				},
+				["totals_grupo"] = {
+					2416, -- [1]
+					0, -- [2]
+					{
+						0, -- [1]
+						[0] = 0,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 200,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["CombatSkillCache"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Anuddk"] = 0.00871,
+						}, -- [1]
+					},
+					["damage_section"] = {
+					},
+					["damage"] = {
+						{
+							["Anuddk"] = 2296.005071,
+						}, -- [1]
+					},
+				},
+				["start_time"] = 78287.365,
+				["TimeData"] = {
+				},
+				["spells_cast_timeline"] = {
+				},
+			}, -- [3]
+		},
+	},
+	["ocd_tracker"] = {
+		["enabled"] = false,
+		["current_cooldowns"] = {
+		},
+		["lines_per_column"] = 12,
+		["show_options"] = false,
+		["filters"] = {
+			["defensive-raid"] = false,
+			["ofensive"] = true,
+			["defensive-target"] = false,
+			["utility"] = false,
+			["defensive-personal"] = false,
+		},
+		["width"] = 120,
+		["height"] = 18,
+		["framme_locked"] = false,
+		["show_conditions"] = {
+			["only_inside_instance"] = true,
+			["only_in_group"] = true,
+		},
+		["cooldowns"] = {
+		},
+		["pos"] = {
+		},
+	},
+	["last_version"] = "9.2.59824",
+	["SoloTablesSaved"] = {
+		["Mode"] = 1,
+	},
+	["tabela_instancias"] = {
+	},
+	["coach"] = {
+		["enabled"] = false,
+		["welcome_panel_pos"] = {
+		},
+		["last_coach_name"] = false,
+	},
+	["on_death_menu"] = false,
+	["cached_talents"] = {
+	},
+	["last_instance_id"] = 0,
+	["announce_interrupts"] = {
+		["enabled"] = false,
+		["whisper"] = "",
+		["channel"] = "SAY",
+		["custom"] = "",
+		["next"] = "",
+	},
+	["announce_prepots"] = {
+		["enabled"] = false,
+		["channel"] = "SELF",
+		["reverse"] = false,
+	},
+	["active_profile"] = "Anuddk-Ghostlands",
+	["last_realversion"] = 146,
+	["benchmark_db"] = {
+		["frame"] = {
+		},
+	},
+	["plugin_database"] = {
+		["DETAILS_PLUGIN_TINY_THREAT"] = {
+			["enabled"] = true,
+			["animate"] = false,
+			["hide_pull_bar"] = false,
+			["author"] = "Terciob",
+			["playercolor"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+			},
+			["usefocus"] = false,
+			["updatespeed"] = 1,
+			["disable_gouge"] = false,
+			["showamount"] = false,
+			["useplayercolor"] = false,
+			["absolute_mode"] = false,
+			["playSound"] = false,
+			["playSoundFile"] = "Details Threat Warning Volume 3",
+			["useclasscolors"] = false,
+		},
+		["DETAILS_PLUGIN_RAIDCHECK"] = {
+			["enabled"] = true,
+			["food_tier1"] = true,
+			["mythic_1_4"] = true,
+			["food_tier2"] = true,
+			["author"] = "Terciob",
+			["use_report_panel"] = true,
+			["pre_pot_healers"] = false,
+			["pre_pot_tanks"] = false,
+			["food_tier3"] = true,
+		},
+		["DETAILS_PLUGIN_VANGUARD"] = {
+			["tank_block_size_height"] = 50,
+			["show_power_bar"] = false,
+			["first_run"] = false,
+			["aura_timer_text_size"] = 14,
+			["tank_block_castbar_size_height"] = 16,
+			["show_health_bar"] = true,
+			["aura_offset_y"] = 0,
+			["enabled"] = true,
+			["show_cast_bar"] = false,
+			["author"] = "Terciob",
+			["tank_block_size"] = 150,
+			["bar_height"] = 24,
+			["tank_block_texture"] = "Details Serenity",
+			["tank_block_height"] = 40,
+			["tank_block_color"] = {
+				0.074509, -- [1]
+				0.035294, -- [2]
+				0.035294, -- [3]
+				0.832845, -- [4]
+			},
+			["tank_block_powerbar_size_height"] = 10,
+			["show_inc_bars"] = true,
+		},
+		["DETAILS_PLUGIN_ENCOUNTER_DETAILS"] = {
+			["enabled"] = true,
+			["encounter_timers_bw"] = {
+			},
+			["max_emote_segments"] = 3,
+			["last_section_selected"] = "main",
+			["author"] = "Terciob",
+			["window_scale"] = 1,
+			["hide_on_combat"] = false,
+			["show_icon"] = 5,
+			["opened"] = 0,
+			["encounter_timers_dbm"] = {
+			},
+		},
+		["DETAILS_PLUGIN_STREAM_OVERLAY"] = {
+			["use_square_mode"] = false,
+			["is_first_run"] = false,
+			["grow_direction"] = "right",
+			["arrow_color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				0.5, -- [4]
+			},
+			["main_frame_size"] = {
+				300, -- [1]
+				500.0000305175781, -- [2]
+			},
+			["minimap"] = {
+				["minimapPos"] = 160,
+				["radius"] = 160,
+				["hide"] = false,
+			},
+			["scale"] = 1,
+			["arrow_anchor_x"] = 0,
+			["point"] = "CENTER",
+			["row_texture"] = "Details Serenity",
+			["y"] = -4.57763671875e-05,
+			["font_color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["row_height"] = 20,
+			["square_amount"] = 5,
+			["enabled"] = false,
+			["arrow_size"] = 10,
+			["use_spark"] = true,
+			["row_spacement"] = 21,
+			["main_frame_color"] = {
+				0, -- [1]
+				0, -- [2]
+				0, -- [3]
+				0.2, -- [4]
+			},
+			["main_frame_strata"] = "LOW",
+			["arrow_texture"] = "Interface\\CHATFRAME\\ChatFrameExpandArrow",
+			["row_color"] = {
+				0.1, -- [1]
+				0.1, -- [2]
+				0.1, -- [3]
+				0.4, -- [4]
+			},
+			["per_second"] = {
+				["enabled"] = false,
+				["point"] = "CENTER",
+				["scale"] = 1,
+				["font_shadow"] = true,
+				["y"] = 0,
+				["x"] = 0,
+				["update_speed"] = 0.05,
+				["size"] = 32,
+				["attribute_type"] = 1,
+			},
+			["x"] = 0,
+			["font_face"] = "Friz Quadrata TT",
+			["square_size"] = 32,
+			["arrow_anchor_y"] = 0,
+			["font_size"] = 10,
+			["main_frame_locked"] = false,
+			["author"] = "Terciob",
+		},
+	},
+	["last_day"] = "25",
+	["local_instances_config"] = {
+		{
+			["modo"] = 2,
+			["sub_attribute"] = 1,
+			["sub_atributo_last"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+				1, -- [5]
+			},
+			["is_open"] = true,
+			["isLocked"] = false,
+			["snap"] = {
+			},
+			["segment"] = 0,
+			["mode"] = 2,
+			["attribute"] = 1,
+			["pos"] = {
+				["normal"] = {
+					["y"] = -38.4000244140625,
+					["x"] = -495.6445007324219,
+					["w"] = 310,
+					["h"] = 158.0000152587891,
+				},
+				["solo"] = {
+					["y"] = 2,
+					["x"] = 1,
+					["w"] = 300,
+					["h"] = 200,
+				},
+			},
+		}, -- [1]
+	},
+	["last_instance_time"] = 0,
+	["mythic_dungeon_currentsaved"] = {
+		["dungeon_name"] = "",
+		["started"] = false,
+		["segment_id"] = 0,
+		["ej_id"] = 0,
+		["started_at"] = 0,
+		["run_id"] = 0,
+		["level"] = 0,
+		["dungeon_zone_id"] = 0,
+		["previous_boss_killed_at"] = 0,
+	},
+	["cached_roles"] = {
+	},
+	["ignore_nicktag"] = false,
+	["combat_id"] = 3,
+	["savedStyles"] = {
+	},
+	["nick_tag_cache"] = {
+		["nextreset"] = 1657460464,
+		["last_version"] = 14,
+	},
+	["combat_counter"] = 6,
+	["announce_deaths"] = {
+		["enabled"] = false,
+		["last_hits"] = 1,
+		["only_first"] = 5,
+		["where"] = 1,
+	},
+	["tabela_overall"] = {
+		{
+			["tipo"] = 2,
+			["_ActorTable"] = {
+				{
+					["flag_original"] = 1297,
+					["totalabsorbed"] = 0.018764,
+					["on_hold"] = false,
+					["damage_from"] = {
+					},
+					["targets"] = {
+						["Training Dummy"] = 5327,
+						["PvP Training Dummy"] = 731,
+					},
+					["friendlyfire"] = {
+					},
+					["pets"] = {
+					},
+					["end_time"] = 1656164988,
+					["friendlyfire_total"] = 0,
+					["raid_targets"] = {
+					},
+					["total_without_pet"] = 6058.018764,
+					["aID"] = "1596-0F388F23",
+					["dps_started"] = false,
+					["total"] = 6058.018764,
+					["classe"] = "DEATHKNIGHT",
+					["last_event"] = 0,
+					["nome"] = "Anuddk",
+					["spec"] = 251,
+					["grupo"] = true,
+					["spells"] = {
+						["tipo"] = 2,
+						["_ActorTable"] = {
+							{
+								["c_amt"] = 12,
+								["b_amt"] = 0,
+								["c_dmg"] = 722,
+								["g_amt"] = 0,
+								["n_max"] = 34,
+								["targets"] = {
+									["Training Dummy"] = 2526,
+								},
+								["n_dmg"] = 1804,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 71,
+								["total"] = 2526,
+								["c_max"] = 67,
+								["id"] = 1,
+								["r_dmg"] = 0,
+								["extra"] = {
+								},
+								["a_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 59,
+								["b_dmg"] = 0,
+								["r_amt"] = 0,
+							}, -- [1]
+							[52212] = {
+								["c_amt"] = 7,
+								["b_amt"] = 0,
+								["c_dmg"] = 41,
+								["g_amt"] = 0,
+								["n_max"] = 3,
+								["targets"] = {
+									["Training Dummy"] = 110,
+									["PvP Training Dummy"] = 29,
+								},
+								["n_dmg"] = 98,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 44,
+								["total"] = 139,
+								["c_max"] = 7,
+								["id"] = 52212,
+								["r_dmg"] = 0,
+								["extra"] = {
+								},
+								["a_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 37,
+								["b_dmg"] = 0,
+								["r_amt"] = 0,
+							},
+							[206930] = {
+								["c_amt"] = 2,
+								["b_amt"] = 0,
+								["c_dmg"] = 82,
+								["g_amt"] = 0,
+								["n_max"] = 21,
+								["targets"] = {
+									["Training Dummy"] = 450,
+								},
+								["n_dmg"] = 368,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 20,
+								["total"] = 450,
+								["c_max"] = 42,
+								["id"] = 206930,
+								["r_dmg"] = 0,
+								["extra"] = {
+								},
+								["a_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 18,
+								["b_dmg"] = 0,
+								["r_amt"] = 0,
+							},
+							[85948] = {
+								["c_amt"] = 2,
+								["b_amt"] = 0,
+								["c_dmg"] = 236,
+								["g_amt"] = 0,
+								["n_max"] = 60,
+								["targets"] = {
+									["Training Dummy"] = 829,
+								},
+								["n_dmg"] = 593,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 12,
+								["total"] = 829,
+								["c_max"] = 119,
+								["id"] = 85948,
+								["r_dmg"] = 0,
+								["extra"] = {
+								},
+								["a_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 10,
+								["b_dmg"] = 0,
+								["r_amt"] = 0,
+							},
+							[55095] = {
+								["c_amt"] = 10,
+								["b_amt"] = 0,
+								["c_dmg"] = 350,
+								["g_amt"] = 0,
+								["n_max"] = 17,
+								["targets"] = {
+									["Training Dummy"] = 480,
+									["PvP Training Dummy"] = 516,
+								},
+								["n_dmg"] = 646,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 48,
+								["total"] = 996,
+								["c_max"] = 35,
+								["id"] = 55095,
+								["r_dmg"] = 0,
+								["extra"] = {
+								},
+								["a_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 38,
+								["b_dmg"] = 0,
+								["r_amt"] = 0,
+							},
+							[47632] = {
+								["c_amt"] = 1,
+								["b_amt"] = 0,
+								["c_dmg"] = 84,
+								["g_amt"] = 0,
+								["n_max"] = 0,
+								["targets"] = {
+									["Training Dummy"] = 84,
+								},
+								["n_dmg"] = 0,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 1,
+								["total"] = 84,
+								["c_max"] = 84,
+								["id"] = 47632,
+								["r_dmg"] = 0,
+								["extra"] = {
+								},
+								["a_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 0,
+								["b_dmg"] = 0,
+								["r_amt"] = 0,
+							},
+							[49184] = {
+								["c_amt"] = 5,
+								["b_amt"] = 0,
+								["c_dmg"] = 107,
+								["g_amt"] = 0,
+								["n_max"] = 12,
+								["targets"] = {
+									["Training Dummy"] = 262,
+									["PvP Training Dummy"] = 170,
+								},
+								["n_dmg"] = 325,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 38,
+								["total"] = 432,
+								["c_max"] = 25,
+								["id"] = 49184,
+								["r_dmg"] = 0,
+								["extra"] = {
+								},
+								["a_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 33,
+								["b_dmg"] = 0,
+								["r_amt"] = 0,
+							},
+							[49998] = {
+								["c_amt"] = 2,
+								["b_amt"] = 0,
+								["c_dmg"] = 176,
+								["g_amt"] = 0,
+								["n_max"] = 63,
+								["targets"] = {
+									["Training Dummy"] = 533,
+								},
+								["n_dmg"] = 357,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 12,
+								["total"] = 533,
+								["c_max"] = 128,
+								["id"] = 49998,
+								["r_dmg"] = 0,
+								["extra"] = {
+								},
+								["a_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 10,
+								["b_dmg"] = 0,
+								["r_amt"] = 0,
+							},
+							[259756] = {
+								["c_amt"] = 0,
+								["b_amt"] = 0,
+								["c_dmg"] = 0,
+								["g_amt"] = 0,
+								["n_max"] = 4,
+								["targets"] = {
+									["Training Dummy"] = 53,
+									["PvP Training Dummy"] = 16,
+								},
+								["n_dmg"] = 69,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 57,
+								["total"] = 69,
+								["c_max"] = 0,
+								["id"] = 259756,
+								["r_dmg"] = 0,
+								["extra"] = {
+								},
+								["a_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 57,
+								["b_dmg"] = 0,
+								["r_amt"] = 0,
+							},
+						},
+					},
+					["serial"] = "Player-1596-0F388F23",
+					["custom"] = 0,
+					["tipo"] = 1,
+					["damage_taken"] = 0.018764,
+					["start_time"] = 1656164711,
+					["delay"] = 0,
+					["last_dps"] = 0,
+				}, -- [1]
+				{
+					["flag_original"] = 68136,
+					["totalabsorbed"] = 0.008362,
+					["damage_from"] = {
+						["Anuddk"] = true,
+						["Tommylr-Kazzak"] = true,
+						["Jisoô-Kazzak"] = true,
+					},
+					["targets"] = {
+					},
+					["pets"] = {
+					},
+					["end_time"] = 1656164988,
+					["friendlyfire_total"] = 0,
+					["raid_targets"] = {
+					},
+					["total_without_pet"] = 0.008362,
+					["last_event"] = 0,
+					["aID"] = "153292",
+					["dps_started"] = false,
+					["total"] = 0.008362,
+					["fight_component"] = true,
+					["classe"] = "UNKNOW",
+					["nome"] = "Training Dummy",
+					["spells"] = {
+						["tipo"] = 2,
+						["_ActorTable"] = {
+						},
+					},
+					["on_hold"] = false,
+					["friendlyfire"] = {
+					},
+					["serial"] = "Creature-0-4254-0-1364-153292-0001B2D90D",
+					["custom"] = 0,
+					["tipo"] = 1,
+					["last_dps"] = 0,
+					["start_time"] = 1656164985,
+					["delay"] = 0,
+					["damage_taken"] = 18339.008362,
+				}, -- [2]
+				{
+					["flag_original"] = 2600,
+					["totalabsorbed"] = 0.015583,
+					["damage_from"] = {
+						["Anuddk"] = true,
+					},
+					["targets"] = {
+					},
+					["pets"] = {
+					},
+					["friendlyfire_total"] = 0,
+					["raid_targets"] = {
+					},
+					["total_without_pet"] = 0.015583,
+					["last_event"] = 0,
+					["aID"] = "114832",
+					["dps_started"] = false,
+					["total"] = 0.015583,
+					["fight_component"] = true,
+					["classe"] = "UNKNOW",
+					["nome"] = "PvP Training Dummy",
+					["spells"] = {
+						["tipo"] = 2,
+						["_ActorTable"] = {
+						},
+					},
+					["on_hold"] = false,
+					["end_time"] = 1656164988,
+					["friendlyfire"] = {
+					},
+					["serial"] = "Creature-0-4254-0-1364-114832-000032D90D",
+					["custom"] = 0,
+					["tipo"] = 1,
+					["last_dps"] = 0,
+					["start_time"] = 1656164985,
+					["delay"] = 0,
+					["damage_taken"] = 731.0155830000001,
+				}, -- [3]
+			},
+		}, -- [1]
+		{
+			["tipo"] = 3,
+			["_ActorTable"] = {
+				{
+					["flag_original"] = 1297,
+					["healing_from"] = {
+					},
+					["pets"] = {
+					},
+					["iniciar_hps"] = false,
+					["classe"] = "DEATHKNIGHT",
+					["totalover"] = 577.022807,
+					["total_without_pet"] = 0.022807,
+					["total"] = 0.022807,
+					["targets_absorbs"] = {
+					},
+					["heal_enemy"] = {
+					},
+					["on_hold"] = false,
+					["serial"] = "Player-1596-0F388F23",
+					["totalabsorb"] = 0.022807,
+					["last_hps"] = 0,
+					["targets"] = {
+					},
+					["totalover_without_pet"] = 0.022807,
+					["healing_taken"] = 0.022807,
+					["end_time"] = 1656164988,
+					["targets_overheal"] = {
+						["Anuddk"] = 577,
+					},
+					["start_time"] = 1656164962,
+					["nome"] = "Anuddk",
+					["spells"] = {
+						["tipo"] = 3,
+						["_ActorTable"] = {
+							[45470] = {
+								["c_amt"] = 0,
+								["totalabsorb"] = 0,
+								["targets_overheal"] = {
+									["Anuddk"] = 532,
+								},
+								["n_max"] = 0,
+								["targets"] = {
+									["Anuddk"] = 0,
+								},
+								["n_min"] = 0,
+								["counter"] = 12,
+								["overheal"] = 532,
+								["total"] = 0,
+								["c_max"] = 0,
+								["id"] = 45470,
+								["targets_absorbs"] = {
+								},
+								["c_min"] = 0,
+								["c_curado"] = 0,
+								["n_curado"] = 0,
+								["totaldenied"] = 0,
+								["n_amt"] = 12,
+								["absorbed"] = 0,
+							},
+							[77535] = {
+								["c_amt"] = 1,
+								["totalabsorb"] = 0,
+								["targets_overheal"] = {
+									["Anuddk"] = 45,
+								},
+								["n_max"] = 0,
+								["targets"] = {
+									["Anuddk"] = -9,
+								},
+								["n_min"] = 0,
+								["counter"] = 4,
+								["overheal"] = 45,
+								["total"] = -9,
+								["c_max"] = 0,
+								["id"] = 77535,
+								["targets_absorbs"] = {
+									["Anuddk"] = 0,
+								},
+								["c_min"] = -9,
+								["c_curado"] = -9,
+								["n_curado"] = 0,
+								["totaldenied"] = 0,
+								["n_amt"] = 3,
+								["absorbed"] = 0,
+							},
+						},
+					},
+					["grupo"] = true,
+					["aID"] = "1596-0F388F23",
+					["heal_enemy_amt"] = 0,
+					["custom"] = 0,
+					["last_event"] = 0,
+					["spec"] = 251,
+					["totaldenied"] = 0.022807,
+					["delay"] = 0,
+					["tipo"] = 2,
+				}, -- [1]
+			},
+		}, -- [2]
+		{
+			["tipo"] = 7,
+			["_ActorTable"] = {
+				{
+					["received"] = 630.0287249999999,
+					["resource"] = 0.028725,
+					["targets"] = {
+						["Anuddk"] = 630,
+					},
+					["pets"] = {
+					},
+					["powertype"] = 6,
+					["classe"] = "DEATHKNIGHT",
+					["passiveover"] = 0.00886,
+					["total"] = 630.0287249999999,
+					["tipo"] = 3,
+					["totalover"] = 0.00886,
+					["nome"] = "Anuddk",
+					["spells"] = {
+						["tipo"] = 7,
+						["_ActorTable"] = {
+							[49184] = {
+								["total"] = 190,
+								["id"] = 49184,
+								["totalover"] = 0,
+								["targets"] = {
+									["Anuddk"] = 190,
+								},
+								["counter"] = 19,
+							},
+							[85948] = {
+								["total"] = 220,
+								["id"] = 85948,
+								["totalover"] = 0,
+								["targets"] = {
+									["Anuddk"] = 220,
+								},
+								["counter"] = 11,
+							},
+							[206930] = {
+								["total"] = 190,
+								["id"] = 206930,
+								["totalover"] = 0,
+								["targets"] = {
+									["Anuddk"] = 190,
+								},
+								["counter"] = 19,
+							},
+							[43265] = {
+								["total"] = 30,
+								["id"] = 43265,
+								["totalover"] = 0,
+								["targets"] = {
+									["Anuddk"] = 30,
+								},
+								["counter"] = 3,
+							},
+						},
+					},
+					["grupo"] = true,
+					["spec"] = 251,
+					["flag_original"] = 1297,
+					["alternatepower"] = 0.028725,
+					["last_event"] = 0,
+					["aID"] = "1596-0F388F23",
+					["serial"] = "Player-1596-0F388F23",
+				}, -- [1]
+			},
+		}, -- [3]
+		{
+			["tipo"] = 9,
+			["_ActorTable"] = {
+				{
+					["flag_original"] = 1297,
+					["debuff_uptime_spells"] = {
+						["tipo"] = 9,
+						["_ActorTable"] = {
+							[194310] = {
+								["refreshamt"] = 30,
+								["activedamt"] = 0,
+								["appliedamt"] = 0,
+								["id"] = 194310,
+								["uptime"] = 112,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+							[206930] = {
+								["refreshamt"] = 15,
+								["activedamt"] = 0,
+								["appliedamt"] = 5,
+								["id"] = 206930,
+								["uptime"] = 69,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+							[55095] = {
+								["refreshamt"] = 36,
+								["activedamt"] = 2,
+								["appliedamt"] = 2,
+								["id"] = 55095,
+								["uptime"] = 75,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+						},
+					},
+					["buff_uptime"] = 128,
+					["classe"] = "DEATHKNIGHT",
+					["buff_uptime_spells"] = {
+						["tipo"] = 9,
+						["_ActorTable"] = {
+							[77535] = {
+								["refreshamt"] = 1,
+								["activedamt"] = 3,
+								["appliedamt"] = 3,
+								["id"] = 77535,
+								["uptime"] = 38,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+							[256374] = {
+								["refreshamt"] = 0,
+								["activedamt"] = 5,
+								["appliedamt"] = 5,
+								["id"] = 256374,
+								["uptime"] = 60,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+							[188290] = {
+								["refreshamt"] = 0,
+								["activedamt"] = 3,
+								["appliedamt"] = 3,
+								["id"] = 188290,
+								["uptime"] = 30,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+						},
+					},
+					["debuff_uptime"] = 256,
+					["nome"] = "Anuddk",
+					["spec"] = 251,
+					["grupo"] = true,
+					["spell_cast"] = {
+						[206930] = 19,
+						[47541] = 1,
+						[43265] = 3,
+						[85948] = 11,
+						[49184] = 19,
+						[49998] = 12,
+						[47528] = 1,
+					},
+					["debuff_uptime_targets"] = {
+					},
+					["last_event"] = 0,
+					["tipo"] = 4,
+					["buff_uptime_targets"] = {
+					},
+					["pets"] = {
+					},
+					["serial"] = "Player-1596-0F388F23",
+					["aID"] = "1596-0F388F23",
+				}, -- [1]
+			},
+		}, -- [4]
+		{
+			["tipo"] = 2,
+			["_ActorTable"] = {
+			},
+		}, -- [5]
+		["raid_roster"] = {
+		},
+		["raid_roster_indexed"] = {
+		},
+		["tempo_start"] = 1656164905,
+		["last_events_tables"] = {
+		},
+		["alternate_power"] = {
+		},
+		["combat_counter"] = 3,
+		["spells_cast_timeline"] = {
+		},
+		["totals"] = {
+			21710.028096, -- [1]
+			0.018666, -- [2]
+			{
+				0.00721, -- [1]
+				[0] = -0.0006699999999999996,
+				["alternatepower"] = 0,
+				[3] = 0,
+				[6] = 630.019865,
+			}, -- [3]
+			{
+				["buff_uptime"] = 0,
+				["ress"] = 0,
+				["debuff_uptime"] = 0,
+				["cooldowns_defensive"] = 0,
+				["interrupt"] = 0,
+				["dispell"] = 0,
+				["cc_break"] = 0,
+				["dead"] = 0,
+			}, -- [4]
+			["frags_total"] = 0,
+			["voidzone_damage"] = 0,
+		},
+		["player_last_events"] = {
+		},
+		["frags_need_refresh"] = false,
+		["aura_timeline"] = {
+		},
+		["__call"] = {
+		},
+		["data_inicio"] = "16:48:26",
+		["end_time"] = 78737.975,
+		["cleu_events"] = {
+			["n"] = 1,
+		},
+		["segments_added"] = {
+			{
+				["elapsed"] = 113.1650000000082,
+				["type"] = 0,
+				["name"] = "Training Dummy",
+				["clock"] = "16:54:03",
+			}, -- [1]
+			{
+				["elapsed"] = 77.83299999999872,
+				["type"] = 0,
+				["name"] = "Training Dummy",
+				["clock"] = "16:50:44",
+			}, -- [2]
+			{
+				["elapsed"] = 82.1649999999936,
+				["type"] = 0,
+				["name"] = "Training Dummy",
+				["clock"] = "16:48:26",
+			}, -- [3]
+		},
+		["totals_grupo"] = {
+			6058.011937, -- [1]
+			0.021802, -- [2]
+			{
+				0, -- [1]
+				[0] = 0,
+				["alternatepower"] = 0,
+				[3] = 0,
+				[6] = 630.019865,
+			}, -- [3]
+			{
+				["buff_uptime"] = 0,
+				["ress"] = 0,
+				["debuff_uptime"] = 0,
+				["cooldowns_defensive"] = 0,
+				["interrupt"] = 0,
+				["dispell"] = 0,
+				["cc_break"] = 0,
+				["dead"] = 0,
+			}, -- [4]
+		},
+		["frags"] = {
+		},
+		["data_fim"] = "16:55:57",
+		["overall_enemy_name"] = "Training Dummy",
+		["CombatSkillCache"] = {
+		},
+		["cleu_timeline"] = {
+		},
+		["start_time"] = 78464.812,
+		["TimeData"] = {
+			["Raid Damage Done"] = {
+			},
+		},
+		["PhaseData"] = {
+			{
+				1, -- [1]
+				1, -- [2]
+			}, -- [1]
+			["heal_section"] = {
+			},
+			["heal"] = {
+			},
+			["damage_section"] = {
+			},
+			["damage"] = {
+			},
+		},
+	},
+	["character_data"] = {
+		["logons"] = 1,
+	},
+	["force_font_outline"] = "",
+	["announce_firsthit"] = {
+		["enabled"] = true,
+		["channel"] = "SELF",
+	},
+	["announce_cooldowns"] = {
+		["enabled"] = false,
+		["ignored_cooldowns"] = {
+		},
+		["custom"] = "",
+		["channel"] = "RAID",
+	},
+	["rank_window"] = {
+		["last_difficulty"] = 15,
+		["last_raid"] = "",
+	},
+	["announce_damagerecord"] = {
+		["enabled"] = true,
+		["channel"] = "SELF",
+	},
+	["cached_specs"] = {
+		["Player-1305-0C37FE43"] = 66,
+		["Player-1305-0C36ABEE"] = 577,
+		["Player-1596-0F388F23"] = 252,
+	},
+}

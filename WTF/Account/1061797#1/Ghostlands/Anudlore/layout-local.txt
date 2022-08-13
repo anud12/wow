@@ -1,0 +1,15 @@
+Version: 1
+Frame: DominosFrame6
+FrameLevel: 1
+Anchor: BOTTOM
+X: 12
+Y: 56
+W: 480
+H: 40
+Frame: ColorPickerFrame
+FrameLevel: 124
+Anchor: TOP
+X: 134
+Y: -38
+W: 365
+H: 200

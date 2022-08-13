@@ -1,0 +1,24 @@
+VER 3 0100000000000007 "Binding" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@cursor] Binding Shot
+END
+VER 3 0100000000000002 "Flare" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@cursor] Flare
+END
+VER 3 0100000000000003 "Freezing" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@cursor] Freezing Trap
+END
+VER 3 0100000000000004 "Hawk" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@cursor] Dire Beast: Hawk
+END
+VER 3 0100000000000006 "Resonating" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@cursor] Resonating Arrow
+END
+VER 3 0100000000000005 "Volley" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@cursor] Volley
+END

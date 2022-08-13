@@ -1,0 +1,356 @@
+
+ElvDB = {
+	["profileKeys"] = {
+		["Anudlore - Ghostlands"] = "Default",
+	},
+	["DisabledAddOns"] = {
+	},
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
+	["class"] = {
+		["Ghostlands"] = {
+			["Anudlore"] = "WARRIOR",
+		},
+	},
+	["profiles"] = {
+		["Default"] = {
+			["general"] = {
+				["backdropfadecolor"] = {
+					["a"] = 0.69,
+					["b"] = 0.13,
+					["g"] = 0.13,
+					["r"] = 0.13,
+				},
+				["font"] = "2002",
+				["minimap"] = {
+					["locationFont"] = "2002",
+				},
+				["lootRoll"] = {
+					["statusBarTexture"] = "Minimalist",
+					["nameFont"] = "2002",
+					["style"] = "fullbar",
+					["nameFontOutline"] = "MONOCHROMEOUTLINE",
+				},
+				["talkingHeadFrameScale"] = 0.5,
+			},
+			["bags"] = {
+				["itemLevelFont"] = "2002",
+				["itemLevelFontSize"] = 12,
+				["countFontSize"] = 12,
+				["split"] = {
+					["bag1"] = true,
+					["player"] = true,
+					["bag3"] = true,
+					["bag4"] = true,
+					["bag2"] = true,
+				},
+				["countFont"] = "2002",
+			},
+			["auras"] = {
+				["debuffs"] = {
+					["countFontSize"] = 12,
+					["countFont"] = "2002",
+					["timeFontSize"] = 12,
+					["timeFont"] = "2002",
+				},
+				["buffs"] = {
+					["countFontSize"] = 12,
+					["countFont"] = "2002",
+					["timeFontSize"] = 12,
+					["timeFont"] = "2002",
+				},
+			},
+			["dbConverted"] = 12.8,
+			["convertPages"] = true,
+			["tooltip"] = {
+				["headerFontSize"] = 12,
+				["healthBar"] = {
+					["font"] = "2002",
+				},
+				["font"] = "2002",
+				["fontSize"] = 12,
+				["headerFont"] = "2002",
+			},
+			["movers"] = {
+				["ElvAB_6"] = "BOTTOM,UIParent,BOTTOM,0,83",
+				["ElvAB_1"] = "BOTTOM,UIParent,BOTTOM,0,53",
+			},
+			["unitframe"] = {
+				["units"] = {
+					["party"] = {
+						["rdebuffs"] = {
+							["font"] = "2002",
+						},
+					},
+					["raid40"] = {
+						["rdebuffs"] = {
+							["font"] = "2002",
+						},
+					},
+					["raid"] = {
+						["rdebuffs"] = {
+							["font"] = "2002",
+						},
+					},
+				},
+				["colors"] = {
+					["borderColor"] = {
+						["a"] = 1,
+					},
+				},
+				["font"] = "2002",
+			},
+			["datatexts"] = {
+				["font"] = "2002",
+			},
+			["actionbar"] = {
+				["bar3"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+				},
+				["handleOverlay"] = false,
+				["bar8"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+				},
+				["fontOutline"] = "OUTLINE",
+				["bar9"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+				},
+				["chargeCooldown"] = true,
+				["bar1"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+				},
+				["font"] = "2002",
+				["bar7"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+				},
+				["useDrawSwipeOnCharges"] = true,
+				["barPet"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFontOutline"] = "OUTLINE",
+				},
+				["bar6"] = {
+					["hotkeyFont"] = "2002",
+					["enabled"] = true,
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+				},
+				["bar10"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+				},
+				["flashAnimation"] = true,
+				["microbar"] = {
+					["buttons"] = 11,
+				},
+				["bar2"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+				},
+				["vehicleExitButton"] = {
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFont"] = "2002",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+					["macroFont"] = "2002",
+					["hotkeyFontOutline"] = "OUTLINE",
+				},
+				["bar5"] = {
+					["hotkeyFont"] = "2002",
+					["enabled"] = false,
+					["macroFont"] = "2002",
+					["buttonsPerRow"] = 12,
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["buttons"] = 12,
+					["countFontOutline"] = "OUTLINE",
+				},
+				["extraActionButton"] = {
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFont"] = "2002",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+					["macroFont"] = "2002",
+					["hotkeyFontOutline"] = "OUTLINE",
+				},
+				["stanceBar"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+				},
+				["cooldown"] = {
+					["checkSeconds"] = true,
+				},
+				["bar4"] = {
+					["hotkeyFont"] = "2002",
+					["macroFont"] = "2002",
+					["macroFontOutline"] = "OUTLINE",
+					["hotkeyFontOutline"] = "OUTLINE",
+					["countFont"] = "2002",
+					["countFontOutline"] = "OUTLINE",
+				},
+			},
+			["nameplates"] = {
+				["plateSize"] = {
+					["friendlyWidth"] = 75,
+					["enemyHeight"] = 15,
+					["enemyWidth"] = 75,
+					["friendlyHeight"] = 15,
+				},
+				["cutaway"] = {
+					["health"] = {
+						["enabled"] = true,
+						["forceBlankTexture"] = false,
+					},
+					["power"] = {
+						["enabled"] = true,
+						["forceBlankTexture"] = false,
+					},
+				},
+				["units"] = {
+					["TARGET"] = {
+						["arrow"] = "Arrow13",
+						["classpower"] = {
+							["enable"] = true,
+						},
+						["glowStyle"] = "style1",
+					},
+					["PLAYER"] = {
+						["useStaticPosition"] = true,
+						["enable"] = true,
+						["visibility"] = {
+							["showAlways"] = true,
+						},
+					},
+				},
+				["font"] = "2002",
+			},
+			["chat"] = {
+				["tabSelectorColor"] = {
+					["b"] = 0.82,
+					["g"] = 0.51,
+					["r"] = 0.09,
+				},
+				["panelSnapRightID"] = 4,
+				["panelSnapLeftID"] = 1,
+				["fontSize"] = 12,
+				["font"] = "2002",
+				["tabFont"] = "2002",
+			},
+		},
+	},
+	["gold"] = {
+		["Ghostlands"] = {
+			["Anudlore"] = 9385056,
+		},
+	},
+	["serverID"] = {
+		[1596] = {
+			["Ghostlands"] = true,
+		},
+	},
+	["faction"] = {
+		["Ghostlands"] = {
+			["Anudlore"] = "Alliance",
+		},
+	},
+	["global"] = {
+		["datatexts"] = {
+			["settings"] = {
+				["Currencies"] = {
+					["tooltipData"] = {
+						{
+							nil, -- [1]
+							nil, -- [2]
+							nil, -- [3]
+							true, -- [4]
+						}, -- [1]
+					},
+				},
+			},
+		},
+		["general"] = {
+			["AceGUI"] = {
+				["height"] = 718,
+			},
+			["UIScale"] = 1,
+		},
+		["nameplates"] = {
+			["filters"] = {
+				["ElvUI_NonTarget"] = {
+				},
+				["ElvUI_Explosives"] = {
+				},
+				["ElvUI_Target"] = {
+				},
+				["ElvUI_Boss"] = {
+				},
+			},
+		},
+	},
+}
+ElvPrivateDB = {
+	["profileKeys"] = {
+		["Anudlore - Ghostlands"] = "Anudlore - Ghostlands",
+	},
+	["profiles"] = {
+		["Anudlore - Ghostlands"] = {
+			["general"] = {
+				["nameplateLargeFont"] = "2002",
+				["normTex"] = "Minimalist",
+				["dmgfont"] = "2002",
+				["nameplateFont"] = "2002",
+				["namefont"] = "2002",
+				["unifiedBlizzFonts"] = true,
+				["glossTex"] = "Minimalist",
+			},
+			["theme"] = "classic",
+			["install_complete"] = 12.8,
+		},
+	},
+}
