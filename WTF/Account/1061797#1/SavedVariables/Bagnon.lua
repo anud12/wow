@@ -61,17 +61,17 @@ Bagnon_Sets = {
 			["point"] = "BOTTOMRIGHT",
 			["hiddenBags"] = {
 			},
-			["scale"] = 0.8,
+			["scale"] = 1.4,
 			["spacing"] = 4,
 			["bagToggle"] = true,
-			["reverseBags"] = true,
+			["reverseBags"] = false,
 			["options"] = true,
-			["columns"] = 12,
 			["money"] = true,
-			["itemScale"] = 1,
+			["columns"] = 13,
+			["itemScale"] = 0.6,
 			["y"] = 100,
 			["bagBreak"] = true,
-			["x"] = -49.99994405110647,
+			["x"] = -49.99992069581822,
 			["search"] = true,
 			["broker"] = true,
 			["reverseSlots"] = false,
@@ -155,6 +155,7 @@ Bagnon_Sets = {
 			},
 		},
 		["bank"] = {
+			["y"] = 295.4999694824219,
 			["rules"] = {
 				"all", -- [1]
 				"all/normal", -- [2]
@@ -177,14 +178,16 @@ Bagnon_Sets = {
 				"quest", -- [19]
 				"misc", -- [20]
 			},
+			["point"] = "BOTTOMLEFT",
 			["hiddenBags"] = {
 			},
 			["color"] = {
 			},
-			["hiddenRules"] = {
-			},
 			["borderColor"] = {
 			},
+			["hiddenRules"] = {
+			},
+			["x"] = 95.00000762939453,
 		},
 	},
 }

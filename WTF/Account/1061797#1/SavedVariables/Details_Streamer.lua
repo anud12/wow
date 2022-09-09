@@ -2,9 +2,10 @@
 Details_StreamerDB = {
 	["characters"] = {
 		["Qwezcawq - Ghostlands"] = "Anudlore - Ghostlands",
+		["Anuddh - Ghostlands"] = "Anudlore - Ghostlands",
 		["Anudh - Ghostlands"] = "Anudlore - Ghostlands",
-		["Anudlore - Ghostlands"] = "Anudlore - Ghostlands",
 		["Anuddk - Ghostlands"] = "Anudlore - Ghostlands",
+		["Anudlore - Ghostlands"] = "Anudlore - Ghostlands",
 		["Anudloreh - Ghostlands"] = "Anudlore - Ghostlands",
 		["Anud - Ghostlands"] = "Anudlore - Ghostlands",
 	},
@@ -38,6 +39,22 @@ Details_StreamerDB = {
 				0.1, -- [3]
 				0.4, -- [4]
 			},
+			["use_spark"] = true,
+			["author"] = "Terciob",
+			["square_amount"] = 5,
+			["enabled"] = false,
+			["arrow_size"] = 10,
+			["y"] = -4.57763671875e-05,
+			["row_spacement"] = 21,
+			["main_frame_color"] = {
+				0, -- [1]
+				0, -- [2]
+				0, -- [3]
+				0.2, -- [4]
+			},
+			["main_frame_strata"] = "LOW",
+			["arrow_texture"] = "Interface\\CHATFRAME\\ChatFrameExpandArrow",
+			["font_size"] = 10,
 			["per_second"] = {
 				["enabled"] = false,
 				["point"] = "CENTER",
@@ -49,22 +66,6 @@ Details_StreamerDB = {
 				["update_speed"] = 0.05,
 				["size"] = 32,
 			},
-			["author"] = "Terciob",
-			["square_amount"] = 5,
-			["enabled"] = false,
-			["arrow_size"] = 10,
-			["font_size"] = 10,
-			["row_spacement"] = 21,
-			["main_frame_color"] = {
-				0, -- [1]
-				0, -- [2]
-				0, -- [3]
-				0.2, -- [4]
-			},
-			["main_frame_strata"] = "LOW",
-			["arrow_texture"] = "Interface\\CHATFRAME\\ChatFrameExpandArrow",
-			["y"] = -4.57763671875e-05,
-			["use_spark"] = true,
 			["x"] = 0,
 			["font_face"] = "Friz Quadrata TT",
 			["square_size"] = 32,

@@ -60,6 +60,7 @@ AdiBagsDB = {
 	},
 	["profileKeys"] = {
 		["Anud - Ghostlands"] = "Default",
+		["Anuddh - Ghostlands"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -86,11 +87,11 @@ AdiBagsDB = {
 					["yOffset"] = 48.53337097167969,
 				},
 			},
-			["compactLayout"] = true,
 			["sectionFont"] = {
 				["name"] = "2002",
 			},
 			["qualityOpacity"] = 0.35,
+			["compactLayout"] = true,
 		},
 	},
 }

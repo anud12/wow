@@ -11,6 +11,18 @@ AdiBagsDB = {
 			},
 		},
 		["ItemCategory"] = {
+			["profiles"] = {
+				["Default"] = {
+					["splitBySubclass"] = {
+						["Recipe"] = true,
+						["Consumable"] = true,
+						["Gem"] = true,
+						["Tradeskill"] = true,
+						["Glyph"] = true,
+						["Miscellaneous"] = true,
+					},
+				},
+			},
 		},
 		["NewItem"] = {
 		},
@@ -33,20 +45,21 @@ AdiBagsDB = {
 		["Anud - Ghostlands"] = {
 			["collapsedSections"] = {
 				["Junk#Junk"] = true,
-				["Equipment#Set: Ret"] = true,
 				["Consumable#Consumable"] = true,
-				["Equipment#Armor"] = true,
 				["Tradeskill#Tradeskill"] = true,
 				["Equipment#Jewelry"] = true,
 				["Equipment#Miscellaneous"] = true,
 				["Miscellaneous#Miscellaneous"] = true,
 				["Free space#Free space"] = true,
+				["Equipment#Armor"] = true,
 				["Equipment#Weapon"] = true,
+				["Equipment#Set: Ret"] = true,
 				["Reagent#Reagent"] = true,
 			},
 		},
 	},
 	["profileKeys"] = {
+		["Anuddh - Ghostlands"] = "Default",
 		["Anud - Ghostlands"] = "Default",
 	},
 	["profiles"] = {
@@ -57,15 +70,16 @@ AdiBagsDB = {
 			["bags"] = {
 				["Bank"] = false,
 			},
-			["maxHeight"] = 0.48,
+			["maxHeight"] = 0.81,
 			["skin"] = {
 				["border"] = "1 Pixel",
 				["background"] = "Blizzard Marble",
-				["borderWidth"] = 9,
-				["insets"] = -1,
+				["borderWidth"] = 1,
+				["insets"] = 1,
 			},
 			["bagFont"] = {
 				["name"] = "2002",
+				["size"] = 12,
 			},
 			["positions"] = {
 				["anchor"] = {
@@ -73,21 +87,11 @@ AdiBagsDB = {
 					["yOffset"] = 48.53337097167969,
 				},
 			},
-			["filters"] = {
-				["Equipment"] = false,
-				["ItemSets"] = false,
-				["ItemCategory"] = false,
-			},
 			["sectionFont"] = {
 				["name"] = "2002",
 			},
-			["compactLayout"] = true,
-			["modules"] = {
-				["BankSwitcher"] = false,
-				["ChangeHighlight"] = false,
-			},
-			["hideAnchor"] = true,
 			["qualityOpacity"] = 0.35,
+			["compactLayout"] = true,
 		},
 	},
 }
