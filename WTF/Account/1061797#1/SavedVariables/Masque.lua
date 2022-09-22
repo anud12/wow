@@ -6,8 +6,8 @@ MasqueDB = {
 	},
 	["profileKeys"] = {
 		["Anuddh - Ghostlands"] = "Default",
-		["Anud - Ghostlands"] = "Default",
 		["Anudh - Ghostlands"] = "Default",
+		["Anud - Ghostlands"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -22,8 +22,8 @@ MasqueDB = {
 					["Shadow"] = true,
 					["Backdrop"] = true,
 					["Upgraded"] = true,
-					["Inherit"] = false,
 					["SkinID"] = "ElvUIesque",
+					["Inherit"] = false,
 				},
 				["Dominos_Action Bar 2"] = {
 					["Shadow"] = true,
@@ -37,12 +37,10 @@ MasqueDB = {
 					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
-				["WeakAuras_ycIBRd3JveD"] = {
+				["Masque"] = {
 					["Shadow"] = true,
-					["Backdrop"] = true,
-					["Upgraded"] = true,
-					["Inherit"] = false,
 					["SkinID"] = "ElvUIesque",
+					["Backdrop"] = true,
 				},
 				["Dominos_Action Bar 3"] = {
 					["Shadow"] = true,
@@ -50,11 +48,10 @@ MasqueDB = {
 					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
-				["WeakAuras_jrSMrVHr7uX"] = {
+				["WeakAuras"] = {
 					["Shadow"] = true,
-					["Backdrop"] = true,
-					["Upgraded"] = true,
 					["Inherit"] = false,
+					["Backdrop"] = true,
 					["SkinID"] = "ElvUIesque",
 				},
 				["Dominos_Possess Bar"] = {
@@ -79,8 +76,8 @@ MasqueDB = {
 					["Shadow"] = true,
 					["Backdrop"] = true,
 					["Upgraded"] = true,
-					["Inherit"] = false,
 					["SkinID"] = "ElvUIesque",
+					["Inherit"] = false,
 				},
 				["Dominos_Action Bar 4"] = {
 					["Shadow"] = true,
@@ -94,10 +91,11 @@ MasqueDB = {
 					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
-				["Plater Nameplates_Boss Mod Icons"] = {
+				["WeakAuras_jrSMrVHr7uX"] = {
 					["Shadow"] = true,
-					["SkinID"] = "ElvUIesque",
 					["Backdrop"] = true,
+					["Upgraded"] = true,
+					["SkinID"] = "ElvUIesque",
 					["Inherit"] = false,
 				},
 				["Dominos_Pet Bar"] = {
@@ -106,16 +104,17 @@ MasqueDB = {
 					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
-				["Dominos_Action Bar 10"] = {
+				["Dominos_Action Bar 9"] = {
 					["Shadow"] = true,
 					["SkinID"] = "ElvUIesque",
 					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
-				["Dominos_Class Bar"] = {
+				["WeakAuras_6)nOpbDAOTy"] = {
 					["Shadow"] = true,
-					["SkinID"] = "ElvUIesque",
 					["Backdrop"] = true,
+					["Upgraded"] = true,
+					["SkinID"] = "ElvUIesque",
 					["Inherit"] = false,
 				},
 				["Dominos_Action Bar 8"] = {
@@ -124,11 +123,10 @@ MasqueDB = {
 					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
-				["WeakAuras_ppv7UejrGkY"] = {
+				["Plater Nameplates"] = {
 					["Shadow"] = true,
-					["Backdrop"] = true,
-					["Upgraded"] = true,
 					["SkinID"] = "ElvUIesque",
+					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
 				["Plater Nameplates_Cast Bar Icons"] = {
@@ -137,7 +135,7 @@ MasqueDB = {
 					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
-				["Dominos_Bag Bar"] = {
+				["Dominos"] = {
 					["Shadow"] = true,
 					["SkinID"] = "ElvUIesque",
 					["Backdrop"] = true,
@@ -153,10 +151,10 @@ MasqueDB = {
 					["Shadow"] = true,
 					["Backdrop"] = true,
 					["Upgraded"] = true,
-					["SkinID"] = "ElvUIesque",
 					["Inherit"] = false,
+					["SkinID"] = "ElvUIesque",
 				},
-				["Dominos"] = {
+				["Dominos_Bag Bar"] = {
 					["Shadow"] = true,
 					["SkinID"] = "ElvUIesque",
 					["Backdrop"] = true,
@@ -174,35 +172,37 @@ MasqueDB = {
 					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
-				["Plater Nameplates"] = {
-					["Shadow"] = true,
-					["SkinID"] = "ElvUIesque",
-					["Backdrop"] = true,
-					["Inherit"] = false,
-				},
-				["WeakAuras_6)nOpbDAOTy"] = {
+				["WeakAuras_ppv7UejrGkY"] = {
 					["Shadow"] = true,
 					["Backdrop"] = true,
 					["Upgraded"] = true,
 					["Inherit"] = false,
 					["SkinID"] = "ElvUIesque",
 				},
-				["Dominos_Action Bar 9"] = {
+				["Dominos_Class Bar"] = {
 					["Shadow"] = true,
 					["SkinID"] = "ElvUIesque",
 					["Backdrop"] = true,
 					["Inherit"] = false,
 				},
-				["WeakAuras"] = {
+				["Dominos_Action Bar 10"] = {
 					["Shadow"] = true,
+					["SkinID"] = "ElvUIesque",
+					["Backdrop"] = true,
 					["Inherit"] = false,
-					["Backdrop"] = true,
-					["SkinID"] = "ElvUIesque",
 				},
-				["Masque"] = {
+				["Plater Nameplates_Boss Mod Icons"] = {
 					["Shadow"] = true,
 					["SkinID"] = "ElvUIesque",
 					["Backdrop"] = true,
+					["Inherit"] = false,
+				},
+				["WeakAuras_ycIBRd3JveD"] = {
+					["Shadow"] = true,
+					["Backdrop"] = true,
+					["Upgraded"] = true,
+					["SkinID"] = "ElvUIesque",
+					["Inherit"] = false,
 				},
 			},
 		},

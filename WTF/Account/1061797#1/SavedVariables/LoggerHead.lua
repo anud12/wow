@@ -2,8 +2,8 @@
 LoggerHeadDB = {
 	["profileKeys"] = {
 		["Anuddh - Ghostlands"] = "Default",
-		["Anud - Ghostlands"] = "Default",
 		["Anudh - Ghostlands"] = "Default",
+		["Anud - Ghostlands"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -24,11 +24,11 @@ LoggerHeadDB = {
 					},
 				},
 				["scenario"] = {
-					["Black Rook Hold - Artifact Challenge"] = {
-						[24] = true,
-					},
 					["Torghast, Tower of the Damned"] = {
 						[167] = true,
+					},
+					["Black Rook Hold - Artifact Challenge"] = {
+						[24] = true,
 					},
 				},
 				["party"] = {
@@ -44,14 +44,14 @@ LoggerHeadDB = {
 						[23] = true,
 						[8] = true,
 					},
-					["Grimrail Depot"] = {
+					["Return to Karazhan"] = {
 						[23] = true,
 						[8] = true,
 					},
 					["Atal'Dazar"] = {
 						true, -- [1]
 					},
-					["Return to Karazhan"] = {
+					["Grimrail Depot"] = {
 						[23] = true,
 						[8] = true,
 					},
