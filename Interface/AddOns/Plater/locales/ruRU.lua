@@ -1,7 +1,9 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("PlaterNameplates", "ruRU") 
 if not L then return end 
 
-L["OPTIONS_ALPHA"] = "Альфа"
+L["OPTIONS_ALPHA"] = [=[target shading amount
+
+]=]
 L["OPTIONS_ANCHOR"] = "Крепление"
 L["OPTIONS_ANCHOR_BOTTOM"] = "Снизу"
 L["OPTIONS_ANCHOR_BOTTOMLEFT"] = "Внизу слева"
@@ -66,7 +68,7 @@ L["OPTIONS_TABNAME_BUFF_TRACKING"] = "Отслеж. баффов"
 --[[Translation missing --]]
 L["OPTIONS_TABNAME_CASTBAR"] = "Cast Bar"
 --[[Translation missing --]]
-L["OPTIONS_TABNAME_CASTCOLORS"] = "\"Cast Colors and Names\""
+L["OPTIONS_TABNAME_CASTCOLORS"] = "Cast Colors and Names"
 --[[Translation missing --]]
 L["OPTIONS_TABNAME_COMBOPOINTS"] = "Combo Points"
 L["OPTIONS_TABNAME_GENERALSETTINGS"] = "Общие настройки"

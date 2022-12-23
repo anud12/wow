@@ -1,6 +1,6 @@
-# [4.0.2](https://github.com/WeakAuras/WeakAuras2/tree/4.0.2) (2022-06-01)
+# [5.3.3](https://github.com/WeakAuras/WeakAuras2/tree/5.3.3) (2022-12-09)
 
-[Full Changelog](https://github.com/WeakAuras/WeakAuras2/compare/4.0.1...4.0.2)
+[Full Changelog](https://github.com/WeakAuras/WeakAuras2/compare/5.3.2...5.3.3)
 
 ## Highlights
 
@@ -8,32 +8,15 @@
 
 ## Commits
 
-InfusOnWoW (4):
+InfusOnWoW (9):
 
-- Work around invalid geometry even harder
-- Tweak visibility handling again
-- Tweak Profiling output
-- Fix Time formatting flooring the seconds, instead of ceiling them
-
-Jens N (1):
-
-- Fixed issue with "Array"-type options in aura groups
-
-Stanzilla (2):
-
-- Update TOC for Patch 9.2.5
-- CI: Speed up build times by using `plain-copy` for model path files
-
-mrbuds (10):
-
-- clean more unused variables
-- fix chat message_voice condition not displayed correctly in options
-- remove BackdropTemplateMixin workaround
-- bufftrigger2: rename local frame to Buff2Frame
-- cleanup unused variables and functions
-- CreateFrame: use same casing for frameType
-- replace deprecated function C_LegendaryCrafting.GetRuneforgePowersByClassAndSpec
-- none of the time formatters have 2 arguments
-- rename WeakAuras.lua "frame" to "WeakAurasFrame"
-- Fix assignement ambiguity
+- Add Profession Slots to Item Triggers
+- AuraBar: Try again to fix some pixel issues for unaligned progress bars
+- Cast Trigger's Latency: Rework code
+- AuraBar: Fix alignment issues for background/foreground
+- Fix PvP Talents being unknown after pvp
+- Fix renaming breaking anchoring between auras
+- Fix anchorpoints for fgFrame
+- Make WeakAuras.newFeatureString available again
+- Make TSU Variables more resilent against lua errors
 

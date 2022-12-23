@@ -1,4 +1,4 @@
-﻿--luacheck: no max line length
+--luacheck: no max line length
 
 local NumberofAddons = _G.GetNumAddOns()
 local DisableAddOn = _G.DisableAddOn
@@ -46,13 +46,14 @@ local Baggins = _G.Baggins
 local GetItemInfo = _G.GetItemInfo
 local strlen = _G.strlen
 local strfind = _G.strfind
-local GetContainerItemLink = _G.GetContainerItemLink
+local GetContainerItemLink = _G.C_Container and _G.C_Container.GetContainerItemLink or _G.GetContainerItemLink
 local CreateFrame = _G.CreateFrame
 local ChatFontNormal = _G.ChatFontNormal
 local GameTooltip = _G.GameTooltip
 local GameTooltip_SetDefaultAnchor = _G.GameTooltip_SetDefaultAnchor
 local getglobal = _G.getglobal
 local IsControlKeyDown = _G.IsControlKeyDown
+local CreateColor = _G.CreateColor
 
 -- Simple search inspired by vBagnon for Baggins
 
@@ -84,6 +85,7 @@ local itemExpansion = {
     [6] = "Legion",
     [7] = "Battle for Azeroth",
     [8] = "Shadowlands",
+    [9] = "Dragonflight",
 }
 
 local itemExpansionAB = {
@@ -96,6 +98,7 @@ local itemExpansionAB = {
     [6] = "Legion",
     [7] = "BFA",
     [8] = "Shadowlands",
+    [9] = "DF",
 }
 
 local itemQualityT = {
@@ -151,9 +154,10 @@ function BagginsSearch:Search(search) --luacheck: ignore 212
                             itemEquipLoc and strfind(itemEquipLoc:lower(), search:lower()) or
                             bindType and strfind(itemBindTypes[bindType]:lower(), search:lower()) or
                             bindType and strfind(itemBindTypesAB[bindType]:lower(), search:lower()) or
-                            expacID and strfind(itemExpansion[expacID]:lower(), search:lower()) or
-                            expacID and strfind(itemExpansionAB[expacID]:lower(), search:lower()) or
-                            itemQuality and strfind(itemQualityT[itemQuality]:lower(), search:lower()) then
+                            expacID and itemExpansion[expacID] and strfind(itemExpansion[expacID]:lower(), search:lower()) or
+                            expacID and itemExpansionAB[expacID] and strfind(itemExpansionAB[expacID]:lower(), search:lower()) or
+                            itemQuality and strfind(itemQualityT[itemQuality]:lower(), search:lower()) or
+                            setID and strfind(setID, search) then
                                 button:LockHighlight()
                                 button:SetAlpha(1)
                             else
@@ -184,46 +188,8 @@ function BagginsSearch:Search(search) --luacheck: ignore 212
         end
     end
 end
-function BagginsSearch:UpdateEditBoxPosition() --luacheck: ignore 212
-    if Baggins.db.profile.enableSearch then
-        if not _G.BagginsSearch_EditBox then
-            BagginsSearch:BagginsSearch_CreateEditBox()
-        end
-    end
-    if not Baggins.db.profile.enableSearch then
-        if _G.BagginsSearch_EditBox then
-            _G.BagginsSearch_EditBox:Hide()
-            return
-        end
-    end
-    local initialcorner = Baggins.db.profile.layoutanchor
-    local lastBag
-    if (initialcorner == "BOTTOMRIGHT" or initialcorner == "BOTTOMLEFT") then
-      if type(Baggins.bagframes) == "table" then
-        for bagid, _ in ipairs(Baggins.bagframes) do --bagid, bag
-          if Baggins.bagframes[bagid]:IsVisible() then
-            lastBag = bagid
-          end
-        end
-      end
-    elseif (initialcorner == "TOPRIGHT" or initialcorner == "TOPLEFT") then
-     if Baggins.bagframes[1]:IsVisible() then
-        lastBag = 1
-      end
-    end
-    if _G.BagginsSearch_EditBox and lastBag then
-        _G.BagginsSearch_EditBox:ClearAllPoints()
-        _G.BagginsSearch_EditBox:SetPoint("BOTTOMRIGHT", "BagginsBag"..lastBag, "TOPRIGHT", 0, 0)
-        _G.BagginsSearch_EditBox:SetWidth(getglobal("BagginsBag"..lastBag):GetWidth())
-        _G.BagginsSearch_EditBox:Show()
-    else
-        if _G.BagginsSearch_EditBox then
-            _G.BagginsSearch_EditBox:Hide()
-        end
-    end
-end
 
-function BagginsSearch:BagginsSearch_CreateEditBox()
+local function BagginsSearch_CreateEditBox()
     -- Create Baggins Search EditBox
     local LSM = LibStub:GetLibrary("LibSharedMedia-3.0", true) --luacheck:ignore 113
     local editBox = CreateFrame('EditBox', 'BagginsSearch_EditBox', UIParent, BackdropTemplateMixin and "BackdropTemplate") --luacheck: ignore 113
@@ -233,7 +199,7 @@ function BagginsSearch:BagginsSearch_CreateEditBox()
     editBox:SetFrameStrata("HIGH")
 
     editBox:SetFontObject(ChatFontNormal)
-    editBox:SetFont(LSM and LSM:Fetch("font", Baggins.db.profile.Font) or _G.STANDARD_TEXT_FONT,Baggins.db.profile.FontSize or 10)
+    editBox:SetFont(LSM and LSM:Fetch("font", Baggins.db.profile.Font) or _G.STANDARD_TEXT_FONT,Baggins.db.profile.FontSize or 10, "")
     editBox:SetTextInsets(8, 8, 0, 0)
     editBox:SetAutoFocus(false)
 
@@ -244,7 +210,11 @@ function BagginsSearch:BagginsSearch_CreateEditBox()
     background:SetTexture("Interface/ChatFrame/ChatFrameBackground")
     background:SetPoint("TOPLEFT", 4, -4)
     background:SetPoint("BOTTOMRIGHT", -4, 4)
-    background:SetGradientAlpha("VERTICAL", 0, 0, 0, 0.9, 0.2, 0.2, 0.2, 0.9)
+    if Baggins:IsRetailWow() then
+        background:SetGradient("VERTICAL", CreateColor(0, 0, 0, 0.9), CreateColor(0.2, 0.2, 0.2, 0.9))
+    else
+        background:SetGradientAlpha("VERTICAL", 0, 0, 0, 0.9, 0.2, 0.2, 0.2, 0.9)
+    end
 
     editBox:SetScript("OnHide", function(self)
             self:SetText("")
@@ -279,12 +249,51 @@ function BagginsSearch:BagginsSearch_CreateEditBox()
 
     local label = editBox:CreateFontString("BagginsSearch_Label", "OVERLAY", "GameFontHighlight")
     label:SetAlpha(0.2)
-    label:SetFont(LSM and LSM:Fetch("font", Baggins.db.profile.Font) or _G.STANDARD_TEXT_FONT,Baggins.db.profile.FontSize or 10)
+    label:SetFont(LSM and LSM:Fetch("font", Baggins.db.profile.Font) or _G.STANDARD_TEXT_FONT,Baggins.db.profile.FontSize or 10, "")
     label:SetText("Search")
     label:SetPoint("TOPLEFT", 8, 0)
     label:SetPoint("BOTTOMLEFT", -8, 0)
     label:Show()
 
+end
+
+function BagginsSearch:UpdateEditBoxPosition() --luacheck: ignore 212
+    if Baggins.db.profile.enableSearch then
+        if not _G.BagginsSearch_EditBox then
+            BagginsSearch_CreateEditBox()
+        end
+    end
+    if not Baggins.db.profile.enableSearch then
+        if _G.BagginsSearch_EditBox then
+            _G.BagginsSearch_EditBox:Hide()
+            return
+        end
+    end
+    local initialcorner = Baggins.db.profile.layoutanchor
+    local lastBag
+    if (initialcorner == "BOTTOMRIGHT" or initialcorner == "BOTTOMLEFT") then
+      if type(Baggins.bagframes) == "table" then
+        for bagid, _ in ipairs(Baggins.bagframes) do --bagid, bag
+          if Baggins.bagframes[bagid]:IsVisible() then
+            lastBag = bagid
+          end
+        end
+      end
+    elseif (initialcorner == "TOPRIGHT" or initialcorner == "TOPLEFT") then
+     if Baggins.bagframes[1]:IsVisible() then
+        lastBag = 1
+      end
+    end
+    if _G.BagginsSearch_EditBox and lastBag then
+        _G.BagginsSearch_EditBox:ClearAllPoints()
+        _G.BagginsSearch_EditBox:SetPoint("BOTTOMRIGHT", "BagginsBag"..lastBag, "TOPRIGHT", 0, 0)
+        _G.BagginsSearch_EditBox:SetWidth(getglobal("BagginsBag"..lastBag):GetWidth())
+        _G.BagginsSearch_EditBox:Show()
+    else
+        if _G.BagginsSearch_EditBox then
+            _G.BagginsSearch_EditBox:Hide()
+        end
+    end
 end
 
 Baggins:RegisterSignal("Baggins_UpdateBagScale",function() --luacheck: ignore 212
@@ -333,7 +342,7 @@ local f = CreateFrame('Frame')
 f:RegisterEvent("PLAYER_ENTERING_WORLD")
 f:SetScript("OnEvent", function()
     if Baggins.db.profile.enableSearch then
-        BagginsSearch:BagginsSearch_CreateEditBox()
+        BagginsSearch_CreateEditBox()
         BagginsSearch:UpdateEditBoxPosition()
         _G.BagginsSearch_EditBox:SetScale(Baggins.db.profile.scale)
     end

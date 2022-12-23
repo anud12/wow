@@ -30,11 +30,11 @@ AdiBagsDB = {
 		},
 		["Equipment"] = {
 		},
-		["ItemSets"] = {
-		},
 		["CurrencyFrame"] = {
 		},
 		["DataSource"] = {
+		},
+		["ItemSets"] = {
 		},
 		["Junk"] = {
 		},
@@ -59,7 +59,14 @@ AdiBagsDB = {
 		},
 	},
 	["profileKeys"] = {
+		["Anud - Argent Dawn"] = "Default",
+		["Anuddemomo - Ghostlands"] = "Default",
 		["Anuddh - Ghostlands"] = "Default",
+		["Anuddemowa - Ghostlands"] = "Default",
+		["Anuddemo - Ghostlands"] = "Default",
+		["Anuddepriest - Ghostlands"] = "Default",
+		["Anuddemosham - Ghostlands"] = "Default",
+		["Anudr - Ghostlands"] = "Default",
 		["Anud - Ghostlands"] = "Default",
 	},
 	["profiles"] = {
@@ -90,8 +97,8 @@ AdiBagsDB = {
 			["sectionFont"] = {
 				["name"] = "2002",
 			},
-			["qualityOpacity"] = 0.35,
 			["compactLayout"] = true,
+			["qualityOpacity"] = 0.35,
 		},
 	},
 }

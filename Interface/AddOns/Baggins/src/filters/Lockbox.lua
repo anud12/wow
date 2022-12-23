@@ -13,7 +13,7 @@ local AddOn = _G[AddOnName]
 --local LibStub = _G.LibStub
 --local L = LibStub("AceLocale-3.0"):GetLocale(AddOnName)
 
-local GetContainerItemID = _G.GetContainerItemID
+local GetContainerItemID = _G.C_Container and _G.C_Container.GetContainerItemID or _G.GetContainerItemID
 
 local ids = {
     4632, -- Ornate Bronze Lockbox
@@ -39,6 +39,7 @@ local ids = {
     180532, -- Laestrite Lockbox
     180533, -- Solenium Lockbox
     186161, -- Stygian Lockbox
+    190954, -- Serevite Lockbox
 }
 
 local function Matches(bag, slot, _)

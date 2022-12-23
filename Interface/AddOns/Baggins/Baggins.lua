@@ -10,7 +10,6 @@ local LBU = LibStub("LibBagUtils-1.0")
 local qt = LibStub('LibQTip-1.0')
 local dbIcon = LibStub("LibDBIcon-1.0")
 local console = LibStub("AceConsole-3.0")
-local gratuity = LibStub("LibGratuity-3.0")
 local iui = LibStub("LibItemUpgradeInfo-1.0")
 
 local next, unpack, pairs, ipairs, tonumber, select, strmatch, wipe, type, time, print =
@@ -27,24 +26,33 @@ local band =
 local GetItemCount, GetItemInfo, GetInventoryItemLink, GetItemQualityColor, GetItemFamily, BankButtonIDToInvSlotID, GetNumBankSlots =
       _G.GetItemCount, _G.GetItemInfo, _G.GetInventoryItemLink, _G.GetItemQualityColor, _G.GetItemFamily, _G.BankButtonIDToInvSlotID, _G.GetNumBankSlots
 local GetContainerItemInfo, GetContainerItemLink, GetContainerNumFreeSlots, GetContainerItemCooldown =
-      _G.GetContainerItemInfo, _G.GetContainerItemLink, _G.GetContainerNumFreeSlots, _G.GetContainerItemCooldown
+    _G.C_Container and _G.C_Container.GetContainerItemInfo or _G.GetContainerItemInfo, _G.C_Container and _G.C_Container.GetContainerItemLink or _G.GetContainerItemLink, _G.C_Container and _G.C_Container.GetContainerNumFreeSlots or _G.GetContainerNumFreeSlots, _G.C_Container and _G.C_Container.GetContainerItemCooldown or _G.GetContainerItemCooldown
 local BANK_PANELS = _G.BANK_PANELS
 local ItemButtonUtil = _G.ItemButtonUtil
 local IsBagOpen = _G.IsBagOpen
+local ShowInspectCursor = _G.ShowInspectCursor
+local ShowContainerSellCursor = _G.C_Container and _G.C_Container.ShowContainerSellCursor or _G.ShowContainerSellCursor
 
 --@retail@
 local ReagentBankButtonIDToInvSlotID, GetContainerItemQuestInfo, DepositReagentBank, IsReagentBankUnlocked =
-      _G.ReagentBankButtonIDToInvSlotID, _G.GetContainerItemQuestInfo, _G.DepositReagentBank, _G.IsReagentBankUnlocked
+      _G.ReagentBankButtonIDToInvSlotID, _G.C_Container and _G.C_Container.GetContainerItemQuestInfo or _G.GetContainerItemQuestInfo, _G.DepositReagentBank, _G.IsReagentBankUnlocked
 local IsContainerItemAnUpgrade = _G.IsContainerItemAnUpgrade
+local C_ItemUpgrade = _G.C_ItemUpgrade
 --@end-retail@
 
 local C_Item, ItemLocation, InCombatLockdown, IsModifiedClick, GetDetailedItemLevelInfo, GetContainerItemID, InRepairMode, KeyRingButtonIDToInvSlotID, C_PetJournal, C_NewItems, PlaySound =
-      _G.C_Item, _G.ItemLocation, _G.InCombatLockdown, _G.IsModifiedClick, _G.GetDetailedItemLevelInfo, _G.GetContainerItemID, _G.InRepairMode, _G.KeyRingButtonIDToInvSlotID, _G.C_PetJournal, _G.C_NewItems, _G.PlaySound
+      _G.C_Item, _G.ItemLocation, _G.InCombatLockdown, _G.IsModifiedClick, _G.GetDetailedItemLevelInfo, _G.C_Container and _G.C_Container.GetContainerItemID or _G.GetContainerItemID, _G.InRepairMode, _G.KeyRingButtonIDToInvSlotID, _G.C_PetJournal, _G.C_NewItems, _G.PlaySound
+
+local UseContainerItem = _G.C_Container and _G.C_Container.UseContainerItem or _G.UseContainerItem
 
 local WOW_PROJECT_ID = _G.WOW_PROJECT_ID
 local WOW_PROJECT_CLASSIC = _G.WOW_PROJECT_CLASSIC
 local WOW_PROJECT_BURNING_CRUSADE_CLASSIC = _G.WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+local WOW_PROJECT_WRATH_CLASSIC = _G.WOW_PROJECT_WRATH_CLASSIC
 local WOW_PROJECT_MAINLINE = _G.WOW_PROJECT_MAINLINE
+local LE_EXPANSION_LEVEL_CURRENT = _G.LE_EXPANSION_LEVEL_CURRENT
+local LE_EXPANSION_BURNING_CRUSADE = _G.LE_EXPANSION_BURNING_CRUSADE
+local LE_EXPANSION_WRATH_OF_THE_LICH_KING = _G.LE_EXPANSION_WRATH_OF_THE_LICH_KING
 
 -- GLOBALS: UIParent, GameTooltip, BankFrame, CloseBankFrame, TEXTURE_ITEM_QUEST_BANG, TEXTURE_ITEM_QUEST_BORDER, REAGENTBANK_CONTAINER, REPAIR_COST, SOUNDKIT
 -- GLOBALS: CoinPickupFrame, ShowInspectCursor, this, CooldownFrame_Set, MerchantFrame, SetTooltipMoney, BagginsCategoryAddDropdown, error, CooldownFrame_SetTimer, StaticPopup_Show
@@ -125,7 +133,11 @@ function Baggins:IsClassicWow() --luacheck: ignore 212
 end
 
 function Baggins:IsTBCWow() --luacheck: ignore 212
-	return WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+	return WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC and LE_EXPANSION_LEVEL_CURRENT == LE_EXPANSION_BURNING_CRUSADE
+end
+
+function Baggins:IsWrathWow() --luacheck: ignore 212
+	return WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC and LE_EXPANSION_LEVEL_CURRENT == LE_EXPANSION_WRATH_OF_THE_LICH_KING
 end
 
 function Baggins:IsRetailWow() --luacheck: ignore 212
@@ -446,12 +458,9 @@ function Baggins:OnEnable()
     self:RegisterEvent('AUCTION_HOUSE_CLOSED', "CloseAllBags")
 
     --@retail@
-    -- Patch 8.0.1 Added
-    self:RegisterEvent('SCRAPPING_MACHINE_SHOW', "OpenAllBags")
-    self:RegisterEvent('SCRAPPING_MACHINE_CLOSE', "CloseAllBags")
-    -- Patch 9.0.5 Added
-    self:RegisterEvent('ITEM_UPGRADE_MASTER_OPENED', "ItemUpgrade")
-    --self:RegisterEvent('ITEM_UPGRADE_MASTER_CLOSED', "ItemUpgrade")
+    -- Patch 10.0 Added
+    self:RegisterEvent('PLAYER_INTERACTION_MANAGER_FRAME_SHOW', "PlayerInteractionManager")
+    self:RegisterEvent('PLAYER_INTERACTION_MANAGER_FRAME_HIDE', "PlayerInteractionManager")
     self:RegisterEvent('SOCKET_INFO_UPDATE', "OpenAllBags")
     --@end-retail@
 
@@ -569,7 +578,7 @@ function Baggins:OnDisable()
 end
 
 local INVSLOT_LAST_EQUIPPED, CONTAINER_BAG_OFFSET, NUM_BAG_SLOTS =
-      INVSLOT_LAST_EQUIPPED, CONTAINER_BAG_OFFSET, NUM_BAG_SLOTS
+      INVSLOT_LAST_EQUIPPED, CONTAINER_BAG_OFFSET, _G.NUM_TOTAL_EQUIPPED_BAG_SLOTS or NUM_BAG_SLOTS
 
 function Baggins:SaveItemCounts()
     local itemcounts = self.itemcounts
@@ -649,7 +658,7 @@ function Baggins:IsCompressed(itemID)
                 end
             end
 
-            if Baggins:IsClassicWow() or Baggins:IsTBCWow() then
+            if Baggins:IsClassicWow() or Baggins:IsTBCWow() or Baggins:IsWrathWow() then
                 if p.CompressShards and itemFamily ~=3 and itemEquipLoc~="INVTYPE_BAG" then
                     return true
                 end
@@ -1301,8 +1310,17 @@ local function NameComp(a, b)
         return (namea  or "?") < (nameb or "?")
     end
 
-    local counta = select(2, GetContainerItemInfo(baga, slota))
-    local countb = select(2, GetContainerItemInfo(bagb, slotb))
+    local counta
+    local countb
+    if Baggins:IsRetailWow() then
+        local itemInfoCounta = GetContainerItemInfo(baga, slota)
+        local itemInfoCountb = GetContainerItemInfo(bagb, slotb)
+        counta = itemInfoCounta and itemInfoCounta.stackCount
+        countb = itemInfoCountb and itemInfoCountb.stackCount
+    else
+        counta = select(2, GetContainerItemInfo(baga, slota))
+        countb = select(2, GetContainerItemInfo(bagb, slotb))
+    end
     return (counta  or 0) > (countb or 0)
 end
 local function QualityComp(a, b)
@@ -1320,8 +1338,17 @@ local function QualityComp(a, b)
         return (namea  or "?") < (nameb or "?")
     end
 
-    local counta = select(2, GetContainerItemInfo(baga, slota))
-    local countb = select(2, GetContainerItemInfo(bagb, slotb))
+    local counta
+    local countb
+    if Baggins:IsRetailWow() then
+        local itemInfoCounta = GetContainerItemInfo(baga, slota)
+        local itemInfoCountb = GetContainerItemInfo(bagb, slotb)
+        counta = itemInfoCounta and itemInfoCounta.stackCount
+        countb = itemInfoCountb and itemInfoCountb.stackCount
+    else
+        counta = select(2, GetContainerItemInfo(baga, slota))
+        countb = select(2, GetContainerItemInfo(bagb, slotb))
+    end
     return (counta  or 0) > (countb  or 0)
 end
 local function TypeComp(a, b)
@@ -1349,8 +1376,17 @@ local function TypeComp(a, b)
         return (namea or "?")  < (nameb or "?")
     end
 
-    local counta = select(2, GetContainerItemInfo(baga, slota))
-    local countb = select(2, GetContainerItemInfo(bagb, slotb))
+    local counta
+    local countb
+    if Baggins:IsRetailWow() then
+        local itemInfoCounta = GetContainerItemInfo(baga, slota)
+        local itemInfoCountb = GetContainerItemInfo(bagb, slotb)
+        counta = itemInfoCounta and itemInfoCounta.stackCount
+        countb = itemInfoCountb and itemInfoCountb.stackCount
+    else
+        counta = select(2, GetContainerItemInfo(baga, slota))
+        countb = select(2, GetContainerItemInfo(bagb, slotb))
+    end
     return (counta or 0)  > (countb or 0)
 end
 local function SlotComp(a, b)
@@ -1387,8 +1423,17 @@ local function IlvlComp(a, b)
         return (namea or "?")  < (nameb or "?")
     end
 
-    local counta = select(2, GetContainerItemInfo(baga, slota))
-    local countb = select(2, GetContainerItemInfo(bagb, slotb))
+    local counta
+    local countb
+    if Baggins:IsRetailWow() then
+        local itemInfoCounta = GetContainerItemInfo(baga, slota)
+        local itemInfoCountb = GetContainerItemInfo(bagb, slotb)
+        counta = itemInfoCounta and itemInfoCounta.stackCount
+        countb = itemInfoCountb and itemInfoCountb.stackCount
+    else
+        counta = select(2, GetContainerItemInfo(baga, slota))
+        countb = select(2, GetContainerItemInfo(bagb, slotb))
+    end
     return (counta  or 0) > (countb or 0)
 end
 
@@ -2093,7 +2138,9 @@ do
         useButton:SetAttribute("item", nil)
         useButton:UnregisterAllEvents()
         useButton:Hide()
-        Baggins:Unhook(_G["DropDownList1Button" .. useButton.owner], "OnHide")
+        if useButton.owner then
+            Baggins:Unhook(_G["DropDownList1Button" .. useButton.owner], "OnHide")
+        end
         useButton.owner = nil
     end
 
@@ -2236,7 +2283,15 @@ do
         excludeCategoryIndex = #menu
 
         local itemID
-            local _, _, _, itemQuality, _, _, itemLink = GetContainerItemInfo(bag, slot)
+        local itemQuality,itemLink,_
+        if Baggins:IsRetailWow() then
+            local itemInfo = GetContainerItemInfo(bag, slot)
+            itemQuality = itemInfo and itemInfo.quality
+            itemLink = GetContainerItemLink(bag, slot)
+        else
+            _, _, _, itemQuality, _, _, itemLink = GetContainerItemInfo(bag, slot)
+        end
+
         if itemLink then
           itemID = C_Item.GetItemID(ItemLocation:CreateFromBagAndSlot(bag, slot))
         end
@@ -2327,28 +2382,16 @@ do
     local itemDropdownFrame = CreateFrame("Frame", "Baggins_ItemMenuFrame", UIParent, "UIDropDownMenuTemplate")
 
     local function BagginsItemButton_GetTargetBankTab(bag, slot)
-        -- There's likely a better way then looking at the tooltip
-        -- It seems all crafting reagents now have a line in the tooltip called "Crafting Reagent" in enUS.
-
-        -- setup gratuity based on bag and slot
+        local itemLink = GetContainerItemLink(bag, slot)
+        local _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, isCraftingReagent = GetItemInfo(itemLink)
         if LBU:IsBank(bag) then
-            gratuity:SetInventoryItem("player", BankButtonIDToInvSlotID(slot))
-        --@retail@
-        elseif LBU:IsReagentBank(bag) then
-            gratuity:SetInventoryItem("player", ReagentBankButtonIDToInvSlotID(slot))
-        --@end-retail@
-        else
-            gratuity:SetBagItem(bag, slot)
+            if Baggins:IsRetailWow() then
+                local count = LBU:CountSlots("REAGENTBANK")
+                if isCraftingReagent and count ~= nil and count > 0 then
+                    return REAGENT_BANK_TAB
+                end
+            end
         end
-
-        -- count remaining slots and switch the tab based on the item type
-        --@retail@
-        local count = LBU:CountSlots("REAGENTBANK")
-        if gratuity:Find(L["Crafting Reagent"]) and count ~= nil and count > 0 then
-            return REAGENT_BANK_TAB
-        end
-        --@end-retail@
-
         return BANK_TAB
     end
 
@@ -2386,7 +2429,13 @@ do
         end
         for _, v in ipairs(button.slots) do
             local bag, slot = GetSlotInfo(v)
-            local locked =select(3, GetContainerItemInfo(bag, slot))
+            local locked
+            if Baggins:IsRetailWow() then
+                local itemInfo = GetContainerItemInfo(bag, slot)
+                locked = itemInfo and itemInfo.isLocked
+            else
+                locked = select(3, GetContainerItemInfo(bag, slot))
+            end
             if not locked then
                 button:SetID(slot)
                 local bagframe = button:GetParent():GetParent()
@@ -2941,7 +2990,13 @@ function Baggins:UpdateItemButtonLocks()
         for _, section in ipairs(bag.sections) do
             for _, button in ipairs(section.items) do
                 if button:IsVisible() then
-                    local locked = select(3, GetContainerItemInfo(button:GetParent():GetID(), button:GetID()))
+                    local locked
+                    if Baggins:IsRetailWow() then
+                        local itemInfo = GetContainerItemInfo(button:GetParent():GetID(), button:GetID())
+                        locked = itemInfo and itemInfo.isLocked
+                    else
+                        locked = select(3, GetContainerItemInfo(button:GetParent():GetID(), button:GetID()))
+                    end
                     SetItemButtonDesaturated(button, locked, 0.5, 0.5, 0.5)
                 end
             end
@@ -2956,7 +3011,13 @@ function Baggins:UpdateItemButtonCooldowns()
                 if button:IsVisible() then
                     local container = button:GetParent():GetID()
                     local slot = button:GetID()
-                    local texture = GetContainerItemInfo(container, slot)
+                    local texture
+                    if Baggins:IsRetailWow() then
+                        local itemInfo = GetContainerItemInfo(container, slot)
+                        texture = itemInfo and itemInfo.iconFileID
+                    else
+                        texture = GetContainerItemInfo(container, slot)
+                    end
                     if ( texture ) then
                         self:UpdateItemButtonCooldown(container, button)
                         button.hasItem = 1
@@ -3032,27 +3093,38 @@ function Baggins:UpdateItemButton(bagframe,button,bag,slot)
             newItemTexture:Hide()
         end
     end
-    local texture, itemCount, locked, quality, readable = GetContainerItemInfo(bag, slot)
-    local link = GetContainerItemLink(bag, slot)
-    local itemid
-    if link then
-        local qual = select(3, GetItemInfo(link))
-        quality = qual or quality
-        itemid = tonumber(link:match("item:(%d+)"))
+    local texture, itemCount, locked, quality, readable, itemid, link, _
+    if Baggins:IsRetailWow() then
+        local itemInfo = GetContainerItemInfo(bag, slot)
+        texture = itemInfo and itemInfo.iconFileID
+        itemCount = itemInfo and itemInfo.stackCount
+        locked = itemInfo and itemInfo.isLocked
+        quality = itemInfo and itemInfo.quality
+        readable = itemInfo and itemInfo.isReadable
+        link = itemInfo and itemInfo.hyperlink
+        itemid = itemInfo and itemInfo.itemID
+    else
+        texture, itemCount, locked, quality, readable, _, link, _, _, itemid = GetContainerItemInfo(bag, slot)
     end
     button:SetID(slot)
     -- quest item glow introduced in 3.3 (with silly logic)
-    local isQuestItem, questId, isActive
-    --@retail@
-    isQuestItem, questId, isActive = GetContainerItemQuestInfo(bag, slot)
-    --@end-retail@
+    local isQuestItem, questId, isActive, ContainerItemQuestInfo
+    if Baggins:IsRetailWow() then
+        ContainerItemQuestInfo = GetContainerItemQuestInfo(bag, slot)
+        isQuestItem = ContainerItemQuestInfo and ContainerItemQuestInfo.isQuestItem
+        questId = ContainerItemQuestInfo and ContainerItemQuestInfo.questID
+        isActive = ContainerItemQuestInfo and ContainerItemQuestInfo.isActive
+    end
+    if Baggins:IsWrathWow() then
+        isQuestItem, questId, isActive = GetContainerItemQuestInfo(bag, slot)
+    end
     local questTexture = (questId and not isActive) and TEXTURE_ITEM_QUEST_BANG or (questId or isQuestItem) and TEXTURE_ITEM_QUEST_BORDER
     if p.highlightquestitems and texture and questTexture then
         button.glow:SetTexture(questTexture)
         button.glow:SetVertexColor(1,1,1)
         button.glow:SetAlpha(1)
         button.glow:Show()
-    elseif p.qualitycolor and texture and quality >= p.qualitycolormin then
+    elseif p.qualitycolor and texture and quality and quality >= p.qualitycolormin then
         local r, g, b = GetItemQualityColor(quality)
         button.glow:SetTexture("Interface\\Addons\\Baggins\\Textures\\Glow")
         button.glow:SetVertexColor(r,g,b)
@@ -3095,7 +3167,18 @@ function Baggins:UpdateItemButton(bagframe,button,bag,slot)
             local bagtype, itemFamily = Baggins:IsSpecialBag(bag)
             bagtype = bagtype or ""
             --@retail@
-            count = bagtype..LBU:CountSlots(LBU:IsBank(bag) and "BANK" or LBU:IsReagentBank(bag) and "REAGENTBANK" or "BAGS", itemFamily)
+            --count = bagtype..LBU:CountSlots(LBU:IsBank(bag) and "BANK" or LBU:IsReagentBank(bag) and "REAGENTBANK" or "BAGS", itemFamily)
+            count = 0
+            if bag <=4 and bag >=0 then
+                for Bag = 0, 4 do
+                    count = count + GetContainerNumFreeSlots(Bag)
+                end
+            elseif bag == 5 then
+                count = count + GetContainerNumFreeSlots(bag)
+            else
+                count = LBU:CountSlots(LBU:IsBank(bag) and "BANK" or LBU:IsReagentBank(bag) and "REAGENTBANK" or "BAGS", itemFamily)
+            end
+            count = bagtype..count
             --@end-retail@
 
             --[===[@non-retail@
@@ -3152,7 +3235,7 @@ function Baggins:UpdateItemButton(bagframe,button,bag,slot)
 
     if p.EnableItemUpgradeArrow then
         local data = _G.PawnGetItemData and _G.PawnGetItemData(link)
-        local itemIsUpgrade = _G.PawnIsContainerItemAnUpgrade and _G.PawnIsContainerItemAnUpgrade(bag, slot) or _G.IsContainerItemAnUpgrade and _G.IsContainerItemAnUpgrade(bag, slot) or data and _G.PawnIsItemAnUpgrade(data)
+        local itemIsUpgrade = _G.PawnIsContainerItemAnUpgrade and _G.PawnIsContainerItemAnUpgrade(bag, slot) or IsContainerItemAnUpgrade and IsContainerItemAnUpgrade(bag, slot) or data and _G.PawnIsItemAnUpgrade(data)
         button.UpgradeIcon:SetShown(itemIsUpgrade or false)
     end
 
@@ -3160,15 +3243,16 @@ function Baggins:UpdateItemButton(bagframe,button,bag,slot)
         local ilvltext = button:CreateFontString("Bagginsilvltext", "OVERLAY", "GameFontNormal")
         if link then
             --itemName, itemLink, itemQuality, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount,itemEquipLoc, itemTexture, sellPrice, classID, subclassID, bindType, expacID, setID, isCraftingReagent
-            local _, _, _, _, _, itemType = GetItemInfo(link)
-            local item = Item:CreateFromBagAndSlot(bag, slot)
+            local _, _, _, _, _, _, _, _, _, _, _, classID = GetItemInfo(link)
+            local item = Item:CreateFromBagAndSlot(bag, slot) --luacheck: ignore 113
             local level = item and item:GetCurrentItemLevel() or 0
-            if level and itemType == "Armor" or itemType == "Weapon" then
+            --if level and itemType == "Armor" or itemType == "Weapon" then
+            if level and classID == Enum.ItemClass.Armor or classID == Enum.ItemClass.Weapon then
                 --text:SetText(itemLevel)
                 --text:Show()
                 --ilvltext:SetFont(p.Font, 10)
                 ilvltext:SetPoint(p.ItemLevelAncor,button,p.ItemLevelAncor,0,0)
-                if p.ItemLevelQualityColor then
+                if p.ItemLevelQualityColor and quality then
                     local r, g, b = GetItemQualityColor(quality)
                     --print(r, g, b)
                     ilvltext:SetTextColor(r, g, b)
@@ -3185,6 +3269,40 @@ function Baggins:UpdateItemButton(bagframe,button,bag,slot)
             end
         else
             ilvltext:Hide()
+        end
+    end
+
+    if Baggins:IsRetailWow() and not p.EnableItemReagentQuality then
+        ClearItemCraftingQualityOverlay(button)
+    end
+
+    if Baggins:IsRetailWow() and link and p.EnableItemReagentQuality then
+        if p.alwaysShowItemReagentQuality then
+            button.alwaysShowProfessionsQuality = true
+        else
+            button.alwaysShowProfessionsQuality = false
+        end
+        SetItemCraftingQualityOverlay(button, link)
+    end
+
+    if Baggins:IsRetailWow() and link and p.EnablePetLevel then
+        local petLeveltext = button:CreateFontString("BagginspetLeveltext", "OVERLAY", "GameFontNormal")
+        local ExtractLink = _G.LinkUtil.ExtractLink
+        local linkType, linkOptions = ExtractLink(link)
+        if linkType == "battlepet" then
+            local _, _, petLevel, breedQuality = strsplit(":", link)
+            petLeveltext:SetPoint(p.ItemLevelAncor,button,p.ItemLevelAncor,0,0)
+            if p.ItemLevelQualityColor then
+                local r, g, b = GetItemQualityColor(breedQuality)
+                petLeveltext:SetTextColor(r, g, b)
+            else
+                petLeveltext:SetTextColor(1, 1, 1)
+            end
+            petLeveltext:SetText(petLevel)
+            button:SetFontString(petLeveltext)
+            petLeveltext:Show()
+        elseif petLeveltext then
+            petLeveltext:Hide()
         end
     end
 
@@ -3921,11 +4039,11 @@ function Baggins:ToggleBag(bagid)
     end
 end
 
-function Baggins:OpenBag(bagid,noupdate)
+function Baggins:OpenBag(bagid,_) --bagid,noupdate
 
-    if self.db.profile.newitemduration > 0 then
+    --if self.db.profile.newitemduration > 0 then
         --Baggins:SaveItemCounts()
-    end
+    --end
     --self:SetBagUpdateSpeed(true);	-- indicate bags open
     local p = self.db.profile
     if not self:IsActive() then
@@ -4112,29 +4230,36 @@ local function GetItemUpgradeLevel(itemLink)
     end
  end
 
-function Baggins:ItemUpgrade()
-    _G.C_Timer.After(1, function()
-        for _, bag in ipairs(Baggins.bagframes) do --bagid,bag
-            for _, section in ipairs(bag.sections) do --sectionid, section
-                for _, button in ipairs(section.items) do --buttonid, button
-                    if button:IsVisible() then
-                        local link = GetContainerItemLink(button:GetParent():GetID(), button:GetID())
-                        if link then
-                            BagID = button:GetParent():GetID()
-                            SlotID = button:GetID()
-                            if C_ItemUpgrade.CanUpgradeItem(ItemLocation:CreateFromBagAndSlot(BagID, SlotID)) then
-                                local currentUpgradeLevel, maxUpgradeLevel = GetItemUpgradeLevel(link)
-                                if (currentUpgradeLevel and maxUpgradeLevel) == nil then
+ function Baggins:PlayerInteractionManager(event,typenumber) --luacheck: ignore 212
+    if type(typenumber) ~= "number" then return end
+    if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" and typenumber == 53 then
+        _G.C_Timer.After(1, function()
+            for _, bag in ipairs(Baggins.bagframes) do --bagid,bag
+                for _, section in ipairs(bag.sections) do --sectionid, section
+                    for _, button in ipairs(section.items) do --buttonid, button
+                        if button:IsVisible() then
+                            local link = GetContainerItemLink(button:GetParent():GetID(), button:GetID())
+                            if link then
+                                local BagID = button:GetParent():GetID()
+                                local SlotID = button:GetID()
+                                if C_ItemUpgrade.CanUpgradeItem(ItemLocation:CreateFromBagAndSlot(BagID, SlotID)) then
+                                    local currentUpgradeLevel, maxUpgradeLevel = GetItemUpgradeLevel(link)
+                                    if (currentUpgradeLevel and maxUpgradeLevel) == nil then
+                                        button:SetAlpha(tonumber(Baggins.db.profile.unmatchedAlpha) or 0.2)
+                                    end
+                                end
+                                if not C_ItemUpgrade.CanUpgradeItem(ItemLocation:CreateFromBagAndSlot(BagID, SlotID)) then
                                     button:SetAlpha(tonumber(Baggins.db.profile.unmatchedAlpha) or 0.2)
                                 end
-                            end
-                            if not C_ItemUpgrade.CanUpgradeItem(ItemLocation:CreateFromBagAndSlot(BagID, SlotID)) then
-                                button:SetAlpha(tonumber(Baggins.db.profile.unmatchedAlpha) or 0.2)
                             end
                         end
                     end
                 end
             end
-        end
-    end)
+        end)
+    end
+    --26 VoidStorageBanker,39 ObliterumForge,40 ScrappingMachine,44 ItemInteraction,48 LegendaryCrafting,56 AzeriteForge
+    if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" and type == 26 or type == 39 or type == 40 or type == 44 or type == 48 or type == 56 then
+        self:OpenAllBags()
+    end
 end

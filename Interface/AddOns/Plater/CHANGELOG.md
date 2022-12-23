@@ -1,4 +1,3 @@
-@Terciob:
-- On Arena and Battleground, faction and spec icons are now hidden while in combat.
-- Dispellable buffs won't show if its duration is bigger than 2 minutes.
+@cont1nuity:
+- Fixing more cases of invisible nameplates on some spawned or hostility changed units.
 

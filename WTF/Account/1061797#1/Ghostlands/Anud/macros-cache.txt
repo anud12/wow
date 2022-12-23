@@ -23,8 +23,10 @@ VER 3 0100000000000014 "Cleanse" "INV_MISC_QUESTIONMARK"
 /cast [@mouseover,exists][] Cleanse
 END
 VER 3 010000000000000A "Divine Toll" "INV_MISC_QUESTIONMARK"
-#showtooltip
-/cast [@mouseover,exists][] Divine Toll
+#showtooltip Divine Toll
+/cleartarget
+/cast [@mouseover, exists] [] Divine Toll
+/targetlasttarget
 END
 VER 3 0100000000000001 "Final" "INV_MISC_QUESTIONMARK"
 #showtooltip 
@@ -46,10 +48,6 @@ VER 3 0100000000000019 "Holy prism" "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cast [@mouseover,exists][] Holy Prism
 END
-VER 3 0100000000000006 "Holy Shock" "INV_MISC_QUESTIONMARK"
-#showtooltip
-/cast [@mouseover,exists][] Holy Shock
-END
 VER 3 010000000000000D "Lay On Hands" "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cast [@mouseover,nodead] Lay on Hands
@@ -62,11 +60,11 @@ VER 3 0100000000000017 "Light of the mar" "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cast [@mouseover,exists][] Light of the martyr; Flash of Light
 END
+VER 3 0100000000000005 "Tyr's Deliveranc" "1122562"
+#showtooltip
+/cast  [@self,exists][] Tyr's Deliverance
+END
 VER 3 0100000000000009 "Word of Glory" "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cast [@mouseover,exists, noharm][] Word of Glory;
-END
-VER 3 0100000000000005 "Wrath" "INV_MISC_QUESTIONMARK"
-#showtooltip
-/cast [@focus] Hammer of Wrath
 END

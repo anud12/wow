@@ -10,19 +10,22 @@
 
 ]]
 
--- GLOBALS: GetAddOnMetadata, LibStub
-
 local MSQ = LibStub and LibStub("Masque", true)
 if not MSQ then return end
 
 local AddOn, Core = ...
 
 ----------------------------------------
--- Locals
+-- Internal
 ---
 
--- Locale
 local L = Core.Locale
+
+----------------------------------------
+-- Local
+---
+
+local API_VERSION = 100002
 
 -- Skin Info
 local Version = GetAddOnMetadata(AddOn, "Version")
@@ -30,7 +33,6 @@ local Websites = {
 	"https://github.com/SFX-WoW/Masque_Cirque",
 	"https://www.curseforge.com/wow/addons/masque-cirque",
 	"https://addons.wago.io/addons/masque-cirque",
-	"https://www.wowace.com/projects/masque-cirque",
 	"https://www.wowinterface.com/downloads/info24410",
 }
 
@@ -39,16 +41,18 @@ local Websites = {
 ---
 
 MSQ:AddSkin("Cirque", {
-	API_VERSION = 90002,
+	API_VERSION = API_VERSION,
 	Shape = "Circle",
-	Group = "Cirque",
-	Order = 1,
 
 	-- Info
 	Description = L["A circular skin with an outer ring as an accent."],
 	Version = Version,
 	Author = "StormFX",
 	Websites = Websites,
+
+	-- UI
+	Group = "Cirque",
+	Order = 1,
 
 	-- Skin
 	Mask = {
@@ -74,9 +78,9 @@ MSQ:AddSkin("Cirque", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
+		-- SetAllPoints = nil,
 		UseColor = true,
 		UseMask = true,
-		-- SetAllPoints = nil,
 	},
 	Icon = {
 		-- TexCoords = {0, 1, 0, 1},
@@ -88,8 +92,24 @@ MSQ:AddSkin("Cirque", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		UseMask = true,
 		-- SetAllPoints = nil,
+		UseMask = true,
+	},
+	SlotIcon = {
+		Texture = [[Interface\Icons\INV_Misc_Bag_08]],
+		-- TexCoords = {0, 1, 0, 1},
+		-- Color = {1, 1, 1, 1},
+		BlendMode = "BLEND",
+		DrawLayer = "BACKGROUND",
+		DrawLevel = 0,
+		Width = 38,
+		Height = 38,
+		Point = "CENTER",
+		RelPoint = "CENTER",
+		OffsetX = 0,
+		OffsetY = 0,
+		-- SetAllPoints = nil,
+		UseMask = true,
 	},
 	Shadow = {
 		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Shadow]],
@@ -122,8 +142,8 @@ MSQ:AddSkin("Cirque", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		-- UseStates = nil,
 		-- SetAllPoints = nil,
+		-- UseStates = nil,
 	},
 	-- Disabled = Default.Disabled,
 	Pushed = {
@@ -139,9 +159,9 @@ MSQ:AddSkin("Cirque", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
+		-- SetAllPoints = nil,
 		UseColor = true,
 		UseMask = true,
-		-- SetAllPoints = nil,
 	},
 	Flash = {
 		-- Texture = [[Interface\Buttons\UI-QuickslotRed]],
@@ -156,38 +176,41 @@ MSQ:AddSkin("Cirque", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
+		-- SetAllPoints = nil,
 		UseColor = true,
 		UseMask = true,
-		-- SetAllPoints = nil,
 	},
 	HotKey = {
 		JustifyH = "RIGHT",
 		JustifyV = "MIDDLE",
 		DrawLayer = "ARTWORK",
-		Width = 40,
-		Height = 10,
+		Width = 38,
+		Height = 0,
+		Anchor = "Icon",
 		Point = "TOPRIGHT",
 		RelPoint = "TOPRIGHT",
-		OffsetX = 0,
-		OffsetY = -1,
+		OffsetX = -2,
+		OffsetY = 0,
 	},
 	Count = {
 		JustifyH = "RIGHT",
 		JustifyV = "MIDDLE",
 		DrawLayer = "ARTWORK",
-		Width = 40,
-		Height = 10,
+		Width = 0,
+		Height = 0,
+		Anchor = "Icon",
 		Point = "BOTTOMRIGHT",
 		RelPoint = "BOTTOMRIGHT",
-		OffsetX = 0,
-		OffsetY = 0,
+		OffsetX = -1,
+		OffsetY = -1,
 	},
 	Duration = {
 		JustifyH = "CENTER",
 		JustifyV = "MIDDLE",
 		DrawLayer = "ARTWORK",
-		Width = 40,
-		Height = 10,
+		Width = 38,
+		Height = 0,
+		Anchor = "Icon",
 		Point = "TOP",
 		RelPoint = "BOTTOM",
 		OffsetX = 0,
@@ -207,6 +230,33 @@ MSQ:AddSkin("Cirque", {
 		OffsetX = 0,
 		OffsetY = 0,
 		-- SetAllPoints = nil,
+	},
+	SlotHighlight = {
+		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Indicator]],
+		-- TexCoords = {0, 1, 0, 1},
+		Color = {1, 1, 1, 0.4},
+		BlendMode = "ADD",
+		DrawLayer = "OVERLAY",
+		DrawLevel = 0,
+		Width = 40,
+		Height = 40,
+		Point = "CENTER",
+		RelPoint = "CENTER",
+		OffsetX = 0,
+		OffsetY = 0,
+		-- SetAllPoints = nil,
+	},
+	Name = {
+		JustifyH = "CENTER",
+		JustifyV = "MIDDLE",
+		DrawLayer = "OVERLAY",
+		Width = 38,
+		Height = 0,
+		Anchor = "Icon",
+		Point = "BOTTOM",
+		RelPoint = "BOTTOM",
+		OffsetX = 0,
+		OffsetY = -2,
 	},
 	Border = {
 		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Indicator]],
@@ -253,21 +303,6 @@ MSQ:AddSkin("Cirque", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
-	SlotHighlight = {
-		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Indicator]],
-		-- TexCoords = {0, 1, 0, 1},
-		Color = {1, 1, 1, 0.4},
-		BlendMode = "ADD",
-		DrawLayer = "OVERLAY",
-		DrawLevel = 0,
-		Width = 40,
-		Height = 40,
-		Point = "CENTER",
-		RelPoint = "CENTER",
-		OffsetX = 0,
-		OffsetY = 0,
-		-- SetAllPoints = nil,
-	},
 	Gloss = {
 		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Gloss]],
 		-- TexCoords = {0, 1, 0, 1},
@@ -283,22 +318,9 @@ MSQ:AddSkin("Cirque", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
-	IconOverlay = {
-		-- Atlas = "AzeriteIconFrame",
-		-- Color = {1, 1, 1, 1},
-		BlendMode = "BLEND",
-		DrawLayer = "OVERLAY",
-		DrawLevel = 1,
-		Width = 36,
-		Height = 36,
-		Point = "CENTER",
-		RelPoint = "CENTER",
-		OffsetX = 0,
-		OffsetY = 0,
-		-- SetAllPoints = nil,
-	},
 	NewAction = {
 		-- Atlas = "bags-newitem",
+		-- UseAtlasSize = false,
 		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Glow]],
 		Color = {1, 1, 0.6, 1},
 		BlendMode = "ADD",
@@ -314,6 +336,7 @@ MSQ:AddSkin("Cirque", {
 	},
 	SpellHighlight = {
 		-- Atlas = "bags-newitem",
+		-- UseAtlasSize = false,
 		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Glow]],
 		Color = {1, 1, 0.6, 1},
 		BlendMode = "ADD",
@@ -342,8 +365,24 @@ MSQ:AddSkin("Cirque", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
+	IconOverlay = {
+		-- Atlas = "AzeriteIconFrame",
+		-- UseAtlasSize = false,
+		-- Color = {1, 1, 1, 1},
+		BlendMode = "BLEND",
+		DrawLayer = "OVERLAY",
+		DrawLevel = 1,
+		Width = 36,
+		Height = 36,
+		Point = "CENTER",
+		RelPoint = "CENTER",
+		OffsetX = 0,
+		OffsetY = 0,
+		-- SetAllPoints = nil,
+	},
 	UpgradeIcon = {
 		Atlas = "bags-greenarrow",
+		UseAtlasSize = false, -- true
 		-- Color = {1, 1, 1, 1},
 		BlendMode = "BLEND",
 		DrawLayer = "OVERLAY",
@@ -356,14 +395,28 @@ MSQ:AddSkin("Cirque", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
-	NewItem = {
-		-- Atlas = "bags-glow-white",
-		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Glow]],
-		-- TexCoords = {0, 1, 0, 1},
+	IconOverlay2 = {
+		-- Atlas = "ConduitIconFrame-Corners",
+		-- UseAtlasSize = false,
 		-- Color = {1, 1, 1, 1},
-		BlendMode = "ADD",
-		DrawLayer = "BORDER",
-		DrawLevel = 0,
+		BlendMode = "BLEND",
+		DrawLayer = "OVERLAY",
+		DrawLevel = 1,
+		Width = 36,
+		Height = 36,
+		Point = "CENTER",
+		RelPoint = "CENTER",
+		OffsetX = 0,
+		OffsetY = 0,
+		-- SetAllPoints = nil,
+	},
+	QuestBorder = {
+		Border = [[Interface\AddOns\Masque_Cirque\Textures\Quest]],
+		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Indicator]],
+		Color = {1, 0.8, 0, 1},
+		BlendMode = "BLEND",
+		DrawLayer = "OVERLAY",
+		DrawLevel = 2,
 		Width = 40,
 		Height = 40,
 		Point = "CENTER",
@@ -372,13 +425,15 @@ MSQ:AddSkin("Cirque", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
-	QuestBorder = {
-		Border = [[Interface\AddOns\Masque_Cirque\Textures\Indicator]],
-		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Quest]],
-		Color = {1, 0.8, 0, 1},
-		BlendMode = "BLEND",
-		DrawLayer = "OVERLAY",
-		DrawLevel = 2,
+	NewItem = {
+		-- Atlas = "bags-glow-white",
+		-- UseAtlasSize = false,
+		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Glow]],
+		-- TexCoords = {0, 1, 0, 1},
+		-- Color = {1, 1, 1, 1},
+		BlendMode = "ADD",
+		DrawLayer = "BORDER",
+		DrawLevel = 0,
 		Width = 40,
 		Height = 40,
 		Point = "CENTER",
@@ -400,8 +455,8 @@ MSQ:AddSkin("Cirque", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		UseColor = true,
 		-- SetAllPoints = true,
+		UseColor = true,
 	},
 	ContextOverlay = {
 		-- Texture = nil,
@@ -416,11 +471,12 @@ MSQ:AddSkin("Cirque", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		UseColor = true,
 		-- SetAllPoints = true,
+		UseColor = true,
 	},
 	JunkIcon = {
 		Atlas = "bags-junkcoin",
+		UseAtlasSize = false, -- true
 		-- Color = {1, 1, 1, 1},
 		BlendMode = "BLEND",
 		DrawLayer = "OVERLAY",
@@ -432,17 +488,6 @@ MSQ:AddSkin("Cirque", {
 		OffsetX = 2,
 		OffsetY = 0,
 		-- SetAllPoints = nil,
-	},
-	Name = {
-		JustifyH = "CENTER",
-		JustifyV = "MIDDLE",
-		DrawLayer = "OVERLAY",
-		Width = 40,
-		Height = 12,
-		Point = "BOTTOM",
-		RelPoint = "BOTTOM",
-		OffsetX = 0,
-		OffsetY = 2,
 	},
 	Highlight = {
 		Texture = [[Interface\AddOns\Masque_Cirque\Textures\Indicator]],
@@ -457,8 +502,8 @@ MSQ:AddSkin("Cirque", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		-- UseColor = nil,
 		-- SetAllPoints = nil,
+		-- UseColor = nil,
 	},
 	AutoCastShine = {
 		Width = 32,
@@ -471,6 +516,8 @@ MSQ:AddSkin("Cirque", {
 	},
 	Cooldown = {
         Texture = [[Interface\AddOns\Masque_Cirque\Textures\Mask]],
+		-- EdgeTexture = [[Interface\AddOns\Masque\Textures\Cooldown\Edge]],
+		-- PulseTexture = [[Interface\Cooldown\star4]],
 		Color = {0, 0, 0, 0.7},
 		Width = 36,
 		Height = 36,
@@ -481,6 +528,8 @@ MSQ:AddSkin("Cirque", {
 		-- SetAllPoints = nil,
 	},
 	ChargeCooldown = {
+		-- EdgeTexture = [[Interface\AddOns\Masque\Textures\Cooldown\Edge]],
+		-- PulseTexture = [[Interface\Cooldown\star4]],
 		Width = 32,
 		Height = 32,
 		Point = "CENTER",
@@ -496,12 +545,20 @@ MSQ:AddSkin("Cirque", {
 ---
 
 MSQ:AddSkin("Cirque - Simple", {
+	-- API_VERSION = Template.API_VERSION,
+	-- Shape = Template.Shape,
 	Template = "Cirque",
-	Title = "Simple",
-	Order = 2,
 
 	-- Info
+	-- Author = Template.Author,
 	Description = L["An alternate version of Cirque without an outer ring."],
+	-- Version = Template.Version,
+	-- Websites = Template.Websites,
+
+	-- UI
+	-- Group = Template.Group,
+	Order = 2,
+	Title = "Simple",
 
 	-- Skin
 	Shadow = {
@@ -535,7 +592,7 @@ MSQ:AddSkin("Cirque - Simple", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		-- UseStates = nil,
 		-- SetAllPoints = nil,
+		-- UseStates = nil,
 	},
 })

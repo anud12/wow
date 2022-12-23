@@ -1,4 +1,4 @@
-local MAJOR,MINOR = "LibBagUtils-1.0", tonumber(("$Revision: 45 $"):match("%d+"))
+local MAJOR,MINOR = "LibBagUtils-1.0", tonumber(("$Revision: 50 $"):match("%d+"))
 local LibStub = _G.LibStub
 local lib = LibStub:NewLibrary(MAJOR,MINOR)
 
@@ -35,14 +35,17 @@ local WOW_PROJECT_ID = _G.WOW_PROJECT_ID
 local WOW_PROJECT_CLASSIC = _G.WOW_PROJECT_CLASSIC
 local WOW_PROJECT_BURNING_CRUSADE_CLASSIC = _G.WOW_PROJECT_BURNING_CRUSADE_CLASSIC
 local WOW_PROJECT_MAINLINE = _G.WOW_PROJECT_MAINLINE
-local GetContainerNumSlots = _G.GetContainerNumSlots
-local GetContainerNumFreeSlots = _G.GetContainerNumFreeSlots
-local GetContainerItemLink = _G.GetContainerItemLink
-local GetContainerItemInfo = _G.GetContainerItemInfo
+local LE_EXPANSION_LEVEL_CURRENT = _G.LE_EXPANSION_LEVEL_CURRENT
+local LE_EXPANSION_BURNING_CRUSADE =_G.LE_EXPANSION_BURNING_CRUSADE
+local LE_EXPANSION_WRATH_OF_THE_LICH_KING = _G.LE_EXPANSION_WRATH_OF_THE_LICH_KING
+local GetContainerNumSlots = _G.C_Container and _G.C_Container.GetContainerNumSlots or _G.GetContainerNumSlots
+local GetContainerNumFreeSlots = _G.C_Container and _G.C_Container.GetContainerNumFreeSlots or _G.GetContainerNumFreeSlots
+local GetContainerItemLink = _G.C_Container and _G.C_Container.GetContainerItemLink or _G.GetContainerItemLink
+local GetContainerItemInfo = _G.C_Container and _G.C_Container.GetContainerItemInfo or _G.GetContainerItemInfo
 local GetItemInfo = _G.GetItemInfo
 local GetItemFamily = _G.GetItemFamily
 local NUM_BANKBAGSLOTS = _G.NUM_BANKBAGSLOTS
-local NUM_BAG_SLOTS = _G.NUM_BAG_SLOTS
+local NUM_BAG_SLOTS = _G.NUM_TOTAL_EQUIPPED_BAG_SLOTS or _G.NUM_BAG_SLOTS
 local PickupContainerItem = _G.PickupContainerItem
 local CursorHasItem = _G.CursorHasItem
 local GetCursorInfo = _G.GetCursorInfo
@@ -51,15 +54,19 @@ local geterrorhandler = _G.geterrorhandler
 
 local BANK_CONTAINER = _G.BANK_CONTAINER
 
-local function IsClassicWow()
+local function IsClassicWow() --luacheck: ignore 212
     return WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
 end
 
-local function IsTBCWow()
-    return WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+local function IsTBCWow() --luacheck: ignore 212
+    return WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC and LE_EXPANSION_LEVEL_CURRENT == LE_EXPANSION_BURNING_CRUSADE
 end
 
-local function IsRetailWow()
+local function IsWrathWow() --luacheck: ignore 212
+    return WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC and LE_EXPANSION_LEVEL_CURRENT == LE_EXPANSION_WRATH_OF_THE_LICH_KING
+end
+
+local function IsRetailWow() --luacheck: ignore 212
     return WOW_PROJECT_ID == WOW_PROJECT_MAINLINE
 end
 
@@ -70,7 +77,7 @@ end
 
 local BACKPACK_CONTAINER = _G.BACKPACK_CONTAINER
 local KEYRING_CONTAINER
-if IsClassicWow() or IsTBCWow() then
+if IsClassicWow() or IsTBCWow() or IsWrathWow() then
 KEYRING_CONTAINER = _G.KEYRING_CONTAINER
 end
 
@@ -268,7 +275,7 @@ end
 --   for bag in LBU:IterateBags("BAGS") do  -- loop all carried bags (including backpack & possible future special bags)
 
 local bags = {}
-if IsClassicWow() or IsTBCWow() then
+if IsClassicWow() or IsTBCWow() or IsWrathWow() then
 bags = {
     BAGS = {},
     BANK = {},
@@ -289,7 +296,7 @@ for i=1,NUM_BAG_SLOTS do
     bags.BAGS[i]=i
 end
 bags.BAGS[BACKPACK_CONTAINER]=BACKPACK_CONTAINER
-if IsClassicWow() or IsTBCWow() then
+if IsClassicWow() or IsTBCWow() or IsWrathWow() then
 bags.BAGS[KEYRING_CONTAINER]=KEYRING_CONTAINER
 end
 
@@ -484,7 +491,13 @@ function lib:Find(where,lookingfor,findLocked) --luacheck: ignore 212
     if IsRetailWow() and where == "REAGENTBANK" and not IsReagentBankUnlocked() then return nil end
 
     for bag,slot,link in lib:Iterate(where,lookingfor) do
-        local _, _, locked, _, _ = GetContainerItemInfo(bag,slot)
+        local locked
+        if IsRetailWow() then
+            local itemInfo = GetContainerItemInfo(bag, slot)
+            locked = itemInfo and itemInfo.isLocked
+        else
+            locked = select(3, GetContainerItemInfo(bag, slot))
+        end
         if findLocked or not locked then
             return bag,slot,link
         end
@@ -507,7 +520,16 @@ function lib:FindSmallestStack(where,lookingfor,findLocked) --luacheck: ignore 2
     local smallest=9e9
     local smbag,smslot
     for bag,slot in lib:Iterate(where,lookingfor) do
-        local _, itemCount, locked, _, _ = GetContainerItemInfo(bag,slot)
+        local locked
+        local itemCount
+        if IsRetailWow() then
+            local itemInfo = GetContainerItemInfo(bag, slot)
+            locked = itemInfo and itemInfo.isLocked
+            itemCount = itemInfo and itemInfo.stackCount
+        else
+            locked = select(3, GetContainerItemInfo(bag, slot))
+            itemCount = select(2, GetContainerItemInfo(bag, slot))
+        end
         if itemCount and itemCount<smallest and (findLocked or not locked) then
             smbag=bag
             smslot=slot
@@ -567,7 +589,15 @@ function lib:PutItem(where, count, dontClearOnFail) --luacheck: ignore 212
         if itemStackCount>1 and count<itemStackCount then
             local bestsize,bestbag,bestslot=0,0,0
             for bag,slot in lib:Iterate(where, itemId) do -- Only look for itemId, not the full string; we assume everything of the same itemId is stackable. Looking at the full itemstring is futile since everything has unique IDs these days.
-                local _, ciCount, ciLocked, _, _ = GetContainerItemInfo(bag,slot)
+                local _, ciCount, ciLocked
+                if Baggins:IsRetailWow() then
+                    local itemInfo = GetContainerItemInfo(bag, slot)
+                    ciLocked = itemInfo and itemInfo.isLocked
+                    ciCount = itemInfo and itemInfo.stackCount
+                else
+                    ciLocked = select(3, GetContainerItemInfo(bag, slot))
+                    ciCount = select(2, GetContainerItemInfo(bag, slot))
+                end
                 if ciCount+count<=itemStackCount and ciCount>bestsize and not ciLocked and not isLocked(bag,slot)then
                     bestsize=ciCount
                     bestbag=bag

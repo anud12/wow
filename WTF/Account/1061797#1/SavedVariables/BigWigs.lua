@@ -2,6 +2,7 @@
 BigWigs3DB = {
 	["profileKeys"] = {
 		["Anuddh - Ghostlands"] = "Default",
+		["Anudr - Ghostlands"] = "Default",
 		["Anud - Ghostlands"] = "Default",
 	},
 	["namespaces"] = {
@@ -9,7 +10,7 @@ BigWigs3DB = {
 		},
 		["BigWigs_Plugins_Alt Power"] = {
 		},
-		["LibDualSpec-1.0"] = {
+		["BigWigs_Plugins_BossBlock"] = {
 		},
 		["BigWigs_Bosses_Lords of Dread"] = {
 			["profiles"] = {
@@ -20,11 +21,11 @@ BigWigs3DB = {
 					[361913] = 0,
 					[360012] = 0,
 					[359960] = 0,
-					[360319] = 0,
-					[361934] = 0,
-					[359963] = 0,
-					[360717] = 0,
 					[360146] = 0,
+					[360717] = 0,
+					[359963] = 0,
+					[361934] = 0,
+					[360319] = 0,
 				},
 			},
 		},
@@ -53,17 +54,17 @@ BigWigs3DB = {
 					[361789] = 0,
 					[361568] = 0,
 					[360687] = 0,
-					[365269] = 0,
+					[361689] = 0,
 					[361745] = 0,
 					[366234] = 0,
-					[364839] = 0,
-					[361067] = 0,
 					[360259] = 0,
-					[361689] = 0,
+					[361067] = 0,
+					[364839] = 0,
+					[365269] = 0,
 				},
 			},
 		},
-		["BigWigs_Plugins_AutoReply"] = {
+		["BigWigs_Plugins_Statistics"] = {
 		},
 		["BigWigs_Bosses_Anduin Wrynn"] = {
 			["profiles"] = {
@@ -73,15 +74,15 @@ BigWigs3DB = {
 					[365872] = 0,
 					[362771] = 0,
 					[365295] = 3129591,
-					[362055] = 0,
-					[362862] = 0,
-					[361989] = 0,
-					[365120] = 0,
-					[363024] = 0,
-					[361815] = 0,
-					[366849] = 0,
-					[362405] = 0,
 					[365958] = 0,
+					[362862] = 0,
+					[362405] = 0,
+					[365120] = 0,
+					[361989] = 0,
+					[366849] = 0,
+					[361815] = 0,
+					[363024] = 0,
+					[362055] = 0,
 				},
 			},
 		},
@@ -94,15 +95,19 @@ BigWigs3DB = {
 				},
 			},
 		},
-		["BigWigs_Plugins_Countdown"] = {
+		["BigWigs_Bosses_Halondrus the Reclaimer"] = {
 			["profiles"] = {
 				["Default"] = {
-					["position"] = {
-						"CENTER", -- [1]
-						"CENTER", -- [2]
-						1.422139406204224, -- [3]
-						30.48900032043457, -- [4]
-					},
+					[368969] = 0,
+					[361676] = 0,
+					[368363] = 0,
+					[369207] = 0,
+					["stages"] = 0,
+					[368529] = 0,
+					[360977] = 0,
+					[365297] = 0,
+					[360114] = 0,
+					[367079] = 0,
 				},
 			},
 		},
@@ -111,6 +116,16 @@ BigWigs3DB = {
 		["BigWigs_Plugins_Colors"] = {
 			["profiles"] = {
 				["Default"] = {
+					["barColor"] = {
+						["BigWigs_Plugins_Colors"] = {
+							["default"] = {
+								0.1607843137254902, -- [1]
+								0.192156862745098, -- [2]
+								0.6784313725490196, -- [3]
+								0.570000022649765, -- [4]
+							},
+						},
+					},
 					["barEmphasized"] = {
 						["BigWigs_Plugins_Colors"] = {
 							["default"] = {
@@ -131,16 +146,6 @@ BigWigs3DB = {
 							},
 						},
 					},
-					["barColor"] = {
-						["BigWigs_Plugins_Colors"] = {
-							["default"] = {
-								0.1607843137254902, -- [1]
-								0.192156862745098, -- [2]
-								0.6784313725490196, -- [3]
-								0.570000022649765, -- [4]
-							},
-						},
-					},
 				},
 			},
 		},
@@ -152,61 +157,59 @@ BigWigs3DB = {
 			["profiles"] = {
 				["Default"] = {
 					["barStyle"] = "ElvUI",
-					["emphasizeTime"] = 12,
-					["BigWigsEmphasizeAnchor_height"] = 25.11104011535645,
+					["texture"] = "Solid",
+					["BigWigsEmphasizeAnchor_height"] = 25.11103820800781,
 					["growup"] = true,
 					["BigWigsAnchor_width"] = 219.9999542236328,
-					["BigWigsAnchor_y"] = 564.2664794921875,
+					["BigWigsAnchor_y"] = 670.2220791922737,
 					["fontName"] = "2002",
-					["BigWigsAnchor_height"] = 20.00005722045898,
+					["BigWigsAnchor_height"] = 20.00003433227539,
 					["fill"] = true,
 					["emphasizeGrowup"] = true,
-					["BigWigsAnchor_x"] = 577.5111083984375,
+					["BigWigsAnchor_x"] = 606.6667607148411,
 					["spacing"] = 4,
-					["BigWigsEmphasizeAnchor_width"] = 186.3110046386719,
-					["BigWigsEmphasizeAnchor_x"] = 604.7333374023438,
-					["BigWigsEmphasizeAnchor_y"] = 284.6441040039063,
-					["texture"] = "Solid",
+					["BigWigsEmphasizeAnchor_width"] = 186.3109893798828,
+					["BigWigsEmphasizeAnchor_x"] = 614.6889282054326,
+					["BigWigsEmphasizeAnchor_y"] = 298.1552556660608,
+					["emphasizeTime"] = 12,
 				},
 			},
 		},
-		["BigWigs_Plugins_Statistics"] = {
+		["LibDualSpec-1.0"] = {
 		},
 		["BigWigs_Plugins_Super Emphasize"] = {
 		},
-		["BigWigs_Bosses_Halondrus the Reclaimer"] = {
+		["BigWigs_Plugins_Proximity"] = {
 			["profiles"] = {
 				["Default"] = {
-					[368969] = 0,
-					[361676] = 0,
-					[368363] = 0,
-					[369207] = 0,
-					["stages"] = 0,
-					[368529] = 0,
-					[367079] = 0,
-					[365297] = 0,
-					[360114] = 0,
-					[360977] = 0,
+					["posx"] = 1207.822486601915,
+					["posy"] = 649.2445902082545,
+					["height"] = 119.9999694824219,
+					["width"] = 140.0001220703125,
 				},
 			},
 		},
-		["BigWigs_Plugins_BossBlock"] = {
+		["BigWigs_Plugins_AutoReply"] = {
 		},
 		["BigWigs_Bosses_Artificer Xy'mox v2"] = {
 			["profiles"] = {
 				["Default"] = {
 					[364465] = 0,
 					[362849] = 0,
-					[362885] = 0,
 					[362803] = 0,
+					[362885] = 0,
 				},
 			},
 		},
-		["BigWigs_Plugins_Proximity"] = {
+		["BigWigs_Plugins_Countdown"] = {
 			["profiles"] = {
 				["Default"] = {
-					["height"] = 120.0000076293945,
-					["width"] = 140.0001068115234,
+					["position"] = {
+						"CENTER", -- [1]
+						"CENTER", -- [2]
+						1.422139406204224, -- [3]
+						30.48900032043457, -- [4]
+					},
 				},
 			},
 		},
@@ -222,8 +225,8 @@ BigWigs3DB = {
 					["normalPosition"] = {
 						"CENTER", -- [1]
 						"CENTER", -- [2]
-						6.400094509124756, -- [3]
-						-59.73333358764648, -- [4]
+						8.177932739257812, -- [3]
+						-36.62221527099609, -- [4]
 					},
 				},
 			},
@@ -250,6 +253,7 @@ BigWigs3DB = {
 			[-2000] = true,
 			[-2004] = true,
 			[956] = true,
+			[-575] = true,
 		},
 	},
 	["profiles"] = {

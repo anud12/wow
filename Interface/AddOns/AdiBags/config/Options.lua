@@ -274,7 +274,7 @@ local function GetOptions()
 		name = addonName..' DEV',
 		--@end-debug@]===]
 		--@non-debug@
-		name = addonName..' v1.9.26',
+		name = addonName..' v1.9.50',
 		--@end-non-debug@
 		type = 'group',
 		handler = addon:GetOptionHandler(addon),
@@ -319,13 +319,6 @@ local function GetOptions()
 								desc = L["Automatically open the bags at merchant's, bank, ..."],
 								type = 'toggle',
 								order = 95,
-							},
-							autoDeposit = {
-								name = L["Deposit reagents"],
-								desc = L["Automtically deposit all reagents into the reagent bank when you talk to the banker."],
-								type = 'toggle',
-								order = 110,
-								disabled = function() return not IsReagentBankUnlocked() end,
 							},
 						}
 					},
@@ -401,6 +394,19 @@ local function GetOptions()
 									addon:SendMessage('AdiBags_LayoutChanged')
 								end,
 							},
+							--[[
+							gridLayout = {
+								name = L['(BETA) Grid Layout'],
+								desc = L['When enabled, AdiBags switches to a grid layout with dragable sections.'],
+								type = 'toggle',
+								order = 135,
+								set = function(info, gridLayout)
+									addon.db.profile.gridLayout = gridLayout
+									ReloadUI()
+									addon:SendMessage('AdiBags_GridLayoutChanged')
+								end,
+							},
+							--]]
 							columnWidth = {
 								name = L['Column width'],
 								desc = L['Adjust the width of the bag columns.'],
@@ -651,6 +657,15 @@ local function GetOptions()
 		},
 		plugins = {}
 	}
+	if addon.isRetail then
+		options["args"]["bags"]["args"]["automatically"]["args"]["autoDeposit"] = {
+			name = L["Deposit reagents"],
+			desc = L["Automtically deposit all reagents into the reagent bank when you talk to the banker."],
+			type = 'toggle',
+			order = 110,
+			disabled = function() return not IsReagentBankUnlocked() end,
+		}
+	end
 	hooksecurefunc(addon, "OnModuleCreated", OnModuleCreated)
 	for name, module in addon:IterateModules() do
 		OnModuleCreated(addon, module)

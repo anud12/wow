@@ -2,3 +2,13 @@ BagBrother: disabled
 Baggins: disabled
 AdiBags: disabled
 AdiBags_Config: disabled
+BigWigs_Core: enabled
+BigWigs_Options: enabled
+BigWigs_Plugins: enabled
+WeakAurasCompanion: enabled
+WeakAurasArchive: enabled
+Plater: disabled
+ShadowedUnitFrames: disabled
+ShadowedUF_Options: disabled
+Dominos: disabled
+Immersion: enabled

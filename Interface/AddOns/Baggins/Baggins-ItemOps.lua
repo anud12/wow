@@ -10,14 +10,18 @@ local Baggins = _G.Baggins
 local pairs, ipairs, next, select, format, wipe =
       _G.pairs, _G.ipairs, _G.next, _G.select,  _G.format, _G.wipe
 local floor = _G.floor
-local GetItemInfo, GetContainerItemLink, GetContainerItemInfo, GetContainerNumFreeSlots, GetContainerNumSlots, GetItemFamily =
-      _G.GetItemInfo, _G.GetContainerItemLink, _G.GetContainerItemInfo, _G.GetContainerNumFreeSlots, _G.GetContainerNumSlots, _G.GetItemFamily
+local GetItemInfo = _G.GetItemInfo
+local GetContainerItemLink = _G.C_Container and _G.C_Container.GetContainerItemLink or _G.GetContainerItemLink
+local GetContainerItemInfo = _G.C_Container and _G.C_Container.GetContainerItemInfo or _G.GetContainerItemInfo
+local GetContainerNumFreeSlots = _G.C_Container and _G.C_Container.GetContainerNumFreeSlots or _G.GetContainerNumFreeSlots
+local GetContainerNumSlots = _G.C_Container and _G.C_Container.GetContainerNumSlots or _G.GetContainerNumSlots
+local GetItemFamily = _G.GetItemFamily
 local PickupContainerItem, SplitContainerItem, IsShiftKeyDown =
-      _G.PickupContainerItem, _G.SplitContainerItem, _G.IsShiftKeyDown
+_G.C_Container and _G.C_Container.PickupContainerItem or _G.PickupContainerItem, _G.SplitContainerItem, _G.IsShiftKeyDown
 local band =
       _G.bit.band
 local BANK_CONTAINER = _G.BANK_CONTAINER
-local NUM_BAG_SLOTS = _G.NUM_BAG_SLOTS
+local NUM_BAG_SLOTS = _G.NUM_TOTAL_EQUIPPED_BAG_SLOTS or _G.NUM_BAG_SLOTS
 local NUM_BANKBAGSLOTS = _G.NUM_BANKBAGSLOTS
 
 local LibStub = _G.LibStub
@@ -34,9 +38,9 @@ for i=0, NUM_BAG_SLOTS do
     tinsert(charBags, i);
 end
 
---[===[@non-retail@
-tinsert(charBags, KEYRING_CONTAINER)
---@end-non-retail@]===]
+if Baggins:IsClassicWow() or Baggins:IsTBCWow() or Baggins:IsWrathWow() then
+    tinsert(charBags, KEYRING_CONTAINER)
+end
 
 
 ------------------------------------------------------
@@ -65,12 +69,20 @@ function Baggins:DoCompressBags(bank,testonly)
 
     for _,bag in ipairs(bags) do
         for slot=1,(GetContainerNumSlots(bag) or 0) do
-            local _, itemCount, locked, _, _ = GetContainerItemInfo(bag, slot)
+            local itemCount,locked
+            if Baggins:IsRetailWow() then
+                local itemInfo = GetContainerItemInfo(bag, slot)
+                itemCount = itemInfo and itemInfo.stackCount
+                locked = itemInfo and itemInfo.isLocked
+            else
+                itemCount = select(2, GetContainerItemInfo(bag, slot))
+                locked = select(3, GetContainerItemInfo(bag, slot))
+            end
             local link = GetContainerItemLink(bag, slot)
             lockedSlots = lockedSlots or locked
             if link and (testonly or not locked) then
                 local _, _, _, _, _, _, _, iMaxStack = GetItemInfo(link)
-                if iMaxStack and itemCount < iMaxStack then
+                if iMaxStack and itemCount and itemCount < iMaxStack then
                     local itemid = link:match("item:(-?[%d]+):")
                     if(incompleteSlots[itemid]) then	-- see if we have an incomplete stack of this sitting around
                         if testonly then return true end	-- Yup, we've got something that needs compressing!
@@ -109,6 +121,9 @@ function Baggins:MoveToSpecialtyBags(bank,testonly)
 
     for _,bag in ipairs(bank and bankBags or charBags) do
         local free,bagFamily = LBU:GetContainerNumFreeSlots(bag)
+        if bag == 5 then
+            bagFamily = 2048
+        end
         if free>0 and bagFamily~=0 then
             for slot=1, (GetContainerNumSlots(bag) or 0) do
                 if not GetContainerItemLink(bag, slot) then
@@ -125,6 +140,9 @@ function Baggins:MoveToSpecialtyBags(bank,testonly)
     if next(specialtyTargetBags) then
         for _,bag in ipairs(bank and bankBags or charBags) do
             local bagFamily = LBU:GetContainerFamily(bag)
+            if bag == 5 then
+                bagFamily = 2048
+            end
             if bagFamily==0 then	-- only examine stuff in normal bags
                 for slot=1, (GetContainerNumSlots(bag) or 0) do
                     local _, _, locked, _, _ = GetContainerItemInfo(bag, slot)
@@ -133,24 +151,32 @@ function Baggins:MoveToSpecialtyBags(bank,testonly)
                     if link and (testonly or not locked) then
                         local itemFamily = GetItemFamily(link)
                         if itemFamily and itemFamily~=0 then	-- itemFamily can apparently be null? (before item is cached?)
-                            if select(9, GetItemInfo(link))=="INVTYPE_BAG" then
+                            if select(9, GetItemInfo(link)) == "INVTYPE_BAG" then --luacheck: ignore 542
                                 --Baggins:Debug('specialtyTargetBags Item Info', select(9, GetItemInfo(link))=="INVTYPE_BAG")
                             else
                                 for bagFamilySpecial,dest in pairs(specialtyTargetBags) do
-                                    --@retail@
-                                    if band(itemFamily,bagFamilySpecial) ~= 0 then
-                                    --@end-retail@
-                                    --[===[@non-retail@
-                                    if itemFamily == bagFamilySpecial then
-                                    --@end-non-retail@]===]
-                                        if testonly then return true end
-                                        compressLoopProtect = compressLoopProtect - 1
-                                        if compressLoopProtect < 0 then return end
+                                    if Baggins:IsRetailWow() then
+                                        if band(itemFamily,bagFamilySpecial) ~= 0 then
+                                            if testonly then return true end
+                                            compressLoopProtect = compressLoopProtect - 1
+                                            if compressLoopProtect < 0 then return end
+                                            PickupContainerItem(bag,slot)
+                                            PickupContainerItem(floor(dest/1000),dest%1000)
+                                            self:ScheduleTimer("MoveToSpecialtyBags", 0.1, bank)
+                                            return
+                                        end
+                                    end
 
-                                        PickupContainerItem(bag,slot)
-                                        PickupContainerItem(floor(dest/1000),dest%1000)
-                                        self:ScheduleTimer("MoveToSpecialtyBags", 0.1, bank)
-                                        return
+                                    if Baggins:IsClassicWow() or Baggins:IsTBCWow() or Baggins:IsWrathWow() then
+                                        if itemFamily == bagFamilySpecial then
+                                            if testonly then return true end
+                                            compressLoopProtect = compressLoopProtect - 1
+                                            if compressLoopProtect < 0 then return end
+                                            PickupContainerItem(bag,slot)
+                                            PickupContainerItem(floor(dest/1000),dest%1000)
+                                            self:ScheduleTimer("MoveToSpecialtyBags", 0.1, bank)
+                                            return
+                                        end
                                     end
                                 end
                             end
@@ -250,6 +276,9 @@ local function BagginsItemButton_Split(bag,slot,amount)
     if itemFamily~=0 then
         for _,destbag in ipairs(charBags) do
             local free,bagFamily = LBU:GetContainerNumFreeSlots(destbag)
+            if bag == 5 then
+                bagFamily = 2048
+            end
             if free>0 and band(bagFamily,itemFamily)~=0 then
                 for destslot=1, GetContainerNumSlots(destbag) do
                     if not GetContainerItemLink(destbag, destslot) then
@@ -264,6 +293,9 @@ local function BagginsItemButton_Split(bag,slot,amount)
     -- Mkay, shove it in any bag with free slots
     for _,destbag in ipairs(charBags) do
         local free,bagFamily = GetContainerNumFreeSlots(destbag)
+        if bag == 5 then
+            bagFamily = 2048
+        end
         if free>0 and bagFamily==0 then
             for destslot=1, GetContainerNumSlots(destbag) do
                 if not GetContainerItemLink(destbag, destslot) then

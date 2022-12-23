@@ -10,10 +10,10 @@ local AddOnName, _ = ...
 local AddOn = _G[AddOnName]
 
 -- WoW API
-local GetContainerItemLink = _G.GetContainerItemLink
+local GetContainerItemLink = _G.C_Container and _G.C_Container.GetContainerItemLink or _G.GetContainerItemLink
 local BACKPACK_CONTAINER = _G.BACKPACK_CONTAINER
 local BANK_CONTAINER = _G.BANK_CONTAINER
-local NUM_BAG_SLOTS = _G.NUM_BAG_SLOTS
+local NUM_BAG_SLOTS = _G.NUM_TOTAL_EQUIPPED_BAG_SLOTS or _G.NUM_BAG_SLOTS
 local NUM_BANKBAGSLOTS = _G.NUM_BANKBAGSLOTS
 local REAGENTBANK_CONTAINER = _G.REAGENTBANK_CONTAINER
 
@@ -41,15 +41,13 @@ local function BuildBagTypes()
 
     end
 
-    -- Classic specific bag
-    --[===[@non-retail@
-    BagTypes[KEYRING_CONTAINER] = 3
-    --@end-non-retail@]===]
+    if AddOn:IsClassicWow() or AddOn:IsTBCWow() or AddOn:IsWrathWow() then
+        BagTypes[KEYRING_CONTAINER] = 3
+    end
 
-    -- Retail specific bag
-    --@retail@
-    BagTypes[REAGENTBANK_CONTAINER] = 4
-    --@end-retail@
+    if AddOn:IsRetailWow() then
+        BagTypes[REAGENTBANK_CONTAINER] = 4
+    end
 
 end
 

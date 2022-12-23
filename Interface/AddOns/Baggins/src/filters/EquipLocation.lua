@@ -10,7 +10,7 @@ local AddOnName, _ = ...
 local AddOn = _G[AddOnName]
 
 -- WoW API
-local GetContainerItemLink = _G.GetContainerItemLink
+local GetContainerItemLink = _G.C_Container and _G.C_Container.GetContainerItemLink or _G.GetContainerItemLink
 local GetItemInfoInstant = _G.GetItemInfoInstant
 
 -- Libs
@@ -44,7 +44,15 @@ local EquipLocs = {
     "INVTYPE_RANGEDRIGHT",
     "INVTYPE_RELIC",
     "INVTYPE_TABARD",
-    "INVTYPE_BAG"
+    "INVTYPE_BAG",
+    "INVTYPE_PROFESSION_GEAR",
+    "INVTYPE_PROFESSION_TOOL",
+    "INVTYPE_QUIVER",
+    "INVTYPE_WEAPONMAINHAND_PET",
+    "INVTYPE_EQUIPABLESPELL_DEFENSIVE",
+    "INVTYPE_EQUIPABLESPELL_MOBILITY",
+    "INVTYPE_EQUIPABLESPELL_OFFENSIVE",
+    "INVTYPE_EQUIPABLESPELL_UTILITY",
 }
 
 local EquipLocs2 = {}

@@ -1,5 +1,5 @@
-## Interface: 90205
-## Version: v4.0.49
+## Interface: 100002
+## Version: v4.7.6
 
 ## Notes: Inventory Management with virtual bags divided into sections.
 ## Notes-zhCN: 使用分类的形式来管理背包。
@@ -17,13 +17,13 @@
 
 #@non-no-lib-strip@
 # ## Title: Baggins |cff1784d1[nolibs]|r
-# ## Dependencies: Ace3, LibDBIcon-1.0, LibItemUpgradeInfo-1.0, LibQTip-1.0, LibGratuity-3.0, LibBagUtils-1.0, LibSharedMedia-3.0
+# ## Dependencies: Ace3, LibDBIcon-1.0, LibItemUpgradeInfo-1.0, LibQTip-1.0, LibBagUtils-1.0, LibSharedMedia-3.0
 #@end-non-no-lib-strip@
 
 #@no-lib-strip@
 ## Title: Baggins
-## OptionalDeps: Ace3, LibGratuity-3.0, LibQTip-1.0, LibBagUtils-1.0, LibPeriodicTable-3.1, LibDBIcon-1.0, LibItemUpgradeInfo-1.0, LibSharedMedia-3.0
-## X-Embeds: Ace3, LibGratuity-3.0, LibQTip-1.0, LibBagUtils-1.0, LibPeriodicTable-3.1, LibDBIcon-1.0, LibDataBroker-1.0, LibSharedMedia-3.0
+## OptionalDeps: Ace3, LibQTip-1.0, LibBagUtils-1.0, LibPeriodicTable-3.1, LibDBIcon-1.0, LibItemUpgradeInfo-1.0, LibSharedMedia-3.0
+## X-Embeds: Ace3, LibQTip-1.0, LibBagUtils-1.0, LibPeriodicTable-3.1, LibDBIcon-1.0, LibDataBroker-1.0, LibSharedMedia-3.0
 
 Libs\LibStub\LibStub.lua
 Libs\CallBackHandler-1.0\CallbackHandler-1.0.lua
@@ -43,7 +43,6 @@ Libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
 
 Libs\LibBagUtils-1.0\LibBagUtils-1.0.lua
 Libs\LibQTip-1.0\lib.xml
-Libs\LibGratuity-3.0\lib.xml
 Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
 Libs\LibItemUpgradeInfo-1.0\LibItemUpgradeInfo-1.0.xml
 
@@ -96,6 +95,7 @@ src\filters\Lockbox.lua
 src\filters\NewItems.lua
 src\filters\Other.lua
 src\filters\PeriodicTable.lua
+src\filters\Profession.lua
 src\filters\Quality.lua
 src\filters\Teleport.lua
 src\filters\Tooltip.lua

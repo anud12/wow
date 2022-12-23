@@ -10,19 +10,22 @@
 
 ]]
 
--- GLOBALS: GetAddOnMetadata, LibStub
-
 local MSQ = LibStub and LibStub("Masque", true)
 if not MSQ then return end
 
 local AddOn, Core = ...
 
 ----------------------------------------
--- Locals
+-- Internal
 ---
 
--- Locale
 local L = Core.Locale
+
+----------------------------------------
+-- Local
+---
+
+local API_VERSION = 100002
 
 -- Skin Info
 local Version = GetAddOnMetadata(AddOn, "Version")
@@ -30,7 +33,6 @@ local Websites = {
 	"https://github.com/SFX-WoW/Masque_Onyx",
 	"https://www.curseforge.com/wow/addons/masque-onyx",
 	"https://addons.wago.io/addons/masque-onyx",
-	"https://www.wowace.com/projects/masque-onyx",
 	"https://www.wowinterface.com/downloads/info8900",
 }
 
@@ -39,16 +41,18 @@ local Websites = {
 ---
 
 MSQ:AddSkin("Onyx", {
-	API_VERSION = 90002,
+	API_VERSION = API_VERSION,
 	Shape = "Square",
-	Group = "Onyx",
-	Order = 1,
 
 	-- Info
+	Author = "StormFX",
 	Description = L["A dark skin with slightly rounded corners."],
 	Version = Version,
-	Author = "StormFX",
 	Websites = Websites,
+
+	-- UI
+	Group = "Onyx",
+	Order = 1,
 
 	-- Skin
 	-- Mask = nil,
@@ -65,12 +69,13 @@ MSQ:AddSkin("Onyx", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		-- UseColor = nil,
 		-- SetAllPoints = nil,
+		-- UseColor = nil,
 		Item = {
 			Texture = [[Interface\AddOns\Masque\Textures\Backdrop\Item]],
 			-- TexCoords = {0, 1, 0, 1},
 			Color = {1, 1, 1, 1},
+			-- UseColor = nil,
 			BlendMode = "BLEND",
 			DrawLayer = "BACKGROUND",
 			DrawLevel = -1,
@@ -80,8 +85,8 @@ MSQ:AddSkin("Onyx", {
 			RelPoint = "CENTER",
 			OffsetX = 0,
 			OffsetY = 0,
-			-- UseColor = nil,
 			-- SetAllPoints = nil,
+			-- UseColor = nil,
 		},
 		Pet = {
 			Texture = [[Interface\AddOns\Masque\Textures\Backdrop\Pet]],
@@ -96,12 +101,27 @@ MSQ:AddSkin("Onyx", {
 			RelPoint = "CENTER",
 			OffsetX = 0,
 			OffsetY = 0,
-			-- UseColor = nil,
 			-- SetAllPoints = nil,
+			-- UseColor = nil,
 		},
 	},
 	Icon = {
 		-- TexCoords = {0, 1, 0, 1},
+		DrawLayer = "BACKGROUND",
+		DrawLevel = 0,
+		Width = 32,
+		Height = 32,
+		Point = "CENTER",
+		RelPoint = "CENTER",
+		OffsetX = 0,
+		OffsetY = 0,
+		-- SetAllPoints = nil,
+	},
+	SlotIcon = {
+		Texture = [[Interface\Icons\INV_Misc_Bag_08]],
+		-- TexCoords = {0, 1, 0, 1},
+		Color = {1, 1, 1, 1},
+		BlendMode = "BLEND",
 		DrawLayer = "BACKGROUND",
 		DrawLevel = 0,
 		Width = 32,
@@ -144,8 +164,8 @@ MSQ:AddSkin("Onyx", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		-- UseStates = nil,
 		-- SetAllPoints = nil,
+		-- UseStates = nil,
 	},
 	-- Disabled = Default.Disabled,
 	Pushed = {
@@ -161,8 +181,8 @@ MSQ:AddSkin("Onyx", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		UseColor = true,
 		-- SetAllPoints = nil,
+		UseColor = true,
 	},
 	Flash = {
 		-- Texture = [[Interface\Buttons\UI-Quickslot-Depress]],
@@ -177,37 +197,40 @@ MSQ:AddSkin("Onyx", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		UseColor = true,
 		-- SetAllPoints = nil,
+		UseColor = true,
 	},
 	HotKey = {
 		JustifyH = "RIGHT",
 		JustifyV = "MIDDLE",
 		DrawLayer = "OVERLAY",
-		Width = 32,
-		Height = 10,
+		Width = 36,
+		Height = 0,
+		Anchor = "Icon",
 		Point = "TOPRIGHT",
 		RelPoint = "TOPRIGHT",
-		OffsetX = -5,
-		OffsetY = -6,
+		OffsetX = -3,
+		OffsetY = -3,
 	},
 	Count = {
 		JustifyH = "RIGHT",
 		JustifyV = "MIDDLE",
 		DrawLayer = "OVERLAY",
-		Width = 32,
-		Height = 10,
+		Width = 0,
+		Height = 0,
+		Anchor = "Icon",
 		Point = "BOTTOMRIGHT",
 		RelPoint = "BOTTOMRIGHT",
-		OffsetX = -5,
-		OffsetY = 5,
+		OffsetX = -3,
+		OffsetY = 3,
 	},
 	Duration = {
 		JustifyH = "CENTER",
 		JustifyV = "MIDDLE",
 		DrawLayer = "OVERLAY",
-		Width = 32,
-		Height = 10,
+		Width = 36,
+		Height = 0,
+		Anchor = "Icon",
 		Point = "TOP",
 		RelPoint = "BOTTOM",
 		OffsetX = 0,
@@ -227,6 +250,33 @@ MSQ:AddSkin("Onyx", {
 		OffsetX = 0,
 		OffsetY = 0,
 		-- SetAllPoints = nil,
+	},
+	SlotHighlight = {
+		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
+		-- TexCoords = {0, 1, 0, 1},
+		Color = {0, 0.7, 0.9, 0.7},
+		BlendMode = "BLEND",
+		DrawLayer = "OVERLAY",
+		DrawLevel = 0,
+		Width = 40,
+		Height = 40,
+		Point = "CENTER",
+		RelPoint = "CENTER",
+		OffsetX = 0,
+		OffsetY = 0,
+		-- SetAllPoints = nil,
+	},
+	Name = {
+		JustifyH = "CENTER",
+		JustifyV = "MIDDLE",
+		DrawLayer = "OVERLAY",
+		Width = 36,
+		Height = 0,
+		Anchor = "Icon",
+		Point = "BOTTOM",
+		RelPoint = "BOTTOM",
+		OffsetX = 0,
+		OffsetY = 3,
 	},
 	Border = {
 		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
@@ -273,10 +323,10 @@ MSQ:AddSkin("Onyx", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
-	SlotHighlight = {
-		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
+	Gloss = {
+		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Gloss]],
 		-- TexCoords = {0, 1, 0, 1},
-		Color = {0, 0.7, 0.9, 0.7},
+		Color = {1, 1, 1, 0.5},
 		BlendMode = "BLEND",
 		DrawLayer = "OVERLAY",
 		DrawLevel = 0,
@@ -288,13 +338,30 @@ MSQ:AddSkin("Onyx", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
-	Gloss = {
-		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Gloss]],
-		-- TexCoords = {0, 1, 0, 1},
-		Color = {1, 1, 1, 0.5},
+	NewAction = {
+		-- Atlas = "bags-newitem",
+		-- UseAtlasSize = false,
+		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
+		Color = {1, 1, 0.8, 1},
 		BlendMode = "BLEND",
 		DrawLayer = "OVERLAY",
-		DrawLevel = 0,
+		DrawLevel = 1,
+		Width = 40,
+		Height = 40,
+		Point = "CENTER",
+		RelPoint = "CENTER",
+		OffsetX = 0,
+		OffsetY = 0,
+		-- SetAllPoints = nil,
+	},
+	SpellHighlight = {
+		-- Atlas = "bags-newitem",
+		-- UseAtlasSize = false,
+		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
+		Color = {1, 1, 0.8, 1},
+		BlendMode = "BLEND",
+		DrawLayer = "OVERLAY",
+		DrawLevel = 1,
 		Width = 40,
 		Height = 40,
 		Point = "CENTER",
@@ -318,30 +385,15 @@ MSQ:AddSkin("Onyx", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
-	NewAction = {
-		-- Atlas = "bags-newitem",
-		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
-		Color = {1, 1, 0.8, 1},
+	IconOverlay = {
+		-- Atlas = "AzeriteIconFrame",
+		-- UseAtlasSize = false,
+		-- Color = {1, 1, 1, 1},
 		BlendMode = "BLEND",
 		DrawLayer = "OVERLAY",
 		DrawLevel = 1,
-		Width = 40,
-		Height = 40,
-		Point = "CENTER",
-		RelPoint = "CENTER",
-		OffsetX = 0,
-		OffsetY = 0,
-		-- SetAllPoints = nil,
-	},
-	SpellHighlight = {
-		-- Atlas = "bags-newitem",
-		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
-		Color = {1, 1, 0.8, 1},
-		BlendMode = "BLEND",
-		DrawLayer = "OVERLAY",
-		DrawLevel = 1,
-		Width = 40,
-		Height = 40,
+		Width = 36,
+		Height = 36,
 		Point = "CENTER",
 		RelPoint = "CENTER",
 		OffsetX = 0,
@@ -350,6 +402,7 @@ MSQ:AddSkin("Onyx", {
 	},
 	UpgradeIcon = {
 		Atlas = "bags-greenarrow",
+		UseAtlasSize = false, -- true
 		-- Color = {1, 1, 1, 1},
 		BlendMode = "BLEND",
 		DrawLayer = "OVERLAY",
@@ -362,22 +415,9 @@ MSQ:AddSkin("Onyx", {
 		OffsetY = -3,
 		-- SetAllPoints = nil,
 	},
-	IconOverlay = {
-		-- Atlas = "AzeriteIconFrame",
-		-- Color = {1, 1, 1, 1},
-		BlendMode = "BLEND",
-		DrawLayer = "OVERLAY",
-		DrawLevel = 1,
-		Width = 36,
-		Height = 36,
-		Point = "CENTER",
-		RelPoint = "CENTER",
-		OffsetX = 0,
-		OffsetY = 0,
-		-- SetAllPoints = nil,
-	},
 	IconOverlay2 = {
-		-- Atlas = "AzeriteIconFrame",
+		-- Atlas = "ConduitIconFrame-Corners",
+		-- UseAtlasSize = false,
 		-- Color = {1, 1, 1, 1},
 		BlendMode = "BLEND",
 		DrawLayer = "OVERLAY",
@@ -390,12 +430,11 @@ MSQ:AddSkin("Onyx", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
-	NewItem = {
-		-- Atlas = "bags-glow-white",
+	QuestBorder = {
+		Border = [[Interface\AddOns\Masque_Onyx\Textures\Quest]],
 		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
-		-- TexCoords = {0, 1, 0, 1},
-		-- Color = {1, 1, 1, 1},
-		BlendMode = "ADD",
+		Color = {1, 0.8, 0, 1},
+		BlendMode = "BLEND",
 		DrawLayer = "OVERLAY",
 		DrawLevel = 2,
 		Width = 40,
@@ -406,11 +445,13 @@ MSQ:AddSkin("Onyx", {
 		OffsetY = 0,
 		-- SetAllPoints = nil,
 	},
-	QuestBorder = {
-		Border = [[Interface\AddOns\Masque_Onyx\Textures\Quest]], -- Inactive
-		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]], -- Active
-		Color = {1, 0.8, 0, 1},
-		BlendMode = "BLEND",
+	NewItem = {
+		-- Atlas = "bags-glow-white",
+		-- UseAtlasSize = false,
+		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
+		-- TexCoords = {0, 1, 0, 1},
+		-- Color = {1, 1, 1, 1},
+		BlendMode = "ADD",
 		DrawLayer = "OVERLAY",
 		DrawLevel = 2,
 		Width = 40,
@@ -434,8 +475,8 @@ MSQ:AddSkin("Onyx", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		UseColor = true,
 		-- SetAllPoints = true,
+		UseColor = true,
 	},
 	ContextOverlay = {
 		-- Texture = nil,
@@ -450,11 +491,12 @@ MSQ:AddSkin("Onyx", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		UseColor = true,
 		-- SetAllPoints = true,
+		UseColor = true,
 	},
 	JunkIcon = {
 		Atlas = "bags-junkcoin",
+		UseAtlasSize = false, -- true
 		-- Color = {1, 1, 1, 1},
 		BlendMode = "BLEND",
 		DrawLayer = "OVERLAY",
@@ -466,17 +508,6 @@ MSQ:AddSkin("Onyx", {
 		OffsetX = 3,
 		OffsetY = 3,
 		-- SetAllPoints = nil,
-	},
-	Name = {
-		JustifyH = "CENTER",
-		JustifyV = "MIDDLE",
-		DrawLayer = "OVERLAY",
-		Width = 28,
-		Height = 10,
-		Point = "BOTTOM",
-		RelPoint = "BOTTOM",
-		OffsetX = 0,
-		OffsetY = 3,
 	},
 	Highlight = {
 		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Glow]],
@@ -491,8 +522,8 @@ MSQ:AddSkin("Onyx", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		-- UseColor = nil,
 		-- SetAllPoints = nil,
+		-- UseColor = nil,
 	},
 	AutoCastShine = {
 		Width = 27,
@@ -505,6 +536,8 @@ MSQ:AddSkin("Onyx", {
 	},
 	Cooldown = {
 		-- Texture = nil,
+		-- EdgeTexture = [[Interface\AddOns\Masque\Textures\Cooldown\Edge]],
+		-- PulseTexture = [[Interface\Cooldown\star4]],
 		Color = {0, 0, 0, 0.7},
 		Width = 28,
 		Height = 28,
@@ -515,12 +548,14 @@ MSQ:AddSkin("Onyx", {
 		-- SetAllPoints = nil,
 	},
 	ChargeCooldown = {
+		-- EdgeTexture = [[Interface\AddOns\Masque\Textures\Cooldown\Edge]],
+		-- PulseTexture = [[Interface\Cooldown\star4]],
 		Width = 28,
 		Height = 28,
-		-- Point = "CENTER",
-		-- RelPoint = "CENTER",
-		-- OffsetX = 0,
-		-- OffsetY = 0,
+		Point = "CENTER",
+		RelPoint = "CENTER",
+		OffsetX = 0,
+		OffsetY = 0,
 		SetAllPoints = true,
 	},
 })
@@ -530,19 +565,27 @@ MSQ:AddSkin("Onyx", {
 ---
 
 MSQ:AddSkin("Onyx Classic", {
+	-- API_VERSION = Template.API_VERSION,
+	-- Shape = Template.Shape,
 	Template = "Onyx",
-	Title = "Classic",
-	Order = 2,
 
 	-- Info
+	-- Author = Template.Author,
 	Description = L["The classic Onyx with arrow indicators."],
+	-- Version = Template.Version,
+	-- Websites = Template.Websites,
+
+	-- UI
+	-- Group = Template.Group,
+	Order = 2,
+	Title = "Classic",
 
 	-- Skin
 	Normal = {
 		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Frame-Classic]],
 		-- TexCoords = {0, 1, 0, 1},
-		Color = {1, 1, 1, 1},
-		-- EmptyTexture = [[Interface\AddOns\Masque_Onyx\Textures\Frame]],
+		-- Color = {1, 1, 1, 1},
+		-- EmptyTexture = [[Interface\AddOns\Masque_Onyx\Textures\Frame-Classic]],
 		-- EmptyCoords = {0, 1, 0, 1},
 		-- EmptyColor = {1, 1, 1, 0.5},
 		BlendMode = "BLEND",
@@ -554,8 +597,8 @@ MSQ:AddSkin("Onyx Classic", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		-- UseStates = nil,
 		-- SetAllPoints = nil,
+		-- UseStates = nil,
 	},
 	Checked = {
 		Texture = [[Interface\AddOns\Masque_Onyx\Textures\Arrow]],
@@ -600,7 +643,7 @@ MSQ:AddSkin("Onyx Classic", {
 		RelPoint = "CENTER",
 		OffsetX = 0,
 		OffsetY = 0,
-		-- UseColor = nil,
 		-- SetAllPoints = nil,
+		-- UseColor = nil,
 	},
 })

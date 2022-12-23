@@ -1,8 +1,22 @@
-## Interface: 90205
-## Title: Masque: |cff99CCFFEpix|r
-## Version: 3.0
-## Author: Epix
+## Interface: 100002
+
+## Title: Masque: Epix
 ## Notes: Epix's skin for Masque.
+## Notes-deDE: Epix-Skin für Masque.
+## Notes-esMX: Skin Epix para Masque.
+## Notes-esES: Skin Epix para Masque.
+## Notes-frFR: Skin de Epix pour Masque.
+## Notes-itIT: Skin Epix per Masque.
+## Notes-ruRU: Скин Epix для Masque.
+## Notes-zhTW: Masque的Epix皮膚。
+
+## Version: 3.5.1
+## Author: Epix, StormFX
 ## Dependencies: Masque
 
-Masque_Epix.lua
+## X-Category: Interface Enhancements
+## X-Credits: Epix, StormFX
+## X-Curse-Project-ID: 302421
+
+# Skins
+Skins.lua

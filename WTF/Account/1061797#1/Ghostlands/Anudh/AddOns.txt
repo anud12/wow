@@ -17,3 +17,6 @@ RaiderIO_DB_KR_R: disabled
 RaiderIO_DB_KR_M: disabled
 RaiderIO_DB_KR_F: disabled
 Bagnon: disabled
+Immersion: enabled
+Blizzard_ObjectiveTracker: enabled
+Blizzard_CompactRaidFrames: enabled

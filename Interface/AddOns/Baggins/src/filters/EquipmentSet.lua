@@ -16,7 +16,9 @@ local ipairs = _G.ipairs
 -- WoW API
 local GetEquipmentSetIDs = _G.C_EquipmentSet.GetEquipmentSetIDs
 local GetEquipmentSetInfo = _G.C_EquipmentSet.GetEquipmentSetInfo
-local GetContainerItemEquipmentSetInfo = _G.GetContainerItemEquipmentSetInfo
+local GetContainerItemEquipmentSetInfo = _G.C_Container and _G.C_Container.GetContainerItemEquipmentSetInfo or _G.GetContainerItemEquipmentSetInfo
+local GetContainerItemInfo = _G.C_Container and _G.C_Container.GetContainerItemInfo
+local C_EquipmentSetGetItemIDs = _G.C_EquipmentSet and _G.C_EquipmentSet.GetItemIDs
 
 -- Libs
 local LibStub = _G.LibStub
@@ -68,6 +70,23 @@ local function Matches(bag, slot, rule)
 
     -- Item belongs to a set?
     local inset, setstring = GetContainerItemEquipmentSetInfo(bag, slot)
+    if not inset then
+        for _, id in next, GetEquipmentSetIDs() do
+            local name, _, _, _, _, _, _, _, _ = GetEquipmentSetInfo(id)
+            local items = C_EquipmentSetGetItemIDs(id)
+            for i = 1, 19 do
+                if items[i] then
+                    local setitemid = items[i]
+                    local containerInfo = GetContainerItemInfo(bag, slot)
+                    if name and containerInfo and setitemid == containerInfo.itemID then
+                        inset = true
+                        setstring = name
+                    end
+                end
+            end
+        end
+    end
+
     if not inset then
         return false
     end

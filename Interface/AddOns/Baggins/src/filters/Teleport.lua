@@ -13,7 +13,7 @@ local AddOn = _G[AddOnName]
 --local LibStub = _G.LibStub
 --local L = LibStub("AceLocale-3.0"):GetLocale(AddOnName)
 
-local GetContainerItemID = _G.GetContainerItemID
+local GetContainerItemID = _G.C_Container and _G.C_Container.GetContainerItemID or _G.GetContainerItemID
 
 local ids = {
     6948, -- Standard Hearth
@@ -26,6 +26,8 @@ local ids = {
     128353, -- Admiral's Compass
     103678, -- Time-Lost Artifact
     65274, -- Cloak of Coordination
+    64457, --the last relic of argus
+    46874, --argent crusaders tabard
 }
 
 local function Matches(bag, slot, _)

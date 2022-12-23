@@ -9,7 +9,14 @@ BagginsDB = {
 		},
 	},
 	["profileKeys"] = {
+		["Anud - Argent Dawn"] = "Default",
+		["Anuddemomo - Ghostlands"] = "Default",
 		["Anuddh - Ghostlands"] = "Ghostlands",
+		["Anuddemowa - Ghostlands"] = "Default",
+		["Anuddepriest - Ghostlands"] = "Default",
+		["Anuddemo - Ghostlands"] = "Default",
+		["Anudr - Ghostlands"] = "Default",
+		["Anuddemosham - Ghostlands"] = "Default",
 		["Anud - Ghostlands"] = "Default",
 	},
 	["profiles"] = {
@@ -111,8 +118,8 @@ BagginsDB = {
 						["type"] = "ItemType",
 					}, -- [1]
 					{
-						["type"] = "Tooltip",
 						["text"] = "ITEM_BIND_QUEST",
+						["type"] = "Tooltip",
 					}, -- [2]
 					["name"] = "Quest",
 				},
@@ -256,18 +263,13 @@ BagginsDB = {
 					}, -- [2]
 					["name"] = "Armor",
 				},
-				["Pets"] = {
+				["Enchanting"] = {
 					{
-						["itype"] = 17,
 						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 12,
 					}, -- [1]
-					{
-						["operation"] = "OR",
-						["type"] = "ItemType",
-						["itype"] = 15,
-						["isubtype"] = 2,
-					}, -- [2]
-					["name"] = "Pets",
+					["name"] = "Enchanting",
 				},
 				["Metal & Stone"] = {
 					{
@@ -290,13 +292,6 @@ BagginsDB = {
 					}, -- [1]
 					["name"] = "Toys",
 				},
-				["Tradeskill Mats"] = {
-					{
-						["itype"] = 7,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Tradeskill Mats",
-				},
 				["FirstAid"] = {
 					{
 						["type"] = "ItemType",
@@ -305,28 +300,39 @@ BagginsDB = {
 					}, -- [1]
 					["name"] = "FirstAid",
 				},
-				["Food & Drink"] = {
+				["Trash"] = {
+					{
+						["type"] = "Quality",
+						["comp"] = "<=",
+						["quality"] = 0,
+					}, -- [1]
+					["name"] = "Trash",
+				},
+				["Tools"] = {
+					{
+						["setname"] = "Tradeskill.Tool",
+						["type"] = "PeriodicTable Set",
+					}, -- [1]
+					{
+						["operation"] = "NOT",
+						["type"] = "PeriodicTable Set",
+						["setname"] = "Tradeskill.Tool.Fishing",
+					}, -- [2]
+					["name"] = "Tools",
+				},
+				["Conduit"] = {
+					{
+						["type"] = "Conduit",
+					}, -- [1]
+					["name"] = "Conduit Items",
+				},
+				["Mounts"] = {
 					{
 						["type"] = "ItemType",
-						["itype"] = 0,
+						["itype"] = 15,
 						["isubtype"] = 5,
 					}, -- [1]
-					["name"] = "Food & Drink",
-				},
-				["Item Enchantment"] = {
-					{
-						["itype"] = 8,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Item Enchantment",
-				},
-				["Leather"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 6,
-					}, -- [1]
-					["name"] = "Leather",
+					["name"] = "Mounts",
 				},
 				["TrashEquip"] = {
 					{
@@ -363,39 +369,35 @@ BagginsDB = {
 					}, -- [1]
 					["name"] = "Recipes",
 				},
-				["Mounts"] = {
+				["Leather"] = {
 					{
 						["type"] = "ItemType",
-						["itype"] = 15,
+						["itype"] = 7,
+						["isubtype"] = 6,
+					}, -- [1]
+					["name"] = "Leather",
+				},
+				["Item Enchantment"] = {
+					{
+						["itype"] = 8,
+						["type"] = "ItemType",
+					}, -- [1]
+					["name"] = "Item Enchantment",
+				},
+				["Food & Drink"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 0,
 						["isubtype"] = 5,
 					}, -- [1]
-					["name"] = "Mounts",
+					["name"] = "Food & Drink",
 				},
-				["Conduit"] = {
+				["Tradeskill Mats"] = {
 					{
-						["type"] = "Conduit",
+						["itype"] = 7,
+						["type"] = "ItemType",
 					}, -- [1]
-					["name"] = "Conduit Items",
-				},
-				["Tools"] = {
-					{
-						["setname"] = "Tradeskill.Tool",
-						["type"] = "PeriodicTable Set",
-					}, -- [1]
-					{
-						["operation"] = "NOT",
-						["type"] = "PeriodicTable Set",
-						["setname"] = "Tradeskill.Tool.Fishing",
-					}, -- [2]
-					["name"] = "Tools",
-				},
-				["Trash"] = {
-					{
-						["type"] = "Quality",
-						["comp"] = "<=",
-						["quality"] = 0,
-					}, -- [1]
-					["name"] = "Trash",
+					["name"] = "Tradeskill Mats",
 				},
 				["Cloth"] = {
 					{
@@ -423,13 +425,18 @@ BagginsDB = {
 					}, -- [3]
 					["name"] = "Weapons",
 				},
-				["Enchanting"] = {
+				["Pets"] = {
 					{
+						["itype"] = 17,
 						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 12,
 					}, -- [1]
-					["name"] = "Enchanting",
+					{
+						["operation"] = "OR",
+						["type"] = "ItemType",
+						["itype"] = 15,
+						["isubtype"] = 2,
+					}, -- [2]
+					["name"] = "Pets",
 				},
 				["Herb"] = {
 					{
@@ -447,11 +454,11 @@ BagginsDB = {
 					["name"] = "Other",
 					["sections"] = {
 						{
-							["allowdupes"] = true,
 							["cats"] = {
 								"New", -- [1]
 							},
 							["name"] = "New",
+							["allowdupes"] = true,
 						}, -- [1]
 						{
 							["name"] = "Other",
@@ -660,9 +667,6 @@ BagginsDB = {
 					["openWithAll"] = true,
 				}, -- [6]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Equipment",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Armor",
@@ -677,11 +681,11 @@ BagginsDB = {
 							},
 						}, -- [2]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Equipment",
+					["isBank"] = true,
 				}, -- [7]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Quest",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Quest Items",
@@ -690,11 +694,11 @@ BagginsDB = {
 							},
 						}, -- [1]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Quest",
+					["isBank"] = true,
 				}, -- [8]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Consumables",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Food & Drink",
@@ -733,11 +737,11 @@ BagginsDB = {
 							},
 						}, -- [6]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Consumables",
+					["isBank"] = true,
 				}, -- [9]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Trade Goods",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Elemental",
@@ -812,11 +816,11 @@ BagginsDB = {
 							},
 						}, -- [12]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Trade Goods",
+					["isBank"] = true,
 				}, -- [10]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Other",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Other",
@@ -838,6 +842,9 @@ BagginsDB = {
 							},
 						}, -- [3]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Other",
+					["isBank"] = true,
 				}, -- [11]
 			},
 			["minimap"] = {
@@ -942,8 +949,8 @@ BagginsDB = {
 						["type"] = "ItemType",
 					}, -- [1]
 					{
-						["type"] = "Tooltip",
 						["text"] = "ITEM_BIND_QUEST",
+						["type"] = "Tooltip",
 					}, -- [2]
 					["name"] = "Quest",
 				},
@@ -1087,18 +1094,13 @@ BagginsDB = {
 					}, -- [2]
 					["name"] = "Armor",
 				},
-				["Pets"] = {
+				["Enchanting"] = {
 					{
-						["itype"] = 17,
 						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 12,
 					}, -- [1]
-					{
-						["operation"] = "OR",
-						["type"] = "ItemType",
-						["itype"] = 15,
-						["isubtype"] = 2,
-					}, -- [2]
-					["name"] = "Pets",
+					["name"] = "Enchanting",
 				},
 				["Metal & Stone"] = {
 					{
@@ -1121,13 +1123,6 @@ BagginsDB = {
 					}, -- [1]
 					["name"] = "Toys",
 				},
-				["Tradeskill Mats"] = {
-					{
-						["itype"] = 7,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Tradeskill Mats",
-				},
 				["FirstAid"] = {
 					{
 						["type"] = "ItemType",
@@ -1136,28 +1131,39 @@ BagginsDB = {
 					}, -- [1]
 					["name"] = "FirstAid",
 				},
-				["Food & Drink"] = {
+				["Trash"] = {
+					{
+						["type"] = "Quality",
+						["comp"] = "<=",
+						["quality"] = 0,
+					}, -- [1]
+					["name"] = "Trash",
+				},
+				["Tools"] = {
+					{
+						["setname"] = "Tradeskill.Tool",
+						["type"] = "PeriodicTable Set",
+					}, -- [1]
+					{
+						["operation"] = "NOT",
+						["type"] = "PeriodicTable Set",
+						["setname"] = "Tradeskill.Tool.Fishing",
+					}, -- [2]
+					["name"] = "Tools",
+				},
+				["Conduit"] = {
+					{
+						["type"] = "Conduit",
+					}, -- [1]
+					["name"] = "Conduit Items",
+				},
+				["Mounts"] = {
 					{
 						["type"] = "ItemType",
-						["itype"] = 0,
+						["itype"] = 15,
 						["isubtype"] = 5,
 					}, -- [1]
-					["name"] = "Food & Drink",
-				},
-				["Item Enchantment"] = {
-					{
-						["itype"] = 8,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Item Enchantment",
-				},
-				["Leather"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 6,
-					}, -- [1]
-					["name"] = "Leather",
+					["name"] = "Mounts",
 				},
 				["TrashEquip"] = {
 					{
@@ -1194,39 +1200,35 @@ BagginsDB = {
 					}, -- [1]
 					["name"] = "Recipes",
 				},
-				["Mounts"] = {
+				["Leather"] = {
 					{
 						["type"] = "ItemType",
-						["itype"] = 15,
+						["itype"] = 7,
+						["isubtype"] = 6,
+					}, -- [1]
+					["name"] = "Leather",
+				},
+				["Item Enchantment"] = {
+					{
+						["itype"] = 8,
+						["type"] = "ItemType",
+					}, -- [1]
+					["name"] = "Item Enchantment",
+				},
+				["Food & Drink"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 0,
 						["isubtype"] = 5,
 					}, -- [1]
-					["name"] = "Mounts",
+					["name"] = "Food & Drink",
 				},
-				["Conduit"] = {
+				["Tradeskill Mats"] = {
 					{
-						["type"] = "Conduit",
+						["itype"] = 7,
+						["type"] = "ItemType",
 					}, -- [1]
-					["name"] = "Conduit Items",
-				},
-				["Tools"] = {
-					{
-						["setname"] = "Tradeskill.Tool",
-						["type"] = "PeriodicTable Set",
-					}, -- [1]
-					{
-						["operation"] = "NOT",
-						["type"] = "PeriodicTable Set",
-						["setname"] = "Tradeskill.Tool.Fishing",
-					}, -- [2]
-					["name"] = "Tools",
-				},
-				["Trash"] = {
-					{
-						["type"] = "Quality",
-						["comp"] = "<=",
-						["quality"] = 0,
-					}, -- [1]
-					["name"] = "Trash",
+					["name"] = "Tradeskill Mats",
 				},
 				["Cloth"] = {
 					{
@@ -1254,13 +1256,18 @@ BagginsDB = {
 					}, -- [3]
 					["name"] = "Weapons",
 				},
-				["Enchanting"] = {
+				["Pets"] = {
 					{
+						["itype"] = 17,
 						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 12,
 					}, -- [1]
-					["name"] = "Enchanting",
+					{
+						["operation"] = "OR",
+						["type"] = "ItemType",
+						["itype"] = 15,
+						["isubtype"] = 2,
+					}, -- [2]
+					["name"] = "Pets",
 				},
 				["Herb"] = {
 					{
@@ -1273,15 +1280,15 @@ BagginsDB = {
 			},
 			["bags"] = {
 				{
-					["openWithAll"] = true,
 					["name"] = "Other",
+					["openWithAll"] = true,
 					["sections"] = {
 						{
-							["allowdupes"] = true,
 							["cats"] = {
 								"New", -- [1]
 							},
 							["name"] = "New",
+							["allowdupes"] = true,
 						}, -- [1]
 						{
 							["name"] = "Other",
@@ -1305,8 +1312,8 @@ BagginsDB = {
 					},
 				}, -- [1]
 				{
-					["openWithAll"] = true,
 					["name"] = "Equipment",
+					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "In Use",
@@ -1329,8 +1336,8 @@ BagginsDB = {
 					},
 				}, -- [2]
 				{
-					["openWithAll"] = true,
 					["name"] = "Quest",
+					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Quest Items",
@@ -1341,8 +1348,8 @@ BagginsDB = {
 					},
 				}, -- [3]
 				{
-					["openWithAll"] = true,
 					["name"] = "Consumables",
+					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Food & Drink",
@@ -1383,8 +1390,8 @@ BagginsDB = {
 					},
 				}, -- [4]
 				{
-					["openWithAll"] = true,
 					["name"] = "Trade Goods",
+					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Elemental",
@@ -1461,8 +1468,8 @@ BagginsDB = {
 					},
 				}, -- [5]
 				{
-					["openWithAll"] = true,
 					["name"] = "Professions",
+					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Fishing",
@@ -1479,9 +1486,6 @@ BagginsDB = {
 					},
 				}, -- [6]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Equipment",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Armor",
@@ -1496,11 +1500,11 @@ BagginsDB = {
 							},
 						}, -- [2]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Equipment",
+					["isBank"] = true,
 				}, -- [7]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Quest",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Quest Items",
@@ -1509,11 +1513,11 @@ BagginsDB = {
 							},
 						}, -- [1]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Quest",
+					["isBank"] = true,
 				}, -- [8]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Consumables",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Food & Drink",
@@ -1552,11 +1556,11 @@ BagginsDB = {
 							},
 						}, -- [6]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Consumables",
+					["isBank"] = true,
 				}, -- [9]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Trade Goods",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Elemental",
@@ -1631,11 +1635,11 @@ BagginsDB = {
 							},
 						}, -- [12]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Trade Goods",
+					["isBank"] = true,
 				}, -- [10]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Other",
-					["openWithAll"] = true,
 					["sections"] = {
 						{
 							["name"] = "Other",
@@ -1657,6 +1661,9 @@ BagginsDB = {
 							},
 						}, -- [3]
 					},
+					["openWithAll"] = true,
+					["name"] = "Bank Other",
+					["isBank"] = true,
 				}, -- [11]
 			},
 		},
@@ -1665,8 +1672,478 @@ BagginsDB = {
 			["EnableItemLevelText"] = false,
 			["newitemduration"] = 0,
 			["layout"] = "manual",
+			["ItemLevelQualityColor"] = false,
 			["overridedefaultbags"] = false,
 			["shrinkwidth"] = false,
+			["categories"] = {
+				["Inscription"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 16,
+					}, -- [1]
+					["name"] = "Inscription",
+				},
+				["Bags"] = {
+					{
+						["bagid"] = 1,
+						["type"] = "Bag",
+					}, -- [1]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 2,
+					}, -- [2]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 3,
+					}, -- [3]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 4,
+					}, -- [4]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 0,
+					}, -- [5]
+					["name"] = "Bags",
+				},
+				["Consumables"] = {
+					{
+						["itype"] = 0,
+						["type"] = "ItemType",
+					}, -- [1]
+					["name"] = "Consumables",
+				},
+				["BankBags"] = {
+					{
+						["bagid"] = -1,
+						["type"] = "Bag",
+					}, -- [1]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 5,
+					}, -- [2]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 6,
+					}, -- [3]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 7,
+					}, -- [4]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 8,
+					}, -- [5]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 9,
+					}, -- [6]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 10,
+					}, -- [7]
+					{
+						["operation"] = "OR",
+						["type"] = "Bag",
+						["bagid"] = 11,
+					}, -- [8]
+					["name"] = "BankBags",
+				},
+				["Empty"] = {
+					{
+						["type"] = "Empty",
+					}, -- [1]
+					["name"] = "Empty",
+				},
+				["Quest"] = {
+					{
+						["itype"] = 12,
+						["type"] = "ItemType",
+					}, -- [1]
+					{
+						["text"] = "ITEM_BIND_QUEST",
+						["type"] = "Tooltip",
+					}, -- [2]
+					["name"] = "Quest",
+				},
+				["New"] = {
+					{
+						["name"] = "New",
+						["type"] = "NewItems",
+					}, -- [1]
+				},
+				["Potions"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 0,
+						["isubtype"] = 1,
+					}, -- [1]
+					["name"] = "Potions",
+				},
+				["Lockbox"] = {
+					{
+						["type"] = "Lockbox",
+					}, -- [1]
+					["name"] = "Lockbox",
+				},
+				["Elemental"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 10,
+					}, -- [1]
+					["name"] = "Elemental",
+				},
+				["Fishing"] = {
+					{
+						["setname"] = "Tradeskill.Tool.Fishing",
+						["type"] = "PeriodicTable Set",
+					}, -- [1]
+					["name"] = "Fishing",
+				},
+				["Gems"] = {
+					{
+						["itype"] = 3,
+						["type"] = "ItemType",
+					}, -- [1]
+					["name"] = "Gems",
+				},
+				["Misc Consumables"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 0,
+						["isubtype"] = 8,
+					}, -- [1]
+					["name"] = "Misc Consumables",
+				},
+				["Engineering"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 1,
+					}, -- [1]
+					{
+						["operation"] = "OR",
+						["type"] = "ItemType",
+						["itype"] = 0,
+						["isubtype"] = 0,
+					}, -- [2]
+					["name"] = "Parts",
+				},
+				["Mount Equipment"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 15,
+						["isubtype"] = 6,
+					}, -- [1]
+					["name"] = "Mount Equipment",
+				},
+				["Herb"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 9,
+					}, -- [1]
+					["name"] = "Herb",
+				},
+				["Disenchant"] = {
+					{
+						["maxlvl"] = 250,
+						["type"] = "ItemLevel",
+						["minlvl"] = 200,
+					}, -- [1]
+					["name"] = "Disenchant",
+				},
+				["Keystone"] = {
+					{
+						["type"] = "Keystone",
+					}, -- [1]
+					["name"] = "Keystone",
+				},
+				["Enchanting"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 12,
+					}, -- [1]
+					["name"] = "Enchanting",
+				},
+				["Jewelcrafting"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 4,
+					}, -- [1]
+					["name"] = "Jewelcrafting",
+				},
+				["Bag 4"] = {
+					{
+						["bagid"] = 4,
+						["type"] = "Bag",
+					}, -- [1]
+					["name"] = "Bag 4",
+				},
+				["Bag 3"] = {
+					{
+						["bagid"] = 3,
+						["type"] = "Bag",
+					}, -- [1]
+					["name"] = "Bag 3",
+				},
+				["Equipment Set"] = {
+					{
+						["anyset"] = true,
+						["type"] = "EquipmentSet",
+					}, -- [1]
+					["name"] = "Equipment Set",
+				},
+				["Bag 1"] = {
+					{
+						["bagid"] = 1,
+						["type"] = "Bag",
+					}, -- [1]
+					["name"] = "Bag 1",
+				},
+				["Cooking"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 8,
+					}, -- [1]
+					["name"] = "Cooking",
+				},
+				["Toys"] = {
+					{
+						["type"] = "Toys",
+					}, -- [1]
+					["name"] = "Toys",
+				},
+				["Flasks & Elixirs"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 0,
+						["isubtype"] = 3,
+					}, -- [1]
+					{
+						["operation"] = "OR",
+						["type"] = "ItemType",
+						["itype"] = 0,
+						["isubtype"] = 2,
+					}, -- [2]
+					["name"] = "Flasks & Elixirs",
+				},
+				["Tools"] = {
+					{
+						["setname"] = "Tradeskill.Tool",
+						["type"] = "PeriodicTable Set",
+					}, -- [1]
+					{
+						["operation"] = "NOT",
+						["type"] = "PeriodicTable Set",
+						["setname"] = "Tradeskill.Tool.Fishing",
+					}, -- [2]
+					["name"] = "Tools",
+				},
+				["Armor"] = {
+					{
+						["itype"] = 4,
+						["type"] = "ItemType",
+					}, -- [1]
+					{
+						["operation"] = "NOT",
+						["type"] = "ItemType",
+						["itype"] = 4,
+						["isubtype"] = 6,
+					}, -- [2]
+					["name"] = "Armor",
+				},
+				["Conduit"] = {
+					{
+						["type"] = "Conduit",
+					}, -- [1]
+					["name"] = "Conduit Items",
+				},
+				["Metal & Stone"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 7,
+					}, -- [1]
+					["name"] = "Metal & Stone",
+				},
+				["Mounts"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 15,
+						["isubtype"] = 5,
+					}, -- [1]
+					["name"] = "Mounts",
+				},
+				["Recipes"] = {
+					{
+						["itype"] = 9,
+						["type"] = "ItemType",
+					}, -- [1]
+					["name"] = "Recipes",
+				},
+				["Trash"] = {
+					{
+						["type"] = "Quality",
+						["comp"] = "<=",
+						["quality"] = 0,
+					}, -- [1]
+					["name"] = "Trash",
+				},
+				["FirstAid"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 0,
+						["isubtype"] = 7,
+					}, -- [1]
+					["name"] = "FirstAid",
+				},
+				["Tradeskill Mats"] = {
+					{
+						["itype"] = 7,
+						["type"] = "ItemType",
+					}, -- [1]
+					["name"] = "Tradeskill Mats",
+				},
+				["Item Enchantment"] = {
+					{
+						["itype"] = 8,
+						["type"] = "ItemType",
+					}, -- [1]
+					["name"] = "Item Enchantment",
+				},
+				["Food & Drink"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 0,
+						["isubtype"] = 5,
+					}, -- [1]
+					["name"] = "Food & Drink",
+				},
+				["TrashEquip"] = {
+					{
+						["itype"] = 4,
+						["type"] = "ItemType",
+					}, -- [1]
+					{
+						["operation"] = "OR",
+						["type"] = "ItemType",
+						["itype"] = 2,
+					}, -- [2]
+					{
+						["operation"] = "AND",
+						["type"] = "Quality",
+						["comp"] = "<=",
+						["quality"] = 0,
+					}, -- [3]
+					{
+						["operation"] = "NOT",
+						["type"] = "PeriodicTable Set",
+						["setname"] = "Tradeskill.Tool",
+					}, -- [4]
+					{
+						["operation"] = "NOT",
+						["type"] = "ItemType",
+						["itype"] = 12,
+					}, -- [5]
+					["name"] = "TrashEquip",
+				},
+				["Item Enhancements"] = {
+					{
+						["itype"] = 8,
+						["type"] = "ItemType",
+					}, -- [1]
+					["name"] = "Item Enhancements",
+				},
+				["Leather"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 6,
+					}, -- [1]
+					["name"] = "Leather",
+				},
+				["Bag 2"] = {
+					{
+						["bagid"] = 2,
+						["type"] = "Bag",
+					}, -- [1]
+					["name"] = "Bag 2",
+				},
+				["Pets"] = {
+					{
+						["itype"] = 17,
+						["type"] = "ItemType",
+					}, -- [1]
+					{
+						["operation"] = "OR",
+						["type"] = "ItemType",
+						["itype"] = 15,
+						["isubtype"] = 2,
+					}, -- [2]
+					["name"] = "Pets",
+				},
+				["Teleport Items"] = {
+					{
+						["type"] = "Teleport",
+					}, -- [1]
+					["name"] = "Teleport Items",
+				},
+				["Cloth"] = {
+					{
+						["type"] = "ItemType",
+						["itype"] = 7,
+						["isubtype"] = 5,
+					}, -- [1]
+					["name"] = "Cloth",
+				},
+				["Weapons"] = {
+					{
+						["itype"] = 2,
+						["type"] = "ItemType",
+					}, -- [1]
+					{
+						["type"] = "ItemType",
+						["itype"] = 4,
+						["isubtype"] = 6,
+					}, -- [2]
+					{
+						["operation"] = "NOT",
+						["type"] = "ItemType",
+						["itype"] = 2,
+						["isubtype"] = 14,
+					}, -- [3]
+					["name"] = "Weapons",
+				},
+				["Other"] = {
+					{
+						["type"] = "Other",
+					}, -- [1]
+					["name"] = "Other",
+				},
+				["Bag 0"] = {
+					{
+						["bagid"] = 0,
+						["type"] = "Bag",
+					}, -- [1]
+					["name"] = "Bag 0",
+				},
+			},
 			["bags"] = {
 				{
 					["y"] = 251.9999847412109,
@@ -1674,11 +2151,11 @@ BagginsDB = {
 					["name"] = "Other",
 					["sections"] = {
 						{
+							["name"] = "New",
+							["allowdupes"] = true,
 							["cats"] = {
 								"New", -- [1]
 							},
-							["name"] = "New",
-							["allowdupes"] = true,
 						}, -- [1]
 						{
 							["name"] = "Other",
@@ -1887,9 +2364,6 @@ BagginsDB = {
 					["openWithAll"] = false,
 				}, -- [6]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Equipment",
-					["openWithAll"] = false,
 					["sections"] = {
 						{
 							["name"] = "Armor",
@@ -1904,11 +2378,11 @@ BagginsDB = {
 							},
 						}, -- [2]
 					},
+					["openWithAll"] = false,
+					["name"] = "Bank Equipment",
+					["isBank"] = true,
 				}, -- [7]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Quest",
-					["openWithAll"] = false,
 					["sections"] = {
 						{
 							["name"] = "Quest Items",
@@ -1917,11 +2391,11 @@ BagginsDB = {
 							},
 						}, -- [1]
 					},
+					["openWithAll"] = false,
+					["name"] = "Bank Quest",
+					["isBank"] = true,
 				}, -- [8]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Consumables",
-					["openWithAll"] = false,
 					["sections"] = {
 						{
 							["name"] = "Food & Drink",
@@ -1960,11 +2434,11 @@ BagginsDB = {
 							},
 						}, -- [6]
 					},
+					["openWithAll"] = false,
+					["name"] = "Bank Consumables",
+					["isBank"] = true,
 				}, -- [9]
 				{
-					["isBank"] = true,
-					["name"] = "Bank Trade Goods",
-					["openWithAll"] = false,
 					["sections"] = {
 						{
 							["name"] = "Elemental",
@@ -2039,11 +2513,11 @@ BagginsDB = {
 							},
 						}, -- [12]
 					},
+					["openWithAll"] = false,
+					["name"] = "Bank Trade Goods",
+					["isBank"] = true,
 				}, -- [10]
 				{
-					["isBank"] = false,
-					["name"] = "Bank Other",
-					["openWithAll"] = false,
 					["sections"] = {
 						{
 							["name"] = "Other",
@@ -2065,6 +2539,9 @@ BagginsDB = {
 							},
 						}, -- [3]
 					},
+					["openWithAll"] = false,
+					["name"] = "Bank Other",
+					["isBank"] = false,
 				}, -- [11]
 				{
 					["y"] = 423.5556335449219,
@@ -2114,478 +2591,8 @@ BagginsDB = {
 			["minimap"] = {
 				["minimapPos"] = 359.7049229977455,
 			},
-			["overridebackpack"] = false,
 			["columns"] = 4,
-			["categories"] = {
-				["Inscription"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 16,
-					}, -- [1]
-					["name"] = "Inscription",
-				},
-				["Bags"] = {
-					{
-						["bagid"] = 1,
-						["type"] = "Bag",
-					}, -- [1]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 2,
-					}, -- [2]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 3,
-					}, -- [3]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 4,
-					}, -- [4]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 0,
-					}, -- [5]
-					["name"] = "Bags",
-				},
-				["Consumables"] = {
-					{
-						["itype"] = 0,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Consumables",
-				},
-				["BankBags"] = {
-					{
-						["bagid"] = -1,
-						["type"] = "Bag",
-					}, -- [1]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 5,
-					}, -- [2]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 6,
-					}, -- [3]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 7,
-					}, -- [4]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 8,
-					}, -- [5]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 9,
-					}, -- [6]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 10,
-					}, -- [7]
-					{
-						["operation"] = "OR",
-						["type"] = "Bag",
-						["bagid"] = 11,
-					}, -- [8]
-					["name"] = "BankBags",
-				},
-				["Empty"] = {
-					{
-						["type"] = "Empty",
-					}, -- [1]
-					["name"] = "Empty",
-				},
-				["Quest"] = {
-					{
-						["itype"] = 12,
-						["type"] = "ItemType",
-					}, -- [1]
-					{
-						["type"] = "Tooltip",
-						["text"] = "ITEM_BIND_QUEST",
-					}, -- [2]
-					["name"] = "Quest",
-				},
-				["New"] = {
-					{
-						["name"] = "New",
-						["type"] = "NewItems",
-					}, -- [1]
-				},
-				["Potions"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 0,
-						["isubtype"] = 1,
-					}, -- [1]
-					["name"] = "Potions",
-				},
-				["Lockbox"] = {
-					{
-						["type"] = "Lockbox",
-					}, -- [1]
-					["name"] = "Lockbox",
-				},
-				["Elemental"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 10,
-					}, -- [1]
-					["name"] = "Elemental",
-				},
-				["Fishing"] = {
-					{
-						["setname"] = "Tradeskill.Tool.Fishing",
-						["type"] = "PeriodicTable Set",
-					}, -- [1]
-					["name"] = "Fishing",
-				},
-				["Gems"] = {
-					{
-						["itype"] = 3,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Gems",
-				},
-				["Misc Consumables"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 0,
-						["isubtype"] = 8,
-					}, -- [1]
-					["name"] = "Misc Consumables",
-				},
-				["Engineering"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 1,
-					}, -- [1]
-					{
-						["operation"] = "OR",
-						["type"] = "ItemType",
-						["itype"] = 0,
-						["isubtype"] = 0,
-					}, -- [2]
-					["name"] = "Parts",
-				},
-				["Mount Equipment"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 15,
-						["isubtype"] = 6,
-					}, -- [1]
-					["name"] = "Mount Equipment",
-				},
-				["Bag 0"] = {
-					{
-						["bagid"] = 0,
-						["type"] = "Bag",
-					}, -- [1]
-					["name"] = "Bag 0",
-				},
-				["Disenchant"] = {
-					{
-						["maxlvl"] = 250,
-						["type"] = "ItemLevel",
-						["minlvl"] = 200,
-					}, -- [1]
-					["name"] = "Disenchant",
-				},
-				["Keystone"] = {
-					{
-						["type"] = "Keystone",
-					}, -- [1]
-					["name"] = "Keystone",
-				},
-				["Other"] = {
-					{
-						["type"] = "Other",
-					}, -- [1]
-					["name"] = "Other",
-				},
-				["Bag 4"] = {
-					{
-						["bagid"] = 4,
-						["type"] = "Bag",
-					}, -- [1]
-					["name"] = "Bag 4",
-				},
-				["Jewelcrafting"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 4,
-					}, -- [1]
-					["name"] = "Jewelcrafting",
-				},
-				["Bag 3"] = {
-					{
-						["bagid"] = 3,
-						["type"] = "Bag",
-					}, -- [1]
-					["name"] = "Bag 3",
-				},
-				["Equipment Set"] = {
-					{
-						["anyset"] = true,
-						["type"] = "EquipmentSet",
-					}, -- [1]
-					["name"] = "Equipment Set",
-				},
-				["Bag 1"] = {
-					{
-						["bagid"] = 1,
-						["type"] = "Bag",
-					}, -- [1]
-					["name"] = "Bag 1",
-				},
-				["Cooking"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 8,
-					}, -- [1]
-					["name"] = "Cooking",
-				},
-				["Teleport Items"] = {
-					{
-						["type"] = "Teleport",
-					}, -- [1]
-					["name"] = "Teleport Items",
-				},
-				["Flasks & Elixirs"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 0,
-						["isubtype"] = 3,
-					}, -- [1]
-					{
-						["operation"] = "OR",
-						["type"] = "ItemType",
-						["itype"] = 0,
-						["isubtype"] = 2,
-					}, -- [2]
-					["name"] = "Flasks & Elixirs",
-				},
-				["Pets"] = {
-					{
-						["itype"] = 17,
-						["type"] = "ItemType",
-					}, -- [1]
-					{
-						["operation"] = "OR",
-						["type"] = "ItemType",
-						["itype"] = 15,
-						["isubtype"] = 2,
-					}, -- [2]
-					["name"] = "Pets",
-				},
-				["Armor"] = {
-					{
-						["itype"] = 4,
-						["type"] = "ItemType",
-					}, -- [1]
-					{
-						["operation"] = "NOT",
-						["type"] = "ItemType",
-						["itype"] = 4,
-						["isubtype"] = 6,
-					}, -- [2]
-					["name"] = "Armor",
-				},
-				["Bag 2"] = {
-					{
-						["bagid"] = 2,
-						["type"] = "Bag",
-					}, -- [1]
-					["name"] = "Bag 2",
-				},
-				["Metal & Stone"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 7,
-					}, -- [1]
-					["name"] = "Metal & Stone",
-				},
-				["Leather"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 6,
-					}, -- [1]
-					["name"] = "Leather",
-				},
-				["Item Enhancements"] = {
-					{
-						["itype"] = 8,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Item Enhancements",
-				},
-				["FirstAid"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 0,
-						["isubtype"] = 7,
-					}, -- [1]
-					["name"] = "FirstAid",
-				},
-				["Trash"] = {
-					{
-						["type"] = "Quality",
-						["comp"] = "<=",
-						["quality"] = 0,
-					}, -- [1]
-					["name"] = "Trash",
-				},
-				["Food & Drink"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 0,
-						["isubtype"] = 5,
-					}, -- [1]
-					["name"] = "Food & Drink",
-				},
-				["Item Enchantment"] = {
-					{
-						["itype"] = 8,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Item Enchantment",
-				},
-				["Tradeskill Mats"] = {
-					{
-						["itype"] = 7,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Tradeskill Mats",
-				},
-				["TrashEquip"] = {
-					{
-						["itype"] = 4,
-						["type"] = "ItemType",
-					}, -- [1]
-					{
-						["operation"] = "OR",
-						["type"] = "ItemType",
-						["itype"] = 2,
-					}, -- [2]
-					{
-						["operation"] = "AND",
-						["type"] = "Quality",
-						["comp"] = "<=",
-						["quality"] = 0,
-					}, -- [3]
-					{
-						["operation"] = "NOT",
-						["type"] = "PeriodicTable Set",
-						["setname"] = "Tradeskill.Tool",
-					}, -- [4]
-					{
-						["operation"] = "NOT",
-						["type"] = "ItemType",
-						["itype"] = 12,
-					}, -- [5]
-					["name"] = "TrashEquip",
-				},
-				["Recipes"] = {
-					{
-						["itype"] = 9,
-						["type"] = "ItemType",
-					}, -- [1]
-					["name"] = "Recipes",
-				},
-				["Mounts"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 15,
-						["isubtype"] = 5,
-					}, -- [1]
-					["name"] = "Mounts",
-				},
-				["Conduit"] = {
-					{
-						["type"] = "Conduit",
-					}, -- [1]
-					["name"] = "Conduit Items",
-				},
-				["Tools"] = {
-					{
-						["setname"] = "Tradeskill.Tool",
-						["type"] = "PeriodicTable Set",
-					}, -- [1]
-					{
-						["operation"] = "NOT",
-						["type"] = "PeriodicTable Set",
-						["setname"] = "Tradeskill.Tool.Fishing",
-					}, -- [2]
-					["name"] = "Tools",
-				},
-				["Toys"] = {
-					{
-						["type"] = "Toys",
-					}, -- [1]
-					["name"] = "Toys",
-				},
-				["Cloth"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 5,
-					}, -- [1]
-					["name"] = "Cloth",
-				},
-				["Weapons"] = {
-					{
-						["itype"] = 2,
-						["type"] = "ItemType",
-					}, -- [1]
-					{
-						["type"] = "ItemType",
-						["itype"] = 4,
-						["isubtype"] = 6,
-					}, -- [2]
-					{
-						["operation"] = "NOT",
-						["type"] = "ItemType",
-						["itype"] = 2,
-						["isubtype"] = 14,
-					}, -- [3]
-					["name"] = "Weapons",
-				},
-				["Enchanting"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 12,
-					}, -- [1]
-					["name"] = "Enchanting",
-				},
-				["Herb"] = {
-					{
-						["type"] = "ItemType",
-						["itype"] = 7,
-						["isubtype"] = 9,
-					}, -- [1]
-					["name"] = "Herb",
-				},
-			},
-			["ItemLevelQualityColor"] = false,
+			["overridebackpack"] = false,
 			["Font"] = "2002",
 			["moneybag"] = 13,
 			["section_layout"] = "optimize",

@@ -22,11 +22,12 @@ local tinsert, tsort =
 local BANK_CONTAINER = _G.BANK_CONTAINER
 local BACKPACK_CONTAINER = _G.BACKPACK_CONTAINER
 local REAGENTBANK_CONTAINER = _G.REAGENTBANK_CONTAINER
-local NUM_BAG_SLOTS = _G.NUM_BAG_SLOTS
+local NUM_BAG_SLOTS = _G.NUM_TOTAL_EQUIPPED_BAG_SLOTS or _G.NUM_BAG_SLOTS
 local NUM_BANKBAGSLOTS = _G.NUM_BANKBAGSLOTS
 
-local GetContainerItemInfo, GetContainerNumFreeSlots, GetContainerNumSlots =
-      _G.GetContainerItemInfo, _G.GetContainerNumFreeSlots, _G.GetContainerNumSlots
+local GetContainerItemInfo = _G.C_Container and _G.C_Container.GetContainerItemInfo or _G.GetContainerItemInfo
+local GetContainerNumFreeSlots = _G.C_Container and _G.C_Container.GetContainerNumFreeSlots or _G.GetContainerNumFreeSlots
+local GetContainerNumSlots = _G.C_Container and _G.C_Container.GetContainerNumSlots or _G.GetContainerNumSlots
 local C_Item, ItemLocation = _G.C_Item, _G.ItemLocation
 
 -- Libs
@@ -55,14 +56,15 @@ local function BuildBagTypes()
     end
 
     -- Classic specific bag
-    --[===[@non-retail@
-    BagTypes[KEYRING_CONTAINER] = 3
-    --@end-non-retail@]===]
+    if Baggins:IsClassicWow() or Baggins:IsTBCWow() or Baggins:IsWrathWow() then
+        BagTypes[KEYRING_CONTAINER] = 3
+    end
+
 
     -- Retail specific bag
-    --@retail@
-    BagTypes[REAGENTBANK_CONTAINER] = 4
-    --@end-retail@
+    if Baggins:IsRetailWow() then
+        BagTypes[REAGENTBANK_CONTAINER] = 4
+    end
 
 end
 
@@ -176,70 +178,73 @@ function Baggins:IsSpecialBag(bag) --luacheck: ignore 212
     if BagTypes[bag] == 4 then
         return "r"
     end
+    if bag == 5 then
+        return "re"
+    end
     if bag>=1 and bag<= 11 then
         local _,fam = GetContainerNumFreeSlots(bag)
 
-        --[===[@non-retail@
-        if type(fam)~="number" then
-            -- assume normal bag
-        elseif fam==0 then
-            -- normal bag
-        elseif fam==1 or fam==2 then	-- quiver / ammo
-            return prefix.."a", fam
-        elseif fam==3 then		-- soul
-            return prefix.."s", fam
-        elseif fam==4 then		-- leatherworking?
-            return prefix.."l", fam
-        elseif fam==5 then		-- inscription?
-            return prefix.."i", fam
-        elseif fam==6 then		-- herb
-            return prefix.."h", fam
-        elseif fam==7 then		-- eNchant
-            return prefix.."n", fam
-        elseif fam==8 then	-- engineering
-            return prefix.."e", fam
-        elseif fam==9 then	-- keyring
-            return prefix.."k", fam
-        elseif fam==10 then	-- gems?
-            return prefix.."g", fam
-        elseif fam==11 then	-- mining?
-            return prefix.."m", fam
-        else
-            return prefix.."?", fam
+        if Baggins:IsClassicWow() or Baggins:IsTBCWow() or Baggins:IsWrathWow() then
+            if type(fam)~="number" then
+                -- assume normal bag
+            elseif fam==0 then
+                -- normal bag
+            elseif fam==1 or fam==2 then	-- quiver / ammo
+                return prefix.."a", fam
+            elseif fam==3 then		-- soul
+                return prefix.."s", fam
+            elseif fam==4 then		-- leatherworking?
+                return prefix.."l", fam
+            elseif fam==5 then		-- inscription?
+                return prefix.."i", fam
+            elseif fam==6 then		-- herb
+                return prefix.."h", fam
+            elseif fam==7 then		-- eNchant
+                return prefix.."n", fam
+            elseif fam==8 then	-- engineering
+                return prefix.."e", fam
+            elseif fam==9 then	-- keyring
+                return prefix.."k", fam
+            elseif fam==10 then	-- gems?
+                return prefix.."g", fam
+            elseif fam==11 then	-- mining?
+                return prefix.."m", fam
+            else
+                return prefix.."?", fam
+            end
         end
-        --@end-non-retail@]===]
 
-        --@retail@
-        if type(fam)~="number" then --luacheck: ignore 542
-            -- assume normal bag
-            --Baggins:Debug('IsSpecialBag Got Normal Bag')
-        elseif fam==0 then --luacheck: ignore 542
-            -- normal bag
-            --Baggins:Debug('IsSpecialBag Got Normal Bag')
-        elseif fam==1 or fam==2 then	-- quiver / ammo
-            return prefix.."a", fam
-        elseif fam==4 then		-- soul
-            return prefix.."s", fam
-        elseif fam==8 then		-- leatherworking
-            return prefix.."l", fam
-        elseif fam==16 then		-- inscription
-            return prefix.."i", fam
-        elseif fam==32 then		-- herb
-            return prefix.."h", fam
-        elseif fam==64 then		-- eNchant
-            return prefix.."n", fam
-        elseif fam==128 then	-- engineering
-            return prefix.."e", fam
-        elseif fam==256 then	-- keyring
-            return prefix.."k", fam
-        elseif fam==512 then	-- gems
-            return prefix.."g", fam
-        elseif fam==1024 then	-- mining
-            return prefix.."m", fam
-        else
-            return prefix.."?", fam
+        if Baggins:IsRetailWow() then
+            if type(fam)~="number" then --luacheck: ignore 542
+                -- assume normal bag
+                --Baggins:Debug('IsSpecialBag Got Normal Bag')
+            elseif fam==0 then --luacheck: ignore 542
+                -- normal bag
+                --Baggins:Debug('IsSpecialBag Got Normal Bag')
+            elseif fam==1 or fam==2 then	-- quiver / ammo
+                return prefix.."a", fam
+            elseif fam==4 then		-- soul
+                return prefix.."s", fam
+            elseif fam==8 then		-- leatherworking
+                return prefix.."l", fam
+            elseif fam==16 then		-- inscription
+                return prefix.."i", fam
+            elseif fam==32 then		-- herb
+                return prefix.."h", fam
+            elseif fam==64 then		-- eNchant
+                return prefix.."n", fam
+            elseif fam==128 then	-- engineering
+                return prefix.."e", fam
+            elseif fam==256 then	-- keyring
+                return prefix.."k", fam
+            elseif fam==512 then	-- gems
+                return prefix.."g", fam
+            elseif fam==1024 then	-- mining
+                return prefix.."m", fam
+            else
+                return prefix.."?", fam
+            end
         end
-        --@end-retail@
 
     end
 
@@ -259,7 +264,15 @@ function Baggins:CheckSlotsChanged(bag, forceupdate)
     local iteminfo = nil
     local itemid
 
-    local _, count, _, _, _, _, link = GetContainerItemInfo(bag, slot)
+    local count,link
+    if Baggins:IsRetailWow() then
+        local itemInfo = GetContainerItemInfo(bag, slot)
+        count = itemInfo and itemInfo.stackCount
+        link = itemInfo and itemInfo.hyperlink
+    else
+        count = select(2, GetContainerItemInfo(bag, slot))
+        link = select(7, GetContainerItemInfo(bag, slot))
+    end
     if link then
       itemid = C_Item.GetItemID(ItemLocation:CreateFromBagAndSlot(bag, slot))
     end
@@ -442,11 +455,11 @@ function Baggins:ForceFullBankUpdate()
     for bagid in LBU:IterateBags("BANK") do
         self:CheckSlotsChanged(bagid, true)
     end
-    --@retail@
-    for bagid in LBU:IterateBags("REAGENTBANK") do
-        self:CheckSlotsChanged(bagid, true)
+    if Baggins:IsRetailWow() then
+        for bagid in LBU:IterateBags("REAGENTBANK") do
+            self:CheckSlotsChanged(bagid, true)
+        end
     end
-    --@end-retail@
 
 end
 

@@ -4,7 +4,7 @@ WeakAurasOptions: enabled
 AdiBags_Config: disabled
 AdiBags: disabled
 BagBrother: disabled
-Baggins: enabled
+Baggins: disabled
 Bagnon: disabled
 Bagnon_Config: disabled
 Bagnon_GuildBank: disabled
@@ -38,3 +38,16 @@ LittleWigs_WrathOfTheLichKing: disabled
 BigWigs: disabled
 BigWigs_CastleNathria: disabled
 BigWigs_Shadowlands: disabled
+Dominos: disabled
+Dominos_Encounter: disabled
+Dominos_Config: disabled
+Dominos_Roll: disabled
+Dominos_Progress: disabled
+ShadowedUF_Options: enabled
+ShadowedUnitFrames: enabled
+BigWigs_DragonIsles: disabled
+Dominos_Cast: disabled
+Blizzard_ObjectiveTracker: enabled
+Blizzard_CompactRaidFrames: enabled
+Auctionator: disabled
+Blizzard_CombatText: enabled

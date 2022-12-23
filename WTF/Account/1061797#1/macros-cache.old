@@ -9,6 +9,9 @@ VER 3 0000000000000015 "Action Cam" "135933"
 /console ActionCam underNames
 /console ActionCam noHeadMove
 END
+VER 3 0000000000000017 "Aoe Spender" "INV_MISC_QUESTIONMARK"
+cast [@mouseover, harm][] 
+END
 VER 3 0000000000000011 "Focus" "645221"
 focus [target=mouseover,nodead]
 END

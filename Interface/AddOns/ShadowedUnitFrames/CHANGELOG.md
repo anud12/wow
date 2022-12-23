@@ -1,7 +1,6 @@
 # Shadowed Unit Frames
 
-## [v4.3.7](https://github.com/Nevcairiel/ShadowedUnitFrames/tree/v4.3.7) (2021-06-30)
-[Full Changelog](https://github.com/Nevcairiel/ShadowedUnitFrames/compare/v4.3.6...v4.3.7) [Previous Releases](https://github.com/Nevcairiel/ShadowedUnitFrames/releases)
+## [v4.4.2](https://github.com/Nevcairiel/ShadowedUnitFrames/tree/v4.4.2) (2022-11-16)
+[Full Changelog](https://github.com/Nevcairiel/ShadowedUnitFrames/compare/v4.4.1...v4.4.2) [Previous Releases](https://github.com/Nevcairiel/ShadowedUnitFrames/releases)
 
-- Some tweaking for ghoul bar  
-- Added Totem bar for Death Knight Ghouls  
+- Update TOC for 10.0.2  

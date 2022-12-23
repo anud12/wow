@@ -30,7 +30,9 @@ Bagnon_Sets = {
 	},
 	["mineColor"] = {
 	},
-	["version"] = "9.1.5",
+	["version"] = "10.0.3",
+	["display"] = {
+	},
 	["closeVendor"] = true,
 	["fridgeColor"] = {
 	},
@@ -69,9 +71,9 @@ Bagnon_Sets = {
 			["money"] = true,
 			["columns"] = 13,
 			["itemScale"] = 0.6,
-			["y"] = 100,
 			["bagBreak"] = true,
-			["x"] = -49.99992069581822,
+			["y"] = 100,
+			["x"] = -49.99996844441034,
 			["search"] = true,
 			["broker"] = true,
 			["reverseSlots"] = false,

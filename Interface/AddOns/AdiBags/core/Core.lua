@@ -25,7 +25,8 @@ local L = addon.L
 --<GLOBALS
 local _G = _G
 local ADDON_LOAD_FAILED = _G.ADDON_LOAD_FAILED
-local BANK_CONTAINER = _G.BANK_CONTAINER
+local BANK_CONTAINER = _G.BANK_CONTAINER or ( Enum.BagIndex and Enum.BagIndex.Bank ) or -1
+local REAGENTBAG_CONTAINER = ( Enum.BagIndex and Enum.BagIndex.REAGENTBAG_CONTAINER ) or 5
 local CloseWindows = _G.CloseWindows
 local CreateFrame = _G.CreateFrame
 local format = _G.format
@@ -126,24 +127,15 @@ function addon:OnEnable()
 	self:RegisterEvent('BAG_UPDATE')
 	self:RegisterEvent('BAG_UPDATE_DELAYED')
 	self:RegisterBucketEvent('PLAYERBANKSLOTS_CHANGED', 0.01, 'BankUpdated')
-	self:RegisterBucketEvent('PLAYERREAGENTBANKSLOTS_CHANGED', 0.01, 'ReagentBankUpdated')
+	if addon.isRetail then
+		self:RegisterBucketEvent('PLAYERREAGENTBANKSLOTS_CHANGED', 0.01, 'ReagentBankUpdated')
+	end
 
 	self:RegisterEvent('PLAYER_LEAVING_WORLD', 'Disable')
 
 	self:RegisterMessage('AdiBags_BagOpened', 'LayoutBags')
 	self:RegisterMessage('AdiBags_BagClosed', 'LayoutBags')
-
-	self:RawHook("OpenAllBags", true)
-	self:RawHook("CloseAllBags", true)
-	self:RawHook("ToggleAllBags", true)
-	self:RawHook("ToggleBackpack", true)
-	self:RawHook("ToggleBag", true)
-	self:RawHook("OpenBag", true)
-	self:RawHook("CloseBag", true)
-	self:RawHook("OpenBackpack", true)
-	self:RawHook("CloseBackpack", true)
-	self:RawHook('CloseSpecialWindows', true)
-
+	
 	-- Track most windows involving items
 	self:RegisterEvent('BANKFRAME_OPENED', 'UpdateInteractingWindow')
 	self:RegisterEvent('BANKFRAME_CLOSED', 'UpdateInteractingWindow')
@@ -157,8 +149,6 @@ function addon:OnEnable()
 	self:RegisterEvent('TRADE_CLOSED', 'UpdateInteractingWindow')
 	self:RegisterEvent('GUILDBANKFRAME_OPENED', 'UpdateInteractingWindow')
 	self:RegisterEvent('GUILDBANKFRAME_CLOSED', 'UpdateInteractingWindow')
-	self:RegisterEvent('VOID_STORAGE_OPEN', 'UpdateInteractingWindow')
-	self:RegisterEvent('VOID_STORAGE_CLOSE', 'UpdateInteractingWindow')
 	self:RegisterEvent('SOCKET_INFO_UPDATE', 'UpdateInteractingWindow')
 	self:RegisterEvent('SOCKET_INFO_CLOSE', 'UpdateInteractingWindow')
 
@@ -185,6 +175,32 @@ function addon:OnDisable()
 	self.anchor:Hide()
 	self:CloseAllBags()
 	self:Debug('Disabled')
+end
+
+function addon:EnableHooks()
+	self:RawHook("OpenAllBags", true)
+	self:RawHook("CloseAllBags", true)
+	self:RawHook("ToggleAllBags", true)
+	self:RawHook("ToggleBackpack", true)
+	self:RawHook("ToggleBag", true)
+	self:RawHook("OpenBag", true)
+	self:RawHook("CloseBag", true)
+	self:RawHook("OpenBackpack", true)
+	self:RawHook("CloseBackpack", true)
+	self:RawHook('CloseSpecialWindows', true)
+end
+
+function addon:DisableHooks()
+	self:Unhook("OpenAllBags")
+	self:Unhook("CloseAllBags")
+	self:Unhook("ToggleAllBags")
+	self:Unhook("ToggleBackpack")
+	self:Unhook("ToggleBag")
+	self:Unhook("OpenBag")
+	self:Unhook("CloseBag")
+	self:Unhook("OpenBackpack")
+	self:Unhook("CloseBackpack")
+	self:Unhook('CloseSpecialWindows')
 end
 
 function addon:Reconfigure()
@@ -325,7 +341,10 @@ addon:SetDefaultModulePrototype(moduleProto)
 
 local updatedBags = {}
 local updatedBank = { [BANK_CONTAINER] = true }
-local updatedReagentBank = { [REAGENTBANK_CONTAINER] = true }
+local updatedReagentBank = {}
+if addon.isRetail then
+	updatedReagentBank = { [REAGENTBANK_CONTAINER] = true }
+end
 
 function addon:BAG_UPDATE(event, bag)
 	updatedBags[bag] = true

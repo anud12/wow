@@ -24,21 +24,33 @@ local addonName, addon = ...
 --<GLOBALS
 local _G = _G
 local BankButtonIDToInvSlotID = _G.BankButtonIDToInvSlotID
-local BANK_CONTAINER = _G.BANK_CONTAINER
+local BANK_CONTAINER = BANK_CONTAINER or ( Enum.BagIndex and Enum.BagIndex.Bank ) or -1
 local ContainerFrame_UpdateCooldown = _G.ContainerFrame_UpdateCooldown
 local format = _G.format
-local GetContainerItemID = _G.GetContainerItemID
-local GetContainerItemInfo = _G.GetContainerItemInfo
-local GetContainerItemLink = _G.GetContainerItemLink
-local GetContainerItemQuestInfo = _G.GetContainerItemQuestInfo
-local GetContainerNumFreeSlots = _G.GetContainerNumFreeSlots
+local GetContainerItemID = C_Container and _G.C_Container.GetContainerItemID or _G.GetContainerItemID
+local GetContainerItemInfo = C_Container and _G.C_Container.GetContainerItemInfo or _G.GetContainerItemInfo
+local GetContainerItemLink = C_Container and _G.C_Container.GetContainerItemLink or _G.GetContainerItemLink
+local GetContainerItemQuestInfo = C_Container and _G.C_Container.GetContainerItemQuestInfo or _G.GetContainerItemQuestInfo
+local GetContainerNumFreeSlots = C_Container and _G.C_Container.GetContainerNumFreeSlots or _G.GetContainerNumFreeSlots
 local GetItemInfo = _G.GetItemInfo
 local GetItemQualityColor = _G.GetItemQualityColor
 local hooksecurefunc = _G.hooksecurefunc
+local IsBattlePayItem = C_Container and _G.C_Container.IsBattlePayItem or _G.IsBattlePayItem
 local IsContainerItemAnUpgrade = _G.IsContainerItemAnUpgrade
 local IsInventoryItemLocked = _G.IsInventoryItemLocked
-local ITEM_QUALITY_COMMON = _G.Enum.ItemQuality.Common
-local ITEM_QUALITY_POOR = _G.Enum.ItemQuality.Poor
+local SplitContainerItem = C_Container and _G.C_Container.SplitContainerItem or _G.SplitContainerItem
+local ITEM_QUALITY_COMMON
+local ITEM_QUALITY_POOR
+local REAGENTBAG_CONTAINER = ( Enum.BagIndex and Enum.BagIndex.REAGENTBAG_CONTAINER ) or 5
+
+if addon.isRetail then
+	ITEM_QUALITY_COMMON = _G.Enum.ItemQuality.Common
+	ITEM_QUALITY_POOR = _G.Enum.ItemQuality.Poor
+else
+	ITEM_QUALITY_COMMON = _G.LE_ITEM_QUALITY_COMMON
+	ITEM_QUALITY_POOR = _G.LE_ITEM_QUALITY_POOR
+end
+
 local next = _G.next
 local pairs = _G.pairs
 local select = _G.select
@@ -59,7 +71,12 @@ local ITEM_SIZE = addon.ITEM_SIZE
 -- Button initialization
 --------------------------------------------------------------------------------
 
-local buttonClass, buttonProto = addon:NewClass("ItemButton", "ItemButton", "ContainerFrameItemButtonTemplate", "ABEvent-1.0")
+local buttonClass, buttonProto
+if addon.isRetail then
+	buttonClass, buttonProto = addon:NewClass("ItemButton", "ItemButton", "ContainerFrameItemButtonTemplate", "ABEvent-1.0")
+else
+	buttonClass, buttonProto = addon:NewClass("ItemButton", "Button", "ContainerFrameItemButtonTemplate", "ABEvent-1.0")
+end
 
 local childrenNames = { "Cooldown", "IconTexture", "IconQuestTexture", "Count", "Stock", "NormalTexture", "NewItemTexture" }
 
@@ -88,6 +105,8 @@ function buttonProto:OnAcquire(container, bag, slot)
 	self.slot = slot
 	self.stack = nil
 	self:SetParent(addon.itemParentFrames[bag])
+	--TODO(lobato): Add this when (if?) Blizzard fixes taint for bags
+	--self:SetBagID(bag)
 	self:SetID(slot)
 	self:FullUpdate()
 end
@@ -101,6 +120,7 @@ function buttonProto:OnRelease()
 	self.texture = nil
 	self.bagFamily = nil
 	self.stack = nil
+	addon:SendMessage('AdiBags_ButtonProtoRelease', self)
 end
 
 function buttonProto:ToString()
@@ -108,7 +128,7 @@ function buttonProto:ToString()
 end
 
 function buttonProto:IsLocked()
-	return select(3, GetContainerItemInfo(self.bag, self.slot))
+	return addon:GetContainerItemLocked(self.bag, self.slot)
 end
 
 function buttonProto:SplitStack(split)
@@ -196,7 +216,7 @@ function buttonProto:GetItemLink()
 end
 
 function buttonProto:GetCount()
-	return select(2, GetContainerItemInfo(self.bag, self.slot)) or 0
+	return addon:GetContainerItemStackCount(self.bag, self.slot) or 0
 end
 
 function buttonProto:GetBagFamily()
@@ -239,7 +259,7 @@ end
 --------------------------------------------------------------------------------
 
 function buttonProto:OnShow()
-	self:RegisterEvent('BAG_UPDATE_COOLDOWN', 'UpdateCooldown')
+	self:RegisterEvent('BAG_UPDATE_COOLDOWN', 'UpdateCooldownCallback')
 	self:RegisterEvent('ITEM_LOCK_CHANGED', 'UpdateLock')
 	self:RegisterEvent('QUEST_ACCEPTED', 'UpdateBorder')
 	self:RegisterEvent('BAG_NEW_ITEMS_UPDATED', 'UpdateNew')
@@ -283,8 +303,15 @@ function buttonProto:FullUpdate()
 	self.itemId = GetContainerItemID(bag, slot)
 	self.itemLink = GetContainerItemLink(bag, slot)
 	self.hasItem = not not self.itemId
-	self.texture = GetContainerItemInfo(bag, slot)
-	self.bagFamily = select(2, GetContainerNumFreeSlots(bag))
+	self.texture = addon:GetContainerItemTexture(bag, slot)
+
+	-- TODO(lobato): Test if this is still needed
+	if self.bag == REAGENTBAG_CONTAINER then
+		self.bagFamily = 2048
+	else
+		self.bagFamily = select(2, GetContainerNumFreeSlots(bag))
+	end
+
 	self:Update()
 end
 
@@ -307,10 +334,14 @@ function buttonProto:Update()
 	end
 	self:UpdateCount()
 	self:UpdateBorder()
-	self:UpdateCooldown()
+	if self.UpdateCooldown then
+		self:UpdateCooldown(self.texture)
+	end
 	self:UpdateLock()
 	self:UpdateNew()
-	self:UpdateUpgradeIcon()
+	if addon.isRetail then
+		self:UpdateUpgradeIcon()
+	end
 	if self.UpdateSearch then
 		self:UpdateSearch()
 	end
@@ -342,7 +373,7 @@ function buttonProto:UpdateLock(isolatedEvent)
 end
 
 function buttonProto:UpdateSearch()
-	local _, _, _, _, _, _, _, isFiltered = GetContainerItemInfo(self.bag, self.slot)
+	local isFiltered = addon:GetContainerItemFiltered(self.bag, self.slot)
 	if isFiltered then
 		self.searchOverlay:Show();
 	else
@@ -350,35 +381,57 @@ function buttonProto:UpdateSearch()
 	end
 end
 
-function buttonProto:UpdateCooldown()
-	return ContainerFrame_UpdateCooldown(self.bag, self)
+do
+	if not addon.isRetail then
+		function buttonProto:UpdateCooldown(texture)
+			return ContainerFrame_UpdateCooldown(self.bag, self)
+		end
+	end
+end
+
+function buttonProto:UpdateCooldownCallback()
+	if not self.UpdateCooldown then return end
+	--TODO(lobato): This is an incredibly ugly hack to work around the fact that
+	-- Blizzard protects the item button frame if self.bagID is set.
+	-- There is a condition in which Blizzard code checks for bagID, fails, checks for the parent's
+	-- ID, and then fails again, leading to nil error spam if badID is not set.
+	-- I am unsure what is causing the second check to fail (GetParent), but this hack works around it.
+	-- Absolute worst case, some items may not have cooldowns displayed for the time being.
+	if self.bagID or (self.GetParent ~= nil and self:GetParent() ~= nil and self:GetParent().GetID ~= nil and self:GetParent():GetID() ~= nil) or not addon.isRetail then
+		self:UpdateCooldown(self.texture)
+	end
 end
 
 function buttonProto:UpdateNew()
 	self.BattlepayItemTexture:SetShown(IsBattlePayItem(self.bag, self.slot))
 end
 
-function buttonProto:UpdateUpgradeIcon()
-	-- Use Pawn's (third-party addon) function if present; else fallback to Blizzard's.
-	local PawnIsContainerItemAnUpgrade = _G.PawnIsContainerItemAnUpgrade
-	local itemIsUpgrade = PawnIsContainerItemAnUpgrade and PawnIsContainerItemAnUpgrade(self.bag, self.slot) or IsContainerItemAnUpgrade(self.bag, self.slot)
-	self.UpgradeIcon:SetShown(itemIsUpgrade or false)
+if addon.isRetail then
+	function buttonProto:UpdateUpgradeIcon()
+		-- Blizzard removed their implementation, so rely on Pawn's (third-party addon) if present.
+		local PawnIsContainerItemAnUpgrade = _G.PawnIsContainerItemAnUpgrade
+		local itemIsUpgrade = PawnIsContainerItemAnUpgrade and PawnIsContainerItemAnUpgrade(self.bag, self.slot)
+		self.UpgradeIcon:SetShown(itemIsUpgrade or false)
+		self.UpgradeIcon:SetPoint("TOPLEFT", 0, -16)
+	end
 end
 
 local function GetBorder(bag, slot, itemId, settings)
-	if settings.questIndicator then
-		local isQuestItem, questId, isActive = GetContainerItemQuestInfo(bag, slot)
-		if questId and not isActive then
-			return TEXTURE_ITEM_QUEST_BANG
-		end
-		if questId or isQuestItem then
-			return TEXTURE_ITEM_QUEST_BORDER
+	if addon.isRetail or addon.isWrath then
+		if settings.questIndicator then
+			local isQuestItem, questId, isActive = addon:GetContainerItemQuestInfo(bag, slot)
+			if questId and not isActive then
+				return TEXTURE_ITEM_QUEST_BANG
+			end
+			if questId or isQuestItem then
+				return TEXTURE_ITEM_QUEST_BORDER
+			end
 		end
 	end
 	if not settings.qualityHighlight then
 		return
 	end
-	local _, _, _, quality = GetContainerItemInfo(bag, slot)
+	local quality = addon:GetContainerItemQuality(bag, slot)
 	if quality == ITEM_QUALITY_POOR and settings.dimJunk then
 		local v = 1 - 0.5 * settings.qualityOpacity
 		return true, v, v, v, 1, nil, nil, nil, nil, "MOD"
@@ -389,9 +442,15 @@ local function GetBorder(bag, slot, itemId, settings)
 	end
 end
 
+-- Bugfix: This fixes a bug where hasItem might be set to 1 by
+-- some internal Blizzard code.
+local function hasItem(i)
+	return i
+end
+
 function buttonProto:UpdateBorder(isolatedEvent)
 	local texture, r, g, b, a, x1, x2, y1, y2, blendMode
-	if self.hasItem then
+	if hasItem(self.hasItem) then
 		texture, r, g, b, a, x1, x2, y1, y2, blendMode = GetBorder(self.bag, self.slot, self.itemLink or self.itemId, addon.db.profile)
 	end
 	if not texture then
@@ -410,7 +469,7 @@ function buttonProto:UpdateBorder(isolatedEvent)
 		border:Show()
 	end
 	if self.JunkIcon then
-		local quality = self.hasItem and select(3, GetItemInfo(self.itemLink or self.itemId))
+		local quality = hasItem(self.hasItem) and select(3, GetItemInfo(self.itemLink or self.itemId))
 		self.JunkIcon:SetShown(quality == ITEM_QUALITY_POOR and addon:GetInteractingWindow() == "MERCHANT")
 	end
 	if isolatedEvent then
@@ -449,6 +508,7 @@ function stackProto:OnRelease()
 	self:SetSection(nil)
 	self.key = nil
 	self.container = nil
+	addon:SendMessage('AdiBags_ButtonProtoRelease', self)
 	wipe(self.slots)
 end
 
@@ -472,7 +532,7 @@ function stackProto:UpdateVisibleSlot()
 	local bestLockedId, bestLockedCount
 	local bestUnlockedId, bestUnlockedCount
 	if self.slotId and self.slots[self.slotId] then
-		local _, count, locked = GetContainerItemInfo(GetBagSlotFromId(self.slotId))
+		local _, count, locked = addon:GetContainerItemTextureCountLocked(GetBagSlotFromId(self.slotId))
 		count = count or 1
 		if locked then
 			bestLockedId, bestLockedCount = self.slotId, count
@@ -481,7 +541,7 @@ function stackProto:UpdateVisibleSlot()
 		end
 	end
 	for slotId in pairs(self.slots) do
-		local _, count, locked = GetContainerItemInfo(GetBagSlotFromId(slotId))
+		local _, count, locked = addon:GetContainerItemTextureCountLocked(GetBagSlotFromId(slotId))
 		count = count or 1
 		if locked then
 			if not bestLockedId or count > bestLockedCount then
@@ -578,12 +638,20 @@ function stackProto:Update()
 	end
 end
 
-stackProto.FullUpdate = stackProto.Update
+function stackProto:FullUpdate()
+	if not self:CanUpdate() then return end
+	self:UpdateVisibleSlot()
+	self:UpdateCount()
+	if self.button then
+		self.button:FullUpdate()
+	end
+end
 
 function stackProto:UpdateCount()
 	local count = 0
 	for slotId in pairs(self.slots) do
-		count = count + (select(2, GetContainerItemInfo(GetBagSlotFromId(slotId))) or 1)
+
+		count = count + (addon:GetContainerItemStackCount(GetBagSlotFromId(slotId)) or 1)
 	end
 	self.count = count
 	self.dirtyCount = nil
@@ -615,7 +683,7 @@ local function StackSlotIterator(self, previous)
 	local slotId = next(self.slots, previous)
 	if slotId then
 		local bag, slot = GetBagSlotFromId(slotId)
-		local _, count = GetContainerItemInfo(bag, slot)
+		local count = addon:GetContainerItemStackCount(bag, slot)
 		return slotId, bag, slot, self:GetItemId(), count
 	end
 end
